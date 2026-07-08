@@ -1,4 +1,6 @@
 import Button from "./Button";
+import Reveal from "./Reveal";
+import RevealText from "./RevealText";
 import {
   ArrowIcon,
   DocumentIcon,
@@ -29,33 +31,41 @@ const steps = [
 
 export default function ProcessIntro() {
   return (
-    <section className="mt-[80px] w-full px-[24px] sm:mt-[158px] sm:px-[106px]">
-      <div className="mx-auto flex w-full max-w-[1040px] flex-col items-center">
-        <h2 className="w-full text-center font-heading text-[24px] font-black uppercase leading-[1.3] text-white sm:text-[32px]">
-          Úvodný proces končí tam, kde väčšina marketérov iba začína…
+    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
+      <div className="mx-auto flex w-full max-w-[1048px] flex-col items-center">
+        <h2 className="w-full text-center font-heading text-[24px] font-black uppercase leading-[1.5] text-white md:text-[32px] ">
+          <RevealText>
+            Úvodný proces končí tam,<br /> kde väčšina marketérov iba začína…
+          </RevealText>
         </h2>
-
+<div className="relative">
         <p
           aria-hidden
-          className="mt-[40px] w-full select-none text-center font-heading text-[80px] font-black uppercase leading-none text-navy-panel/60 sm:mt-[89px] sm:text-[160px]"
+          className="mt-[40px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[76px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-80 md:top-40 mb-10 md:mb-0" 
         >
-          Fáza 0
+            <RevealText variant="fall">
+          Fáza0
+            </RevealText>
         </p>
 
-        <div className="-mt-[10px] flex w-full flex-col items-center gap-[24px] sm:-mt-[20px] sm:gap-[20px]">
-          <h3 className="w-full max-w-[740px] text-center font-heading text-[22px] font-bold leading-[1.3] text-white sm:text-[30px]">
-            2 týždne, kedy spoznám váš trh lepšie ako vy
+        <div className="relative bg-gradient-to-b from-transparent to-[#0C1728] to-40% -mt-[10px] flex w-full flex-col items-center gap-[24px] md:-mt-[20px] md:gap-[20px]">
+          <h3 className="w-full max-w-[740px] bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase text-transparent md:text-[29px]">
+            <RevealText>
+              2 týždne, kedy spoznám<br />váš trh lepšie ako vy
+            </RevealText>
           </h3>
 
           <ul className="flex w-full max-w-[736px] flex-col">
             {steps.map((step, i) => (
               <li key={step.text}>
-                <div className="flex items-center gap-[24px] py-[20px] sm:gap-[30px]">
-                  <step.icon className="size-[28px] shrink-0 text-accent-blue sm:size-[39px]" />
-                  <p className="font-sans text-[16px] text-white sm:text-[20px]">
-                    {step.text}
-                  </p>
-                </div>
+                <Reveal delay={i * 90} duration={500} y={16}>
+                  <div className="flex items-center gap-[16px] py-[20px] md:gap-[20px] md:py-[27px]">
+                    <step.icon className="size-[28px] shrink-0 text-accent-blue md:size-[39px]" />
+                    <p className="font-sans text-[16px] text-white md:text-[20px] font-bold leading-[1.5]">
+                      {step.text}
+                    </p>
+                  </div>
+                </Reveal>
                 {i < steps.length - 1 && (
                   <div className="h-px w-full bg-white/15" />
                 )}
@@ -63,10 +73,12 @@ export default function ProcessIntro() {
             ))}
           </ul>
         </div>
-
-        <Button href="#kontakt" size="lg" className="mt-[40px] sm:mt-[40px]">
-          Výsledky mojich klientov
-        </Button>
+</div>
+        <Reveal delay={0} duration={500}>
+          <Button href="#kontakt" size="lg" className="mt-[40px] md:mt-[40px]">
+            Výsledky mojich klientov
+          </Button>
+        </Reveal>
       </div>
     </section>
   );

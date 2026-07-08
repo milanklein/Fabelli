@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0c1728;
+  --background: #0C1728;
   --foreground: #ffffff;
   --color-navy-panel: #2b4a60;
   --color-accent-blue: #6b92af;
@@ -41,4 +41,107 @@ body {
 
 .animate-marquee {
   animation: marquee 40s linear infinite;
+}
+
+@keyframes button-shine {
+  0%,
+  10% {
+    background-position: -150% 0;
+  }
+  30%,
+  100% {
+    background-position: 250% 0;
+  }
+}
+
+.animate-button-shine {
+  background-size: 60% 100%;
+  background-repeat: no-repeat;
+  animation: button-shine 2s ease-in-out infinite;
+}
+
+
+@keyframes step-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-step-fade {
+  animation: step-fade-in 400ms ease-out;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float {
+    animation: none;
+  }
+}
+
+@keyframes letter-fall {
+  0% {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(6px);
+  }
+  85% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-letter-fall {
+  animation: letter-fall 700ms cubic-bezier(0.33, 1, 0.68, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-letter-fall {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer base {
+  img, video {
+    max-width: none;
+  }
+}
+
+/* ComparisonTable (mobile, transponovaná tabuľka): pod 530px zúžime stĺpce
+   metrík, aby zostávajúci obsah bol čitateľný aj vedľa sticky stĺpca. */
+.ct-mobile-grid {
+  grid-template-columns: 72px repeat(5, 168px);
+}
+
+@media (max-width: 530px) {
+  .ct-mobile-grid {
+    grid-template-columns: 72px repeat(5, 120px);
+  }
 }
