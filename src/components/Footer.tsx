@@ -11,7 +11,7 @@ const links = [
 
 export default function Footer() {
   return (
-    <footer className="mt-[80px] w-full px-[24px] pb-[48px] md:mt-[100px] md:px-[106px] md:pb-[64px]">
+    <footer className="overflow-hidden mt-[80px] w-full px-[24px] pb-[48px] md:mt-[100px] md:px-[106px] md:pb-[64px]">
       {/* Hlavná biela karta (kapsula) */}
       <Reveal
         delay={0}

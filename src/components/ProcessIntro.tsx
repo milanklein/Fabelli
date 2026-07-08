@@ -31,7 +31,7 @@ const steps = [
 
 export default function ProcessIntro() {
   return (
-    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
+    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] overflow-hidden">
       <div className="mx-auto flex w-full max-w-[1048px] flex-col items-center">
         <h2 className="w-full text-center font-heading text-[24px] font-black uppercase leading-[1.5] text-white md:text-[32px] ">
           <RevealText>

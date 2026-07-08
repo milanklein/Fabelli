@@ -92,8 +92,12 @@ export default function QualificationForm() {
 
   const validateStep = () => {
     if (step === 1) return data.name.trim().length > 0;
-    if (step === 2)
-      return data.phone.trim().length > 0 && /\S+@\S+\.\S+/.test(data.email);
+    if (step === 2) {
+      const digitsOnly = data.phone.replace(/\s+/g, "");
+      return (
+        /^\d{7,15}$/.test(digitsOnly) && /\S+@\S+\.\S+/.test(data.email)
+      );
+    }
     if (step === 3) return data.marketing !== "";
     if (step === 4) return data.website.trim().length > 0;
     if (step === 5) return data.responsible !== "";
@@ -304,7 +308,7 @@ function TextStep({
     <div className="flex w-full max-w-[500px] flex-col items-start gap-[10px]">
       <p className="w-full font-sans text-[16px] text-white sm:text-[17px]">
         {label}
-        {hint && <span className="ml-[6px] text-white/30">{hint}</span>}
+        {hint && <br /> && <span className="ml-[6px] text-white/30">{hint}</span>}
       </p>
       <input
         type="text"
@@ -387,8 +391,11 @@ function ContactStep({
         </div>
         <input
           type="tel"
+          inputMode="numeric"
           value={data.phone}
-          onChange={(e) => onChange({ phone: e.target.value })}
+          onChange={(e) =>
+            onChange({ phone: e.target.value.replace(/[^\d\s]/g, "") })
+          }
           placeholder="*123 456 7890"
           className={inputClassName}
         />

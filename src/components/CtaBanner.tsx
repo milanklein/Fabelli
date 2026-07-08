@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 export default function CtaBanner() {
   return (
-    <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
+    <section className="overflow-hidden mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
       <div className="mx-auto flex w-fit max-w-[1106px] flex-col items-center  gap-[32px] overflow-hidden rounded-[24px] bg-gradient-to-r from-[#D9EBF8] to-[#D9EBF8] px-[24px] py-[40px] md:flex-row md:gap-[60px] md:rounded-[40px] md:px-[60px] md:py-[60px]">
         <Reveal
           delay={0}

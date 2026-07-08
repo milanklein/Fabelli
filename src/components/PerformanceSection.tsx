@@ -4,7 +4,7 @@ import RevealText from "./RevealText";
 
 export default function PerformanceSection() {
   return (
-    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
+    <section className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
       <div className="relative mx-auto flex w-full max-w-[1234px] flex-col-reverse items-center gap-[32px] overflow-hidden rounded-[60px] bg-navy-panel/20 px-[24px] pt-[48px] md:flex-row md:items-end md:justify-between md:gap-[40px] md:rounded-[40px] md:px-0 md:py-0 md:px-[80px]">
       
 <Image
@@ -25,14 +25,15 @@ export default function PerformanceSection() {
             />
           </Reveal>
           {/* Mimo Reveal (bez transform/will-change na predkovi) — Safari inak zamrazí animáciu GIF-u */}
-          <video
-            src="/images/fabian_podpis.mov"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="pointer-events-none absolute bottom-0 -left-30 md:left-auto  md:-right-[200px] h-full w-full object-contain object-bottom"
-          />
+          <div className="pointer-events-none absolute bottom-0 -left-30 h-full w-full md:left-auto md:-right-[200px]">
+            <Image
+              src="/images/fabian_podpis-animation.webp"
+              alt=""
+              fill
+              unoptimized
+              className="object-contain object-bottom"
+            />
+          </div>
         </div>
 
         <div className="flex w-full max-w-[500px] flex-col items-start gap-[24px] md:gap-[28px] md:py-[64px] z-10">

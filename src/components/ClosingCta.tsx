@@ -5,7 +5,7 @@ import RevealText from "./RevealText";
 
 export default function ClosingCta() {
   return (
-    <section className="mt-[64px] w-full px-[24px] pb-16 md:mt-[100px] md:px-[106px]">
+    <section className="overflow-hidden mt-[64px] w-full px-[24px] pb-16 md:mt-[100px] md:px-[106px]">
       <div className="mx-auto flex w-full max-w-[957px] flex-col items-center">
         <Reveal delay={0} duration={900}>
           <h2 className="text-center font-sans text-[22px] font-black uppercase leading-[1.4] text-white md:text-[28px]  ">

@@ -71,13 +71,13 @@ export default function OfflandiaCaseStudyPage() {
           <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[40px] px-[24px] pb-[40px] pt-[40px] sm:gap-[60px] sm:px-[106px] sm:pt-[58px]">
             <Header />
 
-            <div className="flex w-full flex-col items-start gap-[40px] sm:flex-row sm:gap-[60px]">
+            <div className="flex w-full flex-col items-center justify-center md:items-start  gap-[40px] sm:flex-row sm:gap-[60px]">
               <Reveal
                 immediate
                 delay={0}
                 duration={700}
                 y={20}
-                className="w-full shrink-0 sm:w-[421px]"
+                className="w-full shrink-0 sm:w-[421px] flex justify-center items-center"
               >
                 <video
                   src="/images/webm/OFFLANDIA_LOOP_1080.webm"
@@ -85,7 +85,7 @@ export default function OfflandiaCaseStudyPage() {
                   loop
                   muted
                   playsInline
-                  className="h-[280px] w-full rounded-[30px] object-cover sm:h-[421px] sm:w-[421px] sm:rounded-[51px]"
+                  className="border-white border-[2px] h-[280px] w-[280px] shrink-0 rounded-[30px] object-cover md:h-[421px] md:w-[421px] sm:rounded-[51px]"
                 />
               </Reveal>
               <div className="flex w-full flex-1 flex-col items-start gap-[30px] sm:pt-[51px]">
@@ -117,9 +117,9 @@ export default function OfflandiaCaseStudyPage() {
           </div>
         </section>
 
-        <section className="mt-[64px] w-full px-[24px] sm:mt-[100px] sm:px-[106px]">
-          <div className="mx-auto flex w-full max-w-[1048px] flex-col items-center gap-[48px]">
-            <h2 className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[18px] font-black uppercase text-transparent sm:text-[24px]">
+        <section className="mt-[64px] w-full  sm:mt-[100px] ">
+          <div className="mx-auto flex w-full  flex-col items-center gap-[48px]">
+            <h2 className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[18px] font-black uppercase text-transparent sm:text-[24px] max-w-[1048px] px-[24px]">
               <RevealText>
                 Mali, zhliadnutia, lajky, sledovateľov, kontent, peknú
                 webstránku
@@ -138,15 +138,17 @@ export default function OfflandiaCaseStudyPage() {
           <div className="relative mx-auto flex w-full max-w-[1048px] flex-col items-center text-center">
             <p
               aria-hidden
-              className="mt-[40px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[76px] font-black uppercase leading-none text-transparent opacity-[0.43] sm:mt-[89px] sm:text-[223px] sm:leading-[1.05]"
+              className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[76px] font-black uppercase leading-none text-transparent opacity-[0.43] sm:mt-[89px] sm:text-[223px] sm:leading-[1.05] sticky top-60 md:top-20"
             >
               Fáza 0
             </p>
             <Reveal
               duration={600}
-              className="-mt-[10px] w-full max-w-[642px] font-sans text-[16px] text-white sm:-mt-[20px] sm:text-[20px] leading-[120%]"
+              className="bg-gradient-to-b from-transparent to-[#0C1728] to-10%  -mt-[10px] w-full font-sans text-[16px] text-white sm:-mt-[20px] sm:text-[20px] leading-[120%] flex flex-col justify-center items-center "
             >
-              <p className="font-extrabold text-left">
+          
+             
+              <p className=" w-full max-w-[642px] font-extrabold text-left">
                 Po analýze trhu a cieľovej skupiny som zistil, že:
               </p>
               <ul className="flex list-disc flex-col gap-[8px] pl-[30px] pt-[8px] text-left">
@@ -157,6 +159,7 @@ export default function OfflandiaCaseStudyPage() {
                   ľudia
                 </li>
               </ul>
+     
             </Reveal>
           </div>
         </section>

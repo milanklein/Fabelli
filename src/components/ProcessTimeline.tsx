@@ -78,7 +78,7 @@ export default function ProcessTimeline() {
   });
 
   return (
-    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
+    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] overflow-hiddenm pb-10">
       <div className="mx-auto w-full max-w-[840px]">
         <h2 className="mb-[48px] text-center font-heading text-[26px] font-black uppercase leading-[1.3] text-white md:mb-[64px] md:text-[32px]">
           <RevealText>Proces spolupráce</RevealText>

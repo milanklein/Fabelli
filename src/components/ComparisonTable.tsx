@@ -78,7 +78,7 @@ export default function ComparisonTable() {
   });
 
   return (
-    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
+    <section className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
       <div ref={ref} className="mx-auto w-full max-w-[1006px]">
         {/* MOBILE: transponovaná tabuľka — metriky ako stĺpce hore, plány (Špecialisti / Môj hybridný model / Agentúry) ako riadky vľavo */}
         <div className="overflow-x-auto py-10 md:hidden">

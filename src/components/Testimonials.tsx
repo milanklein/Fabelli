@@ -40,7 +40,7 @@ export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(START_INDEX);
 
   return (
-    <section className="mt-[80px] w-full px-0 md:mt-[158px] md:px-[106px]">
+    <section className="mt-[80px] w-full px-0 md:mt-[158px] md:px-[106px] overflow-hidden">
       <div className="mx-auto flex w-full max-w-[1040px] flex-col items-center gap-[40px] md:gap-[62px]">
         <h2 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase leading-[1.5] text-transparent md:text-[29px]">
           <RevealText>

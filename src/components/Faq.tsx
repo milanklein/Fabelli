@@ -124,7 +124,7 @@ export default function Faq({
   }, []);
 
   return (
-    <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
+    <section className="overflow-hidden mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
       <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[40px] md:gap-[48px]">
         <h2 className="text-center font-heading text-[24px] font-black uppercase text-white md:text-[32px]">
           <RevealText>{heading}</RevealText>
