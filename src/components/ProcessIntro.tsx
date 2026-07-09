@@ -75,7 +75,7 @@ export default function ProcessIntro() {
         </div>
 </div>
         <Reveal delay={0} duration={500}>
-          <Button href="#vysledky" size="lg" variant="secondary" className="mt-[40px] md:mt-[40px]">
+          <Button href="/pripadove-studie" size="lg" variant="secondary" className="mt-[40px] md:mt-[40px]">
             Výsledky mojich klientov
           </Button>
         </Reveal>

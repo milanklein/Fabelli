@@ -91,7 +91,7 @@ export default function Button({
     </>
   );
 
-  const linkClassName = `relative inline-flex max-w-full min-w-0 items-center justify-center overflow-hidden text-center rounded-[76px] font-heading font-normal text-white transition-[transform_120ms_ease-out,box-shadow_300ms_ease-out,background-position_300ms_ease-out,filter_300ms_ease-out,border-color_300ms_ease-out] disabled:pointer-events-none disabled:opacity-40 disabled:shadow-none ${variantClasses[variant]} ${sizeClasses[size]}`;
+  const linkClassName = `relative inline-flex w-full max-w-full min-w-0 items-center justify-center overflow-hidden text-center rounded-[76px] font-heading font-normal text-white transition-[transform_120ms_ease-out,box-shadow_300ms_ease-out,background-position_300ms_ease-out,filter_300ms_ease-out,border-color_300ms_ease-out] disabled:pointer-events-none disabled:opacity-40 disabled:shadow-none ${variantClasses[variant]} ${sizeClasses[size]}`;
 
   return (
     <span className={`group relative inline-flex min-w-0 max-w-full ${className}`}>

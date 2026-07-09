@@ -49,7 +49,7 @@ export default function Header() {
 
       <div className="hidden items-center gap-[30px] md:flex">
         <Link
-          href="#vysledky"
+          href="/pripadove-studie"
           className="whitespace-nowrap font-sans text-[20px] text-white"
         >
           Výsledky klientov

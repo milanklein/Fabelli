@@ -48,17 +48,17 @@ export default function ClosingCta() {
               height={84}
               />
               </div>
-            <Button href="#vysledky" className="">
-            Chcem stratégiu
-            </Button>
+            
           </div>
         </Reveal>
 
         <Reveal
           delay={450}
           duration={900}
-          className="flex flex-col items-center gap-[24px] mt-20 "
-        >
+          className="flex flex-col items-center gap-[24px] mt-10 mb-16 mx-auto"
+        ><Button href="#vysledky" className="">
+            Chcem stratégiu
+            </Button>
           {/* <p className="font-sans text-[18px] text-white md:text-[20px] uppercase">
             Stále si nie ste istý?
           </p> */}

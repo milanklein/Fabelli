@@ -73,6 +73,7 @@ export default function ThankYouPage() {
                 overlay={false}
                   libraryId="695141"
                   videoId="c425154e-ad41-444d-a88b-b09586ce7503"
+                  preload
                 />
               </div>
               <p className="w-full max-w-[900px] bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[18px] font-black uppercase leading-[1.4] text-transparent sm:text-[20px]">

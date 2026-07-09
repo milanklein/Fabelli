@@ -122,7 +122,7 @@ export default function CookieConsentBanner() {
 
         <div className="mt-[24px] flex flex-col gap-[12px] sm:flex-row sm:items-center sm:justify-end">
           {expanded ? (
-            <Button onClick={saveCustom} size="sm" className="max-w-full">
+            <Button onClick={saveCustom} size="sm" className="w-full sm:w-auto">
               Uložiť nastavenia
             </Button>
           ) : (
@@ -141,7 +141,7 @@ export default function CookieConsentBanner() {
               >
                 Nastaviť personalizované
               </button>
-              <Button onClick={acceptAll} size="sm" className="max-w-full">
+              <Button onClick={acceptAll} size="sm" className="w-full sm:w-auto">
                 Prijať
               </Button>
             </>

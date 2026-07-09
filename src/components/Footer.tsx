@@ -9,9 +9,8 @@ import { openCookieSettings } from "@/lib/consent";
 
 const links = [
   { label: "Prípadové štúdie", href: "/pripadove-studie" },
-  { label: "Pozrite si výsledky mojich klientov", href: "#vysledky" },
- 
-   
+  { label: "Strategická konzultácia", href: "/kvalifikacny-formular" },
+  { label: "Ochrana osobných údajov", href: "/ochrana-osobnych-udajov" },
 ];
 
 export default function Footer() {

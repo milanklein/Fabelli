@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import * as Flags from "country-flag-icons/react/3x2";
@@ -19,6 +20,7 @@ type FormData = {
   turnover: number;
   goal: string;
   contactAnytime: string;
+  gdprConsent: boolean;
 };
 
 const TOTAL_STEPS = 8;
@@ -78,6 +80,7 @@ const initialData: FormData = {
   turnover: 25000,
   goal: "",
   contactAnytime: "",
+  gdprConsent: false,
 };
 
 const inputClassName =
@@ -119,7 +122,7 @@ export default function QualificationForm() {
     if (step === 4) return data.website.trim().length > 0;
     if (step === 5) return data.responsible !== "";
     if (step === 7) return data.goal.trim().length > 0;
-    if (step === 8) return data.contactAnytime !== "";
+    if (step === 8) return data.contactAnytime !== "" && data.gdprConsent;
     return true;
   };
 
@@ -256,12 +259,33 @@ export default function QualificationForm() {
           />
         )}
         {step === 8 && (
-          <RadioStep
-            label="Môžem vás kontaktovať aj mimo bežnej pracovnej doby a počas víkendov?"
-            options={yesNoOptions}
-            value={data.contactAnytime}
-            onChange={(v) => update({ contactAnytime: v })}
-          />
+          <>
+            <RadioStep
+              label="Môžem vás kontaktovať aj mimo bežnej pracovnej doby a počas víkendov?"
+              options={yesNoOptions}
+              value={data.contactAnytime}
+              onChange={(v) => update({ contactAnytime: v })}
+            />
+            <label className="flex w-full max-w-[500px] cursor-pointer items-start gap-[10px]">
+              <input
+                type="checkbox"
+                checked={data.gdprConsent}
+                onChange={(e) => update({ gdprConsent: e.target.checked })}
+                className="mt-[3px] size-[18px] shrink-0 accent-purple-to"
+              />
+              <span className="font-sans text-[13px] leading-[1.4] text-white/70">
+                Súhlasím so spracovaním osobných údajov podľa{" "}
+                <Link
+                  href="/ochrana-osobnych-udajov"
+                  target="_blank"
+                  className="text-white underline hover:no-underline"
+                >
+                  zásad ochrany osobných údajov
+                </Link>
+                .
+              </span>
+            </label>
+          </>
         )}
 
         {error && isFormStep && (

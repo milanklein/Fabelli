@@ -40,12 +40,13 @@ const cards = [
   },
 
   { image: "/images/review5.png", ratio: "aspect-[297/480]" },
-    { video: "0b6af2b7-0e09-4e76-b6b5-a77e5419b9f1", ratio: "aspect-[297/460]" },
     {
     image: `${CN}/campaign-14.jpg`,
     ratio: "aspect-[297/180]",
     caption: "Stovky website leadov už od 5,48 € za lead",
-  },
+  }, 
+  { video: "0b6af2b7-0e09-4e76-b6b5-a77e5419b9f1", ratio: "aspect-[297/460]" },
+   
   
   { image: "/images/review6.png", ratio: "aspect-[297/160]" },
 

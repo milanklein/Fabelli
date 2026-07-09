@@ -8,6 +8,7 @@ export default function VideoEmbed({
   muted = false,
   loop = false,
   overlay = true,
+  preload,
   className = "",
 }: {
   libraryId: string | number;
@@ -16,15 +17,18 @@ export default function VideoEmbed({
   loop?: boolean;
   /** Set false to hide the custom play button (e.g. inactive slider slides). */
   overlay?: boolean;
+  /** Force preloading before the visitor clicks play (e.g. the hero video). Defaults to only preloading once playing. */
+  preload?: boolean;
   className?: string;
 }) {
   const [playing, setPlaying] = useState(false);
+  const shouldPreload = preload ?? playing;
 
   return (
     <>
       <iframe
         key={playing ? "playing" : "idle"}
-        src={`https://player.mediadelivery.net/embed/${libraryId}/${videoId}?autoplay=${playing}&loop=${loop}&muted=${muted}&preload=true&responsive=true`}
+        src={`https://player.mediadelivery.net/embed/${libraryId}/${videoId}?autoplay=${playing}&loop=${loop}&muted=${muted}&preload=${shouldPreload}&responsive=true`}
         loading="lazy"
         className={`absolute inset-0 h-full w-full border-0 ${className}`}
         allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
