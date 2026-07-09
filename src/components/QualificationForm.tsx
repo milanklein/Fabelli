@@ -193,7 +193,7 @@ export default function QualificationForm() {
   const isFormStep = step >= 1 && step <= TOTAL_STEPS;
 
   return (
-    <div className="relative mx-auto w-full max-w-[1105px] overflow-hidden rounded-[30px] bg-gradient-to-br from-navy-panel/40 to-navy-panel/10 px-[24px] py-[48px] sm:rounded-[51px] sm:px-[80px] sm:py-[64px]">
+    <div className="relative mx-auto w-full max-w-[1105px] overflow-hidden rounded-[30px] bg-gradient-to-br from-navy-panel/40 to-navy-panel/10 px-4 py-[48px] sm:rounded-[51px] sm:px-[80px] sm:py-[64px]">
     <Image
                         src="/images/logo-black-icon.svg"
                         alt=""
