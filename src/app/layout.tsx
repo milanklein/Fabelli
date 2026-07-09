@@ -14,7 +14,10 @@ const unbounded = Unbounded({
   subsets: ["latin", "latin-ext"],
 });
 
+const BASE_URL = "https://fabiansmriga.sk";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: "Fabelli",
   description:
     "Fabelli - marketingový konzultant pripravujúci akvizičné stratégie postavené na hĺbkovom prieskume trhu.",
@@ -29,6 +32,43 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Fabelli s. r. o.",
+  alternateName: "Fabián Smriga",
+  url: BASE_URL,
+  logo: `${BASE_URL}/images/logos/logo-carne.svg`,
+  image: `${BASE_URL}/thumbnails/thumbnail_main.png`,
+  description:
+    "Marketingový konzultant pripravujúci a realizujúci akvizičné stratégie postavené na hĺbkovom prieskume trhu.",
+  telephone: "+421919170732",
+  email: "fabiansmriga@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Slnečná 1028/17A",
+    postalCode: "900 28",
+    addressLocality: "Zálesie",
+    addressCountry: "SK",
+  },
+  founder: {
+    "@type": "Person",
+    name: "Fabián Smriga",
+  },
+  sameAs: [
+    "https://www.instagram.com/fabian.smriga/",
+    "https://www.facebook.com/share/1BohCNYazZ/",
+  ],
+  areaServed: "SK",
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Fabelli",
+  url: BASE_URL,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,6 +80,16 @@ export default function RootLayout({
       className={`${montserrat.variable} ${unbounded.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)

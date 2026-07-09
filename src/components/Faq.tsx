@@ -106,6 +106,19 @@ export default function Faq({
   const listRef = useRef<HTMLDivElement>(null);
   const [listVisible, setListVisible] = useState(false);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a.join(" "),
+      },
+    })),
+  };
+
   useEffect(() => {
     const el = listRef.current;
     if (!el) return;
@@ -125,6 +138,11 @@ export default function Faq({
 
   return (
     <section className="overflow-hidden mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[40px] md:gap-[48px]">
         <h2 className="text-center font-heading text-[24px] font-black uppercase text-white md:text-[32px]">
           <RevealText>{heading}</RevealText>
