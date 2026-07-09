@@ -184,10 +184,10 @@ export default function QualificationForm() {
     <Image
                         src="/images/logo-black-icon.svg"
                         alt=""
-                        width={248}
-                        height={163}
+                        width={200}
+                        height={120}
                         aria-hidden
-                        className="pointer-events-none absolute -left-4 -top-4  h-auto w-[380px] max-w-none sm:block"
+                        className="pointer-events-none absolute -left-4 -top-4  h-auto w-[380px] max-w-none sm:block opacity-20"
                       />
 
       <div

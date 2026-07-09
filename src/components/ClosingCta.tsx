@@ -2,6 +2,7 @@ import Image from "next/image";
 import ButtonArrow from "./ButtonArrow";
 import Reveal from "./Reveal";
 import RevealText from "./RevealText";
+import Button from "./Button";
 
 export default function ClosingCta() {
   return (
@@ -23,7 +24,7 @@ export default function ClosingCta() {
         <Reveal
           delay={300}
           duration={900}
-          className="flex w-full flex-col items-stretch gap-[16px] md:flex-row md:items-center md:gap-8"
+          className="flex w-full flex-col items-stretch gap-[16px] md:flex-row md:items-start md:gap-8"
         >
           <div className="flex flex-1 flex-col items-center justify-center rounded-[20px]  px-[24px] py-[40px] rounded-[40px] border-white border-[1px] ">
             <p className="font-sans text-[20px] leading-[1.5] font-black md:text-[18px] bg-gradient-to-r from-heading-from to-heading-to bg-clip-text uppercase relative z-5">
@@ -33,8 +34,10 @@ export default function ClosingCta() {
           <div className="flex items-center justify-center px-[16px] py-[16px] font-heading text-[22px] font-bold uppercase text-white ">
             alebo
           </div>
-          <div className="relative flex flex-1 flex-col items-start justify-center rounded-[40px] bg-gradient-to-br from-[#D9EBF8] to-[#F4FAFD] px-[24px] py-[48px] h-[100%]">
-            <p className="font-sans text-[18px] font-black leading-[1.5] text-black  md:text-[20px] uppercase">
+          <div className="flex flex-col gap-8 items-center justify-center  ">
+
+          <div className="relative flex flex-1 flex-col items-start justify-center rounded-[40px] bg-gradient-to-br from-[#D9EBF8] to-[#F4FAFD] px-[24px] py-[48px] h-[100%] w-full lg:w-full">
+           <p className="font-sans text-[18px] font-black leading-[1.5] text-black  md:text-[20px] uppercase ">
               Začnete konečne<br /> škálovať.
             </p>
             <Image
@@ -43,10 +46,11 @@ export default function ClosingCta() {
               alt="logo Fabelli"
               width={129}
               height={84}
-            />
-            <ButtonArrow href="#vysledky" className="">
-            Chcem stratégiu
-          </ButtonArrow>
+              />
+              </div>
+            <Button href="#vysledky" className="">
+            Začnete konečne škálovať.
+            </Button>
           </div>
         </Reveal>
 

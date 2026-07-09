@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { caseStudies, LIVE_SLUGS } from "@/lib/case-studies";
 
-const BASE_URL = "https://fabelli.sk";
+const BASE_URL = "https://fabiansmriga.sk";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

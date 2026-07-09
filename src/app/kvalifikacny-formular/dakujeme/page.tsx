@@ -7,6 +7,7 @@ import Faq from "@/components/Faq";
 import PortfolioGrid from "@/components/PortfolioGrid";
 import ComparisonTable from "@/components/ComparisonTable";
 import Testimonials from "@/components/Testimonials";
+import TestimonialsTY from "@/components/TestimonialsTY";
 
 export const metadata: Metadata = {
   title: "Ďakujem za vyplnenie | Fabelli",
@@ -97,7 +98,7 @@ export default function ThankYouPage() {
             </div>
           </div>
         </section>
-<Testimonials />
+<TestimonialsTY />
         <PortfolioGrid />
       <ComparisonTable />
         <Faq />

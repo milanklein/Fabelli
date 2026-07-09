@@ -128,7 +128,7 @@ export default function ProcessTimeline() {
                 </div>
 
                 {/* Desktop: pôvodný 3-stĺpcový layout (bod / Fáza / obsah), zarovnaný na vrch riadku */}
-                <div className="hidden md:grid md:grid-cols-[auto_auto_1fr] md:items-start md:gap-x-[28px]">
+                <div className="hidden md:grid md:grid-cols-[auto_auto_1fr] md:items-center md:gap-x-[28px]">
                   <div
                     className={`z-10 flex justify-center pt-[24px] ${reveal(i).className}`}
                     style={reveal(i).style}
