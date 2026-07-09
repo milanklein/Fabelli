@@ -317,6 +317,33 @@ export default function QualificationForm() {
   );
 }
 
+function StepDot({
+  n,
+  current,
+  isLastInRow,
+}: {
+  n: number;
+  current: number;
+  isLastInRow: boolean;
+}) {
+  return (
+    <div className="flex items-center">
+      <div
+        className={`flex size-[28px] shrink-0 items-center justify-center rounded-full font-heading text-[14px] font-black sm:size-[31px] sm:text-[16px] ${
+          n === current
+            ? "bg-[#ecf5fb] text-[#1b2b3d]"
+            : n < current
+              ? "border border-white/60 bg-white/10 text-white"
+              : "border border-white/20 text-white/40"
+        }`}
+      >
+        {n}
+      </div>
+      {!isLastInRow && <div className="h-px w-[10px] bg-white/20" />}
+    </div>
+  );
+}
+
 function StepIndicator({
   current,
   total,
@@ -324,25 +351,28 @@ function StepIndicator({
   current: number;
   total: number;
 }) {
+  const steps = Array.from({ length: total }, (_, i) => i + 1);
+  const rows = [steps.slice(0, 4), steps.slice(4)];
+
   return (
-    <div className="flex flex-wrap items-center justify-center">
-      {Array.from({ length: total }, (_, i) => i + 1).map((n, i) => (
-        <div key={n} className="flex items-center">
-          <div
-            className={`flex size-[28px] shrink-0 items-center justify-center rounded-full font-heading text-[14px] font-black sm:size-[31px] sm:text-[16px] ${
-              n === current
-                ? "bg-[#ecf5fb] text-[#1b2b3d]"
-                : n < current
-                  ? "border border-white/60 bg-white/10 text-white"
-                  : "border border-white/20 text-white/40"
-            }`}
-          >
-            {n}
+    <>
+      {/* >=450px: single row */}
+      <div className="hidden min-[450px]:flex items-center justify-center">
+        {steps.map((n, i) => (
+          <StepDot key={n} n={n} current={current} isLastInRow={i === steps.length - 1} />
+        ))}
+      </div>
+      {/* <450px: 4 + 4 in two rows */}
+      <div className="flex min-[450px]:hidden flex-col items-center gap-[8px]">
+        {rows.map((row, ri) => (
+          <div key={ri} className="flex items-center justify-center">
+            {row.map((n, i) => (
+              <StepDot key={n} n={n} current={current} isLastInRow={i === row.length - 1} />
+            ))}
           </div>
-          {i < total - 1 && <div className="h-px w-[10px] bg-white/20" />}
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -381,9 +411,8 @@ function TextStep({
   return (
     <div className="flex w-full max-w-[500px] flex-col items-center gap-[10px]">
       <div className="flex flex-col items-center">
-      <p className="w-full font-sans text-[16px] text-white sm:text-[17px]">
+      <p className="w-full text-center font-sans text-[16px] text-white sm:text-[17px]">
         {label}
-      
       </p>
       {hint && <span className="text-[16px] text-center sm:text-[17px] ml-[6px] text-white/30">{hint}</span>}
       </div>
@@ -460,7 +489,7 @@ function ContactStep({
 
   return (
     <div className="flex w-full max-w-[500px] flex-col items-start gap-[10px]">
-      <p className="w-full font-sans text-[16px] text-white sm:text-[17px]">
+      <p className="w-full text-center font-sans text-[16px] text-white sm:text-[17px]">
         Ako vás dokážem kontaktovať?
       </p>
       <div className="flex w-full gap-[10px]">
@@ -549,7 +578,7 @@ function RadioStep({
 }) {
   return (
     <div className="flex w-full max-w-[500px] flex-col items-start gap-[20px]">
-      <p className="w-full border-b border-white/15 pb-[16px] font-sans text-[16px] text-white sm:text-[17px]">
+      <p className="w-full border-b border-white/15 pb-[16px] text-center font-sans text-[16px] text-white sm:text-[17px]">
         {label}
       </p>
       <div className="flex w-full flex-col gap-[16px]">

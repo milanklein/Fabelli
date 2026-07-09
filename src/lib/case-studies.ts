@@ -26,7 +26,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "offlandia",
-    logo: "offlandia.png",
+    logo: "offlandia.webp",
     logoWidth: 246,
     logoHeight: 86,
     name: "Offlandia",

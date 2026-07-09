@@ -22,7 +22,7 @@ const cards = [
   { video: "8e4c85c8-7338-4f6c-a684-286408fb5b4c", ratio: "aspect-[297/460]" },
   
    {
-    image: `${CN}/campaign-15.jpg`,
+    image: `${CN}/campaign-15.webp`,
     ratio: "aspect-[1233/422]",
     caption:
       "Stabilný prílev rezervácií psieho hotela pre centrum Dobrovodský",
@@ -34,14 +34,14 @@ const cards = [
     ratio: "aspect-[297/400]",
   },
    {
-    image: `${CN}/campaign-19.jpg`,
+    image: `${CN}/campaign-19.webp`,
     ratio: "aspect-[1222/437]",
     caption: "Výkonnosť Google reklám pre klienta Dobrovodský",
   },
 
   { image: "/images/review5.png", ratio: "aspect-[297/480]" },
     {
-    image: `${CN}/campaign-14.jpg`,
+    image: `${CN}/campaign-14.webp`,
     ratio: "aspect-[297/180]",
     caption: "Stovky website leadov už od 5,48 € za lead",
   }, 
@@ -51,13 +51,13 @@ const cards = [
   { image: "/images/review6.png", ratio: "aspect-[297/160]" },
 
    {
-    image: `${CN}/campaign-11.jpg`,
+    image: `${CN}/campaign-11.webp`,
     ratio: "aspect-[808/457]",
     caption: "Množstvo reklám, ktoré prinášajú stabilné leady",
   },
   { image: "/images/review7.png", ratio: "aspect-[297/210]" },
   {
-    image: `${CN}/campaign-9.jpg`,
+    image: `${CN}/campaign-9.webp`,
     ratio: "aspect-[622/463]",
     caption: "Free trial starts pre Apponio",
   },
@@ -66,13 +66,13 @@ const cards = [
 
   { image: "/images/review3.png", ratio: "aspect-[297/460]" },
   {
-    image: `${CN}/campaign-20.jpg`,
+    image: `${CN}/campaign-20.webp`,
     ratio: "aspect-[808/351]",
     caption: "Výkonnosť reklám Sparklond",
   },
   { image: "/images/review9.png", ratio: "aspect-[297/250]" },
   {
-    image: `${CN}/campaign-7.jpg`,
+    image: `${CN}/campaign-7.webp`,
     ratio: "aspect-[1005/295]",
     caption: "CTR 4,52%, keď agentúry výskajú pri 1%",
   },
@@ -80,92 +80,92 @@ const cards = [
   { image: "/images/review10.png", ratio: "aspect-[297/320]" },
 
   {
-    image: `${CN}/campaign-1.jpg`,
+    image: `${CN}/campaign-1.webp`,
     ratio: "aspect-[1024/269]",
     caption:
       "11 000 leadov, 0,2 € za lead, 5% CTR – nikto iný na Slovensku nemá takéto výsledky",
   },
   {
-    image: `${CN}/campaign-2.jpg`,
+    image: `${CN}/campaign-2.webp`,
     ratio: "aspect-[1231/442]",
     caption: "18% pomer prekliku na Google kampaniach pre Sparklond",
   },
   {
-    image: `${CN}/campaign-3.jpg`,
+    image: `${CN}/campaign-3.webp`,
     ratio: "aspect-[634/124]",
     caption: "50 leadov z 1 reklamy pre Force8",
   },
   {
-    image: `${CN}/campaign-4.jpg`,
+    image: `${CN}/campaign-4.webp`,
     ratio: "aspect-[801/116]",
     caption: "647 leadov pre Jovinečkov Jovitep",
   },
   {
-    image: `${CN}/campaign-5.jpg`,
+    image: `${CN}/campaign-5.webp`,
     ratio: "aspect-[1434/315]",
     caption: "650 high ticket leadov pre Matessa s pomerom prekliku 2,99%",
   },
   {
-    image: `${CN}/campaign-6.jpg`,
+    image: `${CN}/campaign-6.webp`,
     ratio: "aspect-[504/214]",
     caption: "9,8% konverzný pomer stránky na zisk leadov pre Sparklond",
   },
   
   {
-    image: `${CN}/campaign-8.jpg`,
+    image: `${CN}/campaign-8.webp`,
     ratio: "aspect-[972/405]",
     caption: "Desaťtisíce kliknutí s vysokým CTR pre Offlandiu",
   },
   
   {
-    image: `${CN}/campaign-10.jpg`,
+    image: `${CN}/campaign-10.webp`,
     ratio: "aspect-[1238/413]",
     caption: "Lacné rezervácie pre autorizovaný servis Auto Pola",
   },
   
  
   {
-    image: `${CN}/campaign-12.jpg`,
+    image: `${CN}/campaign-12.webp`,
     ratio: "aspect-[1243/415]",
     caption: "Prílev kvalifikovaných high-intent leadov pre Sparklond",
   },
   {
-    image: `${CN}/campaign-13.jpg`,
+    image: `${CN}/campaign-13.webp`,
     ratio: "aspect-[792/147]",
     caption: "11 018 leadov za 0,26 € pre VIP coaching projekt",
   },
 
  
   {
-    image: `${CN}/campaign-16.jpg`,
+    image: `${CN}/campaign-16.webp`,
     ratio: "aspect-[794/292]",
     caption: "Stovky kvalifikovaných leadov z kampaní pre Sparklond",
   },
   {
-    image: `${CN}/campaign-17.jpg`,
+    image: `${CN}/campaign-17.webp`,
     ratio: "aspect-[998/401]",
     caption:
       "Séria reklám s pomerom prekliku vyše 4%! Vaša agentúra sa teší z 1%",
   },
   {
-    image: `${CN}/campaign-18.jpg`,
+    image: `${CN}/campaign-18.webp`,
     ratio: "aspect-[993/409]",
     caption: "Vysoko nadštandardné pomery prekliknutia pre Offlandiu",
   },
  
   
   {
-    image: `${CN}/campaign-21.jpg`,
+    image: `${CN}/campaign-21.webp`,
     ratio: "aspect-[816/400]",
     caption: "Výkonnosť reklám a zisk leadov pre Jovinečkov Jovitep",
   },
   {
-    image: `${CN}/campaign-22.jpg`,
+    image: `${CN}/campaign-22.webp`,
     ratio: "aspect-[809/394]",
     caption: "Výkonnosť reklám pre Jovitep",
   },
   {
-    image: `${CN}/campaign-23.jpg`,
+    image: `${CN}/campaign-23.webp`,
     ratio: "aspect-[509/164]",
     caption: "Vysoká výkonnosť a pomer prekliku reklám pre Matessa",
   },
@@ -296,7 +296,7 @@ export default function PortfolioGrid() {
           )}
         </div>
 
-        <div ref={toggleRef}>
+        <div ref={toggleRef} className="mx-auto">
           {expanded ? (
             <Button href="#vysledky" variant="secondary" onClick={handleCollapse}>
               Zobraziť menej
