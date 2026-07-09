@@ -13,6 +13,8 @@ import CtaBanner from "@/components/CtaBanner";
 import Faq from "@/components/Faq";
 import ClosingCta from "@/components/ClosingCta";
 import Footer from "@/components/Footer";
+import OtherProjectsSlider from "@/components/OtherProjectsSlider";
+import RevealText from "@/components/RevealText";
 
 const title = "Fabelli - Marketingová stratégia postavená na prieskume trhu";
 const description =
@@ -51,6 +53,20 @@ export default function Home() {
         <CtaBanner />
         <Faq />
         <ClosingCta />
+           <section className="mt-[24px] w-full px-0 sm:mt-[100px] sm:px-[106px]">
+                  <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[20px] md:gap-[42px]">
+                    <div>
+
+                      <p className="text-center font-sans text-[18px] text-white md:text-[20px] uppercase">
+            Stále si nie ste istý?
+          </p>
+                    <h2 className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase text-transparent sm:text-[29px]">
+                      <RevealText>Prípadové štúdie</RevealText>
+                    </h2>
+                    </div>
+                    <OtherProjectsSlider currentSlug="jovitep" />
+                  </div>
+                </section>
       </main>
       <Footer />
     </>

@@ -6,7 +6,7 @@ import Button from "./Button";
 
 export default function ClosingCta() {
   return (
-    <section className="overflow-hidden mt-[64px] w-full px-[24px] pb-16 md:mt-[100px] md:px-[106px]">
+    <section className="overflow-hidden mt-[64px] w-full px-[24px]  md:mt-[100px] md:px-[106px]">
       <div className="mx-auto flex w-full max-w-[957px] flex-col items-center">
         <Reveal delay={0} duration={900}>
           <h2 className="text-center font-sans text-[22px] font-black uppercase leading-[1.4] text-white md:text-[28px]  ">
@@ -41,7 +41,7 @@ export default function ClosingCta() {
               Začnete konečne<br /> škálovať.
             </p>
             <Image
-              className="absolute -bottom-1 right-0"
+              className="absolute -bottom-1 right-0 w-[90px] md:w-[129px] "
               src="/images/logo-black-icon.png"
               alt="logo Fabelli"
               width={129}
@@ -49,7 +49,7 @@ export default function ClosingCta() {
               />
               </div>
             <Button href="#vysledky" className="">
-            Začnete konečne škálovať.
+            Chcem stratégiu
             </Button>
           </div>
         </Reveal>
@@ -57,14 +57,14 @@ export default function ClosingCta() {
         <Reveal
           delay={450}
           duration={900}
-          className="flex flex-col items-center gap-[24px] mt-40 "
+          className="flex flex-col items-center gap-[24px] mt-20 "
         >
-          <p className="font-sans text-[18px] text-white md:text-[20px] uppercase">
+          {/* <p className="font-sans text-[18px] text-white md:text-[20px] uppercase">
             Stále si nie ste istý?
-          </p>
-          <ButtonArrow href="#vysledky" className="">
+          </p> */}
+          {/* <ButtonArrow href="#vysledky" className="">
             Pozrite si výsledky mojich klientov
-          </ButtonArrow>
+          </ButtonArrow> */}
         </Reveal>
       </div>
     </section>

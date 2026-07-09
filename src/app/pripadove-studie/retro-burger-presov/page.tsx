@@ -9,6 +9,7 @@ import CtaBanner from "@/components/CtaBanner";
 import Faq from "@/components/Faq";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import GallerySlider from "@/components/GallerySlider";
+import VideoEmbed from "@/components/VideoEmbed";
 
 const title = "Retro burger Prešov - prípadová štúdia | Fabelli";
 const description =
@@ -66,6 +67,21 @@ const socialPhotos = [
   { src: `${IMG}/social-2.png`, aspect: "aspect-[947/642]" },
   { src: `${IMG}/social-3.png`, aspect: "aspect-[1009/382]" },
 ];
+
+function TestimonialVideo({
+  libraryId,
+  videoId,
+}: {
+  libraryId: string;
+  videoId: string;
+}) {
+  return (
+    <div className="relative  shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] h-[553px] w-[280px] md:rounded-[40px]">
+      <VideoEmbed libraryId={libraryId} videoId={videoId} />
+    </div>
+  );
+}
+
 
 export default function RetroBurgerPresovCaseStudyPage() {
   return (
@@ -130,9 +146,9 @@ export default function RetroBurgerPresovCaseStudyPage() {
               aria-hidden
               className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20"
             >
-              <RevealText variant="fall">
+              
                                    Fáza0
-                                     </RevealText>
+                                
             </p>
             <Reveal
               duration={600}
@@ -174,7 +190,28 @@ export default function RetroBurgerPresovCaseStudyPage() {
             </div>
           </div>
         </section>
-
+   <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
+          <div className="mx-auto flex w-full max-w-[952px] flex-col items-center gap-[40px] md:flex-row md:items-center md:justify-center md:gap-[71px]">
+            <Reveal duration={600} y={20}>
+            <Reveal delay={150} duration={600} y={20}>
+              <TestimonialVideo
+                libraryId="695134"
+                videoId="8e4c85c8-7338-4f6c-a684-286408fb5b4c"
+              />
+            </Reveal>
+            </Reveal>
+            <Reveal delay={150} duration={600} y={20}>
+              <div className="flex w-full max-w-[310px] flex-col items-center gap-[24px] text-center">
+                <p className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-sans text-[22px] text-transparent md:text-[35px] leading-[120%]">
+                  &bdquo;Fabiánov prístup k práci je veľmi cieľavedomý.&ldquo;
+                </p>
+                <p className="bg-gradient-to-r from-purple-from to-purple-to bg-clip-text font-sans text-[16px] font-bold uppercase italic text-transparent">
+                  -Dávid
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
         <section className="mt-[64px] w-full  md:mt-[100px] ">
           <div className="mx-auto flex w-full  flex-col items-center gap-[43px]">
             <h2 className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[18px] font-black uppercase text-transparent md:text-[24px] px-[24px] md:px-[106px] max-w-[1048px]">
@@ -266,12 +303,9 @@ export default function RetroBurgerPresovCaseStudyPage() {
             </h2>
             <Reveal duration={600} y={20}>
               <div className="relative  shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] h-[553px] w-[280px] md:rounded-[40px]">
-                <iframe
-                  src="https://player.mediadelivery.net/embed/695141/745dee6b-77a6-443d-8577-e99ff1e4368c?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full border-0"
-                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-                  allowFullScreen
+                <VideoEmbed
+                  libraryId="695141"
+                  videoId="745dee6b-77a6-443d-8577-e99ff1e4368c"
                 />
               </div>
             </Reveal>

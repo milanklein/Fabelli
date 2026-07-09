@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Reveal from "./Reveal";
 import RevealText from "./RevealText";
 import { ArrowCircleUpIcon } from "./icons";
+import VideoEmbed from "./VideoEmbed";
 
 import "swiper/css";
 
@@ -87,6 +88,19 @@ export default function TestimonialsTY() {
                     key={`${testimonial.id}-${i}`}
                     className="!flex !w-[280px] !flex-col !items-center !justify-end"
                   >
+                        <p
+                      className={`block md:hidden mt-[16px] max-w-[220px] text-center font-sans text-[13px] font-bold uppercase italic leading-[1.4] transition-opacity duration-300 md:max-w-[280px] md:text-[16px] ${
+                        isActive ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      <span className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-transparent block w-full">
+                        ,,{testimonial.quote}&rdquo;
+                      </span>
+                      <br />
+                      <span className="bg-gradient-to-r from-purple-from to-purple-to bg-clip-text text-transparent block w-full">
+                        -{testimonial.name}
+                      </span>
+                    </p>
                     <div
                       className={`relative  shrink-0 overflow-hidden rounded-[26px] transition-[transform,filter,opacity] duration-500 ease-out h-[553px] w-[280px] md:rounded-[40px] ${
                         isActive
@@ -94,12 +108,10 @@ export default function TestimonialsTY() {
                           : "scale-[0.775] opacity-70 blur-[2px] md:blur-[4px]"
                       }`}
                     >
-                      <iframe
-                        src={`https://player.mediadelivery.net/embed/695134/${testimonial.id}?autoplay=false&loop=false&muted=false&preload=true&responsive=true`}
-                        loading="lazy"
-                        className="absolute inset-0 h-full w-full border-0"
-                        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-                        allowFullScreen
+                      <VideoEmbed
+                        libraryId="695134"
+                        videoId={testimonial.id}
+                        overlay={isActive}
                       />
                       {!isActive && (
                         <button
@@ -112,15 +124,15 @@ export default function TestimonialsTY() {
                     </div>
 
                     <p
-                      className={`mt-[16px] max-w-[220px] text-center font-sans text-[13px] font-bold uppercase italic leading-[1.4] transition-opacity duration-300 md:max-w-[280px] md:text-[16px] ${
+                      className={`hidden md:block mt-[16px] max-w-[220px] text-center font-sans text-[13px] font-bold uppercase italic leading-[1.4] transition-opacity duration-300 md:max-w-[280px] md:text-[16px] ${
                         isActive ? "opacity-100" : "opacity-0"
                       }`}
                     >
-                      <span className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-transparent">
+                      <span className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-transparent block w-full">
                         ,,{testimonial.quote}&rdquo;
                       </span>
                       <br />
-                      <span className="bg-gradient-to-r from-purple-from to-purple-to bg-clip-text text-transparent">
+                      <span className="bg-gradient-to-r from-purple-from to-purple-to bg-clip-text text-transparent block w-full">
                         -{testimonial.name}
                       </span>
                     </p>

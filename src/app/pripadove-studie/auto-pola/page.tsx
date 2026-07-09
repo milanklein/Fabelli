@@ -105,9 +105,9 @@ export default function AutoPolaCaseStudyPage() {
                                   aria-hidden
                                   className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20 pt-4" 
                                 >
-                                    <RevealText variant="fall">
+                                    
                                   Fáza0
-                                    </RevealText>
+                                
                                 </p>
             <Reveal
               duration={600}
@@ -144,9 +144,15 @@ export default function AutoPolaCaseStudyPage() {
             <Reveal
               delay={200}
               duration={600}
-              className="w-full max-w-[940px] overflow-hidden  bg-gradient-to-br from-navy-panel/50 to-navy-panel/20 "
+              className="relative aspect-[940/311] w-full max-w-[940px] overflow-hidden rounded-[24px] bg-gradient-to-br from-navy-panel/50 to-navy-panel/20 md:rounded-[39px]"
             >
-              <Image src="/images/autopola-image.png" width="940" height={311} alt="výsledky" />
+              <Image
+                src="/images/autopola-image.png"
+                fill
+                className="object-contain"
+                sizes="(max-width: 940px) 100vw, 940px"
+                alt="výsledky"
+              />
             </Reveal>
           </div>
         </section>

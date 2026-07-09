@@ -9,6 +9,7 @@ import CtaBanner from "@/components/CtaBanner";
 import Faq from "@/components/Faq";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
+import VideoEmbed from "@/components/VideoEmbed";
 
 const title = "Pokojné plávanie - prípadová štúdia | Fabelli";
 const description =
@@ -54,6 +55,20 @@ const resultCards = [
   "Zaplnenie všetkých kurzov",
   "Vytváranie nových termínov v nových lokalitách",
 ];
+
+function TestimonialVideo({
+  libraryId,
+  videoId,
+}: {
+  libraryId: string;
+  videoId: string;
+}) {
+  return (
+    <div className="relative  shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] h-[553px] w-[280px] md:rounded-[40px]">
+      <VideoEmbed libraryId={libraryId} videoId={videoId} />
+    </div>
+  );
+}
 
 const photos = [`${IMG}/photo-1.png`, `${IMG}/photo-2.png`];
 
@@ -199,7 +214,28 @@ export default function PokojnePlavanieCaseStudyPage() {
             ]}
           />
         </section>
-
+ <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
+          <div className="mx-auto flex w-full max-w-[952px] flex-col items-center gap-[40px] md:flex-row md:items-center md:justify-center md:gap-[71px]">
+            <Reveal duration={600} y={20}>
+            <Reveal delay={150} duration={600} y={20}>
+              <TestimonialVideo
+                libraryId="695134"
+                videoId="c2ec20de-a271-4515-ae8e-2b833b53a3e1"
+              />
+            </Reveal>
+            </Reveal>
+            <Reveal delay={150} duration={600} y={20}>
+              <div className="flex w-full max-w-[310px] flex-col items-center gap-[24px] text-center">
+                <p className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-sans text-[22px] text-transparent md:text-[35px] leading-[120%]">
+                  &bdquo;Uvedomenie, že sú výsledky prišlo s tým, že sa mi naplnili kurzy.&ldquo;
+                </p>
+                <p className="bg-gradient-to-r from-purple-from to-purple-to bg-clip-text font-sans text-[16px] font-bold uppercase italic text-transparent">
+                  -Žaneta
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
 
         <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
           <div className="mx-auto flex w-full max-w-[952px] items-center justify-center gap-[16px] md:gap-[54px]">

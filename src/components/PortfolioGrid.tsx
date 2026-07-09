@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import ButtonArrow from "./ButtonArrow";
 import RevealText from "./RevealText";
+import Button from "./Button";
+import VideoEmbed from "./VideoEmbed";
 
 const COLLAPSED_HEIGHT = 1270;
 
@@ -17,6 +19,8 @@ function parseRatio(ratio: string): { width: number; height: number } {
 }
 
 const cards = [
+  { video: "8e4c85c8-7338-4f6c-a684-286408fb5b4c", ratio: "aspect-[297/460]" },
+  
    {
     image: `${CN}/campaign-15.jpg`,
     ratio: "aspect-[1233/422]",
@@ -24,6 +28,11 @@ const cards = [
       "Stabilný prílev rezervácií psieho hotela pre centrum Dobrovodský",
   },
   { image: "/images/review1.png", ratio: "aspect-[297/340]" },
+  {
+    video: "c2ec20de-a271-4515-ae8e-2b833b53a3e1",
+    viewMore: true,
+    ratio: "aspect-[297/400]",
+  },
    {
     image: `${CN}/campaign-19.jpg`,
     ratio: "aspect-[1222/437]",
@@ -31,6 +40,7 @@ const cards = [
   },
 
   { image: "/images/review5.png", ratio: "aspect-[297/480]" },
+    { video: "0b6af2b7-0e09-4e76-b6b5-a77e5419b9f1", ratio: "aspect-[297/460]" },
     {
     image: `${CN}/campaign-14.jpg`,
     ratio: "aspect-[297/180]",
@@ -39,7 +49,6 @@ const cards = [
   
   { image: "/images/review6.png", ratio: "aspect-[297/160]" },
 
-  { video: "8e4c85c8-7338-4f6c-a684-286408fb5b4c", ratio: "aspect-[297/460]" },
    {
     image: `${CN}/campaign-11.jpg`,
     ratio: "aspect-[808/457]",
@@ -51,11 +60,7 @@ const cards = [
     ratio: "aspect-[622/463]",
     caption: "Free trial starts pre Apponio",
   },
-  {
-    video: "c2ec20de-a271-4515-ae8e-2b833b53a3e1",
-    viewMore: true,
-    ratio: "aspect-[297/400]",
-  },
+  
   
 
   { image: "/images/review3.png", ratio: "aspect-[297/460]" },
@@ -167,9 +172,10 @@ const cards = [
 
 export default function PortfolioGrid() {
   const contentRef = useRef<HTMLDivElement>(null);
+  const collapseRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLDivElement>(null);
   const [expanded, setExpanded] = useState(false);
   const [expandedHeight, setExpandedHeight] = useState<number | null>(null);
-  const [visible, setVisible] = useState(false);
   const [lightbox, setLightbox] = useState<{
     src: string;
     caption?: string;
@@ -184,22 +190,23 @@ export default function PortfolioGrid() {
     setExpanded(true);
   };
 
-  useEffect(() => {
-    const el = contentRef.current;
-    if (!el) return;
+  const handleCollapse = () => {
+    setExpanded(false);
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+    const container = collapseRef.current;
+    if (!container) return;
+
+    const scrollToToggle = () => {
+      toggleRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+
+    const onTransitionEnd = (e: TransitionEvent) => {
+      if (e.propertyName !== "max-height") return;
+      container.removeEventListener("transitionend", onTransitionEnd);
+      scrollToToggle();
+    };
+    container.addEventListener("transitionend", onTransitionEnd);
+  };
 
   useEffect(() => {
     if (!lightbox) return;
@@ -217,13 +224,14 @@ export default function PortfolioGrid() {
   }, [lightbox]);
 
   return (
-    <section id="vysledky"className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] pb-4">
+    <section id="vysledky" className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] pb-6">
       <div className="mx-auto flex w-full max-w-[952px] flex-col items-center gap-[48px] md:gap-[64px]">
         <h2 className="text-center font-heading text-[24px] font-black uppercase leading-[1.3] text-white md:text-[32px]">
           <RevealText>Spolupráca, <br/> Kde víťazia obe strany!</RevealText>
         </h2>
 
         <div
+          ref={collapseRef}
           className="relative w-full overflow-hidden transition-[max-height] duration-700 ease-in-out"
           style={{
             maxHeight: expanded
@@ -236,11 +244,9 @@ export default function PortfolioGrid() {
             className="w-full columns-1 gap-[16px] md:columns-3 md:gap-[30px]"
           >
             {cards.map((card, i) => {
-              const delay = Math.min(i * 40, 400);
               return (
                 <div
                   key={i}
-                  style={{ transitionDelay: `${delay}ms` }}
                   onClick={
                     card.image
                       ? () =>
@@ -251,9 +257,9 @@ export default function PortfolioGrid() {
                           })
                       : undefined
                   }
-                  className={`group relative mb-[16px] w-full break-inside-avoid overflow-hidden rounded-[16px] bg-gradient-to-br from-navy-panel/50 to-navy-panel/20 transition-[opacity,transform] duration-500 ease-out motion-reduce:transition-none motion-reduce:opacity-100 motion-reduce:!transform-none md:mb-[30px] md:rounded-[24px] ${card.ratio} ${
+                  className={`group relative mb-[16px] w-full break-inside-avoid overflow-hidden rounded-[16px] bg-gradient-to-br from-navy-panel/50 to-navy-panel/20 md:mb-[30px] md:rounded-[24px] ${card.ratio} ${
                     card.image ? "cursor-pointer" : ""
-                  } ${visible ? "opacity-100" : "opacity-0 translate-y-[16px]"}`}
+                  }`}
                 >
                   {card.image && (
                     <Image
@@ -274,13 +280,7 @@ export default function PortfolioGrid() {
                     </div>
                   )}
                   {card.video && (
-                    <iframe
-                      src={`https://player.mediadelivery.net/embed/695134/${card.video}?autoplay=false&loop=false&muted=false&preload=true&responsive=true`}
-                      loading="lazy"
-                      className="absolute inset-0 h-full w-full border-0"
-                      allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-                      allowFullScreen
-                    />
+                    <VideoEmbed libraryId="695134" videoId={card.video} />
                   )}
                 </div>
               );
@@ -295,13 +295,15 @@ export default function PortfolioGrid() {
           )}
         </div>
 
-        {expanded ? (
-          <ButtonArrow onClick={() => setExpanded(false)}>
-            Zobraziť menej
-          </ButtonArrow>
-        ) : (
-          <ButtonArrow onClick={handleExpand}>Pozrieť viac</ButtonArrow>
-        )}
+        <div ref={toggleRef}>
+          {expanded ? (
+            <Button href="#vysledky" variant="secondary" onClick={handleCollapse}>
+              Zobraziť menej
+            </Button>
+          ) : (
+            <Button variant="secondary" onClick={handleExpand}>Pozrieť viac</Button>
+          )}
+        </div>
       </div>
 
       {lightbox && (

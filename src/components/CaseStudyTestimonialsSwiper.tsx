@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ArrowCircleUpIcon } from "./icons";
+import VideoEmbed from "./VideoEmbed";
 
 import "swiper/css";
 
@@ -60,12 +61,10 @@ export default function CaseStudyTestimonialsSwiper({
                     : "scale-[0.775] opacity-70 blur-[2px] sm:blur-[4px]"
                 }`}
               >
-                <iframe
-                  src={`https://player.mediadelivery.net/embed/${video.libraryId}/${video.videoId}?autoplay=false&loop=false&muted=false&preload=true&responsive=true`}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full border-0"
-                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-                  allowFullScreen
+                <VideoEmbed
+                  libraryId={video.libraryId}
+                  videoId={video.videoId}
+                  overlay={isActive}
                 />
                 {!isActive && (
                   <button

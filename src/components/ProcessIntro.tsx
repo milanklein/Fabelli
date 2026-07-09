@@ -31,7 +31,7 @@ const steps = [
 
 export default function ProcessIntro() {
   return (
-    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] overflow-hidden pb-6 md:pb-16">
+    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] overflow-hidden pb-10 md:pb-16">
       <div className="mx-auto flex w-full max-w-[1048px] flex-col items-center">
         <h2 className="w-full text-center font-heading text-[24px] font-black uppercase leading-[1.5] text-white md:text-[32px] ">
           <RevealText>
@@ -43,9 +43,9 @@ export default function ProcessIntro() {
           aria-hidden
           className="mt-[40px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-20 sm:top-80 md:top-40 mb-10 md:mb-0 max-w-full" 
         >
-            <RevealText variant="fall">
+           
           Fáza0
-            </RevealText>
+       
         </p>
 
         <div className="relative bg-gradient-to-b from-transparent to-[#0C1728] to-40% -mt-[10px] flex w-full flex-col items-center gap-[24px] md:-mt-[20px] md:gap-[20px]">
@@ -75,7 +75,7 @@ export default function ProcessIntro() {
         </div>
 </div>
         <Reveal delay={0} duration={500}>
-          <Button href="#kontakt" size="lg" className="mt-[40px] md:mt-[40px]">
+          <Button href="#vysledky" size="lg" variant="secondary" className="mt-[40px] md:mt-[40px]">
             Výsledky mojich klientov
           </Button>
         </Reveal>

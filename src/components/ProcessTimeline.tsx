@@ -33,10 +33,10 @@ const ROW_COUNT = phases.length + 1;
 function TimelineDot({ variant = "blue" }: { variant?: "blue" | "purple" }) {
   return (
     <span
-      className={`size-[18px] shrink-0 rounded-full bg-white md:size-[20px] ${
+      className={`size-[18px] block w-[18px] h-[18px] shrink-0 rounded-full bg-white md:size-[20px] ${
         variant === "purple"
-          ? "shadow-[0_0_32px_14px_rgba(168,140,210,0.8)] md:shadow-[0_0_25px_10px_rgba(168,140,210,0.6)]"
-          : "shadow-[0_0_32px_14px_rgba(255,255,255,0.65)] md:shadow-[0_0_25px_10px_rgba(255,255,255,0.45)]"
+          ? "shadow-[0_0_16px_6px_rgba(168,140,210,0.8)] md:shadow-[0_0_25px_10px_rgba(168,140,210,0.6)]"
+          : "shadow-[0_0_16px_6px_rgba(255,255,255,0.65)] md:shadow-[0_0_25px_10px_rgba(255,255,255,0.45)]"
       }`}
     />
   );
@@ -99,9 +99,9 @@ export default function ProcessTimeline() {
                 data-row-index={i}
               >
                 {/* Mobil: štítok fázy vľavo, bod na čiare v strede, obsah vpravo — všetko zarovnané na vrch riadku */}
-                <div className="flex items-start gap-x-[12px] md:hidden">
+                <div className="flex items-center gap-x-[12px] md:hidden">
                   <div
-                    className={`mt-[4px] w-[90px] shrink-0 text-center ${reveal(i, 60).className}`}
+                    className={` w-[90px] shrink-0 text-center ${reveal(i, 60).className}`}
                     style={reveal(i, 60).style}
                   >
                     <span className="font-heading text-[18px] font-black uppercase leading-tight tracking-wide text-white/40">

@@ -9,7 +9,9 @@ import { openCookieSettings } from "@/lib/consent";
 
 const links = [
   { label: "Prípadové štúdie", href: "/pripadove-studie" },
+  { label: "Pozrite si výsledky mojich klientov", href: "#vysledky" },
  
+   
 ];
 
 export default function Footer() {
@@ -70,18 +72,16 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <Button href="#vysledky" size="lg" className="max-w-full">
-                          Pozrite si výsledky mojich klientov
-                        </Button>
+           
           </div>
         </div>
 
         {/* Stredná sekcia: Sociálne siete */}
         <div className="mt-[48px] flex justify-center gap-[20px] text-[#718096]">
-          <a href="#" className="transition-colors hover:text-[#0A1128]">
+          <a href="https://www.instagram.com/fabian.smriga/" className="transition-colors hover:text-[#0A1128]">
             <FaInstagram className="size-[22px]" />
           </a>
-          <a href="#" className="transition-colors hover:text-[#0A1128]">
+          <a href="https://www.facebook.com/share/1BohCNYazZ/" className="transition-colors hover:text-[#0A1128]">
             <FaFacebookF className="size-[20px]" />
           </a>
          

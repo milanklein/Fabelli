@@ -8,6 +8,7 @@ interface ButtonProps {
   href?: string;
   onClick?: () => void;
   size?: "sm" | "lg";
+  variant?: "primary" | "secondary";
   className?: string;
   disabled?: boolean;
   type?: "button" | "submit";
@@ -15,7 +16,14 @@ interface ButtonProps {
 
 const sizeClasses: Record<NonNullable<ButtonProps["size"]>, string> = {
   sm: "px-[15px] py-[15px] text-[18px] max-[444px]:px-[12px] max-[444px]:py-[11px] max-[444px]:text-[14px]",
-  lg: "px-[40px] py-[14px] text-[18px] max-[444px]:px-[22px] max-[444px]:py-[11px] max-[444px]:text-[14px]",
+  lg: "px-[40px] py-[14px] text-[18px] max-[444px]:px-[28px] max-[444px]:py-[13px] max-[444px]:text-[15px]",
+};
+
+const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
+  primary:
+    "bg-gradient-to-r from-purple-from to-purple-to bg-[length:200%_100%] bg-[position:0%_0] shadow-[0px_4px_24.4px_3px_rgba(220,204,238,0.45)] hover:bg-[position:100%_0] hover:shadow-[0px_8px_36px_8px_rgba(220,204,238,0.7)] hover:brightness-110 disabled:hover:bg-[position:0%_0] disabled:hover:brightness-100",
+  secondary:
+    "border border-white bg-gradient-to-r from-purple-from/10 to-purple-to/10 shadow-[0px_4px_24.4px_3px_rgba(220,204,238,0.45)] hover:shadow-[0px_8px_36px_8px_rgba(220,204,238,0.7)] hover:border-white/80",
 };
 
 const MAGNET_STRENGTH = 0.3;
@@ -26,6 +34,7 @@ export default function Button({
   href = "#",
   onClick,
   size = "lg",
+  variant = "primary",
   className = "",
   disabled = false,
   type = "button",
@@ -73,14 +82,16 @@ export default function Button({
   const content = (
     <>
       <span className="relative z-10">{children}</span>
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 animate-button-shine bg-gradient-to-r from-transparent via-white/50 to-transparent"
-      />
+      {variant === "primary" && (
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0 animate-button-shine bg-gradient-to-r from-transparent via-white/50 to-transparent"
+        />
+      )}
     </>
   );
 
-  const linkClassName = `relative inline-flex max-w-full min-w-0 items-center justify-center overflow-hidden text-center rounded-[76px] bg-gradient-to-r from-purple-from to-purple-to bg-[length:200%_100%] bg-[position:0%_0] font-heading font-normal text-white shadow-[0px_4px_24.4px_3px_rgba(220,204,238,0.45)] transition-[transform_120ms_ease-out,box-shadow_300ms_ease-out,background-position_300ms_ease-out,filter_300ms_ease-out] hover:bg-[position:100%_0] hover:shadow-[0px_8px_36px_8px_rgba(220,204,238,0.7)] hover:brightness-110 disabled:pointer-events-none disabled:opacity-40 disabled:shadow-none disabled:hover:bg-[position:0%_0] disabled:hover:brightness-100 ${sizeClasses[size]}`;
+  const linkClassName = `relative inline-flex max-w-full min-w-0 items-center justify-center overflow-hidden text-center rounded-[76px] font-heading font-normal text-white transition-[transform_120ms_ease-out,box-shadow_300ms_ease-out,background-position_300ms_ease-out,filter_300ms_ease-out,border-color_300ms_ease-out] disabled:pointer-events-none disabled:opacity-40 disabled:shadow-none ${variantClasses[variant]} ${sizeClasses[size]}`;
 
   return (
     <span className={`group relative inline-flex min-w-0 max-w-full ${className}`}>

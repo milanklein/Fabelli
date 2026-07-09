@@ -13,13 +13,13 @@ export default function Disqualifiers() {
      
       <div className="mx-auto flex w-full max-w-[814px] flex-col items-start gap-[24px] md:gap-[12px]">
         <Reveal delay={0} duration={500}>
-          <p className="font-heading text-[18px] font-black uppercase leading-[1.4] text-white md:text-[22px]">
+          <p className="font-heading text-[18px] font-black uppercase leading-[1.4] text-white md:text-[22px] text-center md:text-left">
             Nepúšťam sa do spoluprác, ktoré nemajú zmysel.
             <br />
             Preto vám rovno ušetrím čas aj energiu, ak:
           </p>
         </Reveal>
-        <ul className="flex flex-col ">
+        <ul className="flex flex-col gap-4">
           {reasons.map((reason, i) => (
             <li key={reason}>
               <Reveal

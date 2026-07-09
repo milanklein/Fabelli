@@ -12,6 +12,7 @@ import Faq from "@/components/Faq";
 import GallerySlider from "@/components/GallerySlider";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
+import VideoEmbed from "@/components/VideoEmbed";
 
 const title = "Matess - prípadová štúdia | Fabelli";
 const description =
@@ -83,13 +84,7 @@ function TestimonialVideo({
 }) {
   return (
     <div className="relative  shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] h-[553px] w-[280px] md:rounded-[40px]">
-      <iframe
-        src={`https://player.mediadelivery.net/embed/${libraryId}/${videoId}?autoplay=false&loop=false&muted=false&preload=true&responsive=true`}
-        loading="lazy"
-        className="absolute inset-0 h-full w-full border-0"
-        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-        allowFullScreen
-      />
+      <VideoEmbed libraryId={libraryId} videoId={videoId} />
     </div>
   );
 }
@@ -182,9 +177,9 @@ export default function MatessCaseStudyPage() {
                       aria-hidden
                       className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20" 
                     >
-                        <RevealText variant="fall">
+                       
                       Fáza0
-                        </RevealText>
+                     
                     </p>
             <Reveal
               duration={600}
@@ -364,13 +359,7 @@ export default function MatessCaseStudyPage() {
           </div>
         </section>
 
-        <section className="mt-[64px] flex w-full justify-center px-[24px] md:mt-[100px] md:px-[106px]">
-          <Reveal duration={500}>
-            <Button href="/kvalifikacny-formular" size="lg">
-              Úvodná strategická konzultácia
-            </Button>
-          </Reveal>
-        </section>
+      
 
         <section className="mt-[64px] w-full md:mt-[100px]">
           <GallerySlider images={gallery} />

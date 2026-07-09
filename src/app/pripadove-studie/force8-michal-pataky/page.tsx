@@ -10,6 +10,7 @@ import CtaBanner from "@/components/CtaBanner";
 import Faq from "@/components/Faq";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import GallerySlider from "@/components/GallerySlider";
+import VideoEmbed from "@/components/VideoEmbed";
 
 const title = "Force8 - Michal Pataky - prípadová štúdia | Fabelli";
 const description =
@@ -30,6 +31,21 @@ export const metadata: Metadata = {
     images: ["/thumbnails/thumbnail_force8.png"],
   },
 };
+
+
+function TestimonialVideo({
+  libraryId,
+  videoId,
+}: {
+  libraryId: string;
+  videoId: string;
+}) {
+  return (
+    <div className="relative  shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] h-[553px] w-[280px] md:rounded-[40px]">
+      <VideoEmbed libraryId={libraryId} videoId={videoId} />
+    </div>
+  );
+}
 
 export default function Force8CaseStudyPage() {
   return (
@@ -96,9 +112,9 @@ export default function Force8CaseStudyPage() {
               aria-hidden
               className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20"
             >
-             <RevealText variant="fall">
+             
                                   Fáza0
-                                    </RevealText>
+                                  
             </p>
             <Reveal
               duration={600}
@@ -136,7 +152,28 @@ export default function Force8CaseStudyPage() {
         </section>
 
        
-
+    <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
+          <div className="mx-auto flex w-full max-w-[952px] flex-col items-center gap-[40px] md:flex-row md:items-center md:justify-center md:gap-[71px]">
+            <Reveal duration={600} y={20}>
+            <Reveal delay={150} duration={600} y={20}>
+              <TestimonialVideo
+                libraryId="695134"
+                videoId="0b6af2b7-0e09-4e76-b6b5-a77e5419b9f1"
+              />
+            </Reveal>
+            </Reveal>
+            <Reveal delay={150} duration={600} y={20}>
+              <div className="flex w-full max-w-[310px] flex-col items-center gap-[24px] text-center">
+                <p className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-sans text-[22px] text-transparent md:text-[35px] leading-[120%]">
+                  &bdquo;Nie každý dokázal poskytnúť tak komplexnú službu a s takými výsledkami.&ldquo;
+                </p>
+                <p className="bg-gradient-to-r from-purple-from to-purple-to bg-clip-text font-sans text-[16px] font-bold uppercase italic text-transparent">
+                  -Michal
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
         <section className="mt-[64px] w-full md:mt-[100px]">
           <GallerySlider
             images={[
@@ -148,13 +185,7 @@ export default function Force8CaseStudyPage() {
           />
         </section>
 
-        <section className="mt-[64px] flex w-full justify-center px-[24px] md:mt-[100px] md:px-[106px]">
-          <Reveal duration={500}>
-            <Button href="/kvalifikacny-formular" size="lg">
-              Úvodná strategická konzultácia
-            </Button>
-          </Reveal>
-        </section>
+      
 
         <CtaBanner />
 

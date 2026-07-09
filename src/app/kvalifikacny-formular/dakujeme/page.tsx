@@ -8,6 +8,7 @@ import PortfolioGrid from "@/components/PortfolioGrid";
 import ComparisonTable from "@/components/ComparisonTable";
 import Testimonials from "@/components/Testimonials";
 import TestimonialsTY from "@/components/TestimonialsTY";
+import VideoEmbed from "@/components/VideoEmbed";
 
 export const metadata: Metadata = {
   title: "Ďakujem za vyplnenie | Fabelli",
@@ -35,7 +36,7 @@ export default function ThankYouPage() {
                 aria-hidden
                 className="pointer-events-none absolute -left-[80px] -top-[60px] hidden h-auto w-[320px] opacity-[0.08] sm:block"
               />
-              <div className="relative flex w-full max-w-[663px] flex-col items-start gap-[20px]">
+              <div className="relative flex w-full text-center  flex-col items-start gap-[20px]">
                 <h1 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-heading text-[24px] font-black uppercase leading-normal text-transparent sm:text-[38px] leading-[1.2]">
                   Vyplnili ste kvalifikačný formulár na strategický hovor
                 </h1>
@@ -68,12 +69,9 @@ export default function ThankYouPage() {
                 Pozrite si toto video!
               </p>
               <div className="relative aspect-video w-full max-w-[900px] overflow-hidden rounded-[24px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] sm:rounded-[40px]">
-                <iframe
-                  src="https://player.mediadelivery.net/embed/695141/c425154e-ad41-444d-a88b-b09586ce7503?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full border-0"
-                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-                  allowFullScreen
+                <VideoEmbed
+                  libraryId="695141"
+                  videoId="c425154e-ad41-444d-a88b-b09586ce7503"
                 />
               </div>
               <p className="w-full max-w-[900px] bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[18px] font-black uppercase leading-[1.4] text-transparent sm:text-[20px]">
@@ -86,13 +84,10 @@ export default function ThankYouPage() {
                 Čo sa deje na úvodnom hovore?
               </p>
               <div className="relative aspect-video w-full max-w-[900px] overflow-hidden rounded-[24px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] sm:rounded-[40px]">
-                <iframe
-                  src="https://player.mediadelivery.net/embed/695141/762ebcee-8a32-4cd6-9432-099b3f7ae1b6?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full border-0"
-                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-                  allowFullScreen
-                  />
+                <VideoEmbed
+                  libraryId="695141"
+                  videoId="762ebcee-8a32-4cd6-9432-099b3f7ae1b6"
+                />
                   </div>
               </div>
             </div>

@@ -11,6 +11,7 @@ import Faq from "@/components/Faq";
 import GallerySlider from "@/components/GallerySlider";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
+import VideoEmbed from "@/components/VideoEmbed";
 
 const title = "Offlandia - prípadová štúdia | Fabelli";
 const description =
@@ -66,13 +67,7 @@ function TestimonialVideo({
 }) {
   return (
     <div className="relative  shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] h-[553px] w-[280px] sm:rounded-[40px]">
-      <iframe
-        src={`https://player.mediadelivery.net/embed/${libraryId}/${videoId}?autoplay=false&loop=false&muted=false&preload=true&responsive=true`}
-        loading="lazy"
-        className="absolute inset-0 h-full w-full border-0"
-        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-        allowFullScreen
-      />
+      <VideoEmbed libraryId={libraryId} videoId={videoId} />
     </div>
   );
 }
@@ -194,14 +189,14 @@ export default function OfflandiaCaseStudyPage() {
             </div>
 
             <div className="flex w-full max-w-[900px] flex-col gap-[16px] sm:gap-[20px]">
-              <div className="flex w-full gap-[16px] sm:gap-[20px]">
+              <div className="flex w-full gap-[8px] sm:gap-[20px]">
                 {campaignTop.map((src, i) => (
                   <Reveal
                     key={src}
                     delay={i * 100}
                     duration={500}
                     y={16}
-                    className="relative aspect-[357/344] flex-1 overflow-hidden rounded-[20px]"
+                    className="relative aspect-[357/344] flex-1 overflow-hidden rounded-0 md:rounded-[20px]"
                   >
                     <Image
                       src={src}
@@ -213,14 +208,14 @@ export default function OfflandiaCaseStudyPage() {
                   </Reveal>
                 ))}
               </div>
-              <div className="flex w-full gap-[16px] sm:gap-[20px]">
+              <div className="flex flex-col md:flex-row w-full gap-[16px] sm:gap-[20px]">
                 {campaignBottom.map((src, i) => (
                   <Reveal
                     key={src}
                     delay={300 + i * 100}
                     duration={500}
                     y={16}
-                    className="relative aspect-[546/223] flex-1 overflow-hidden rounded-[20px]"
+                    className="relative aspect-[546/223] flex-1 overflow-hidden rounded-0 md:rounded-[20px]"
                   >
                     <Image
                       src={src}
@@ -257,7 +252,7 @@ export default function OfflandiaCaseStudyPage() {
                 Za 12 mesiacov prešli od prežívania k expanzii!
               </RevealText>
             </h2>
-            <div className="flex w-full items-start justify-center gap-[12px] sm:gap-[18px]">
+            <div className="flex flex-col md:flex-row  justify-center w-full items-center md:items-start justify-center gap-[12px] sm:gap-[18px]">
               <Reveal
                 delay={0}
                 duration={600}
@@ -323,14 +318,7 @@ export default function OfflandiaCaseStudyPage() {
           </div>
         </section>
 
-        <section className="mt-[64px] flex w-full justify-center px-[24px] sm:mt-[100px] sm:px-[106px]">
-          <Reveal duration={500}>
-            <Button href="/kvalifikacny-formular" size="lg">
-              Úvodná strategická konzultácia
-            </Button>
-          </Reveal>
-        </section>
-
+      
         <section className="mt-[64px] w-full px-[24px] sm:mt-[100px] sm:px-[106px]">
           <CaseStudyTestimonialsSwiper
             videos={[

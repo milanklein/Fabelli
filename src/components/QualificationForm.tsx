@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import * as Flags from "country-flag-icons/react/3x2";
 import Button from "./Button";
 import { getCleanPhone, getCookie, trackEvent } from "@/lib/tracking";
+import { CONSENT_CHANGE_EVENT, hasMarketingConsent } from "@/lib/consent";
 
 type FormData = {
   name: string;
@@ -92,9 +94,17 @@ export default function QualificationForm() {
     setData((prev) => ({ ...prev, ...patch }));
 
   useEffect(() => {
-    if (sessionStorage.getItem("viewcontent_fired")) return;
-    trackEvent("ViewContent", { content_name: "Fáza 0 qualification form" });
-    sessionStorage.setItem("viewcontent_fired", "true");
+    const fireViewContent = () => {
+      if (sessionStorage.getItem("viewcontent_fired")) return;
+      if (!hasMarketingConsent()) return;
+      trackEvent("ViewContent", { content_name: "Fáza 0 qualification form" });
+      sessionStorage.setItem("viewcontent_fired", "true");
+    };
+
+    fireViewContent();
+    window.addEventListener(CONSENT_CHANGE_EVENT, fireViewContent);
+    return () =>
+      window.removeEventListener(CONSENT_CHANGE_EVENT, fireViewContent);
   }, []);
 
   const validateStep = () => {
@@ -345,11 +355,14 @@ function TextStep({
   onChange: (value: string) => void;
 }) {
   return (
-    <div className="flex w-full max-w-[500px] flex-col items-start gap-[10px]">
+    <div className="flex w-full max-w-[500px] flex-col items-center gap-[10px]">
+      <div className="flex flex-col items-center">
       <p className="w-full font-sans text-[16px] text-white sm:text-[17px]">
         {label}
-        {hint && <br /> && <span className="ml-[6px] text-white/30">{hint}</span>}
+      
       </p>
+      {hint && <span className="text-[16px] text-center sm:text-[17px] ml-[6px] text-white/30">{hint}</span>}
+      </div>
       <input
         type="text"
         value={value}
@@ -395,25 +408,48 @@ function ContactStep({
   data: FormData;
   onChange: (patch: Partial<FormData>) => void;
 }) {
+  const [codeMenuOpen, setCodeMenuOpen] = useState(false);
+  const codeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!codeMenuOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (codeRef.current && !codeRef.current.contains(e.target as Node)) {
+        setCodeMenuOpen(false);
+      }
+    };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setCodeMenuOpen(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [codeMenuOpen]);
+
+  const selected =
+    euCountries.find((c) => c.code === data.countryCode) ?? euCountries[0];
+  const SelectedFlag = Flags[selected.country as keyof typeof Flags];
+
   return (
     <div className="flex w-full max-w-[500px] flex-col items-start gap-[10px]">
       <p className="w-full font-sans text-[16px] text-white sm:text-[17px]">
         Ako vás dokážem kontaktovať?
       </p>
       <div className="flex w-full gap-[10px]">
-        <div className="relative h-[45px] w-[110px] shrink-0">
-          <select
-            value={data.countryCode}
-            onChange={(e) => onChange({ countryCode: e.target.value })}
-            aria-label="Predvoľba krajiny"
-            className="h-full w-full appearance-none rounded-[20px] bg-white py-0 pl-[14px] pr-[26px] font-sans text-[15px] text-[#0c1728] focus:outline-none focus:ring-2 focus:ring-purple-from"
+        <div ref={codeRef} className="relative h-[45px] w-[118px] shrink-0">
+          <button
+            type="button"
+            onClick={() => setCodeMenuOpen((prev) => !prev)}
+            aria-label="Vybrať predvoľbu krajiny"
+            className="flex h-full w-full items-center gap-[8px] rounded-[20px] bg-white pl-[14px] pr-[26px] font-sans text-[15px] text-[#0c1728] focus:outline-none focus:ring-2 focus:ring-purple-from"
           >
-            {euCountries.map((c) => (
-              <option key={c.country} value={c.code}>
-                {c.flag} {c.code}
-              </option>
-            ))}
-          </select>
+            <SelectedFlag className="h-[14px] w-[20px] shrink-0 rounded-[2px] object-cover" />
+            <span>{selected.code}</span>
+          </button>
           <svg
             aria-hidden
             viewBox="0 0 24 24"
@@ -428,6 +464,31 @@ function ContactStep({
               strokeLinejoin="round"
             />
           </svg>
+
+          {codeMenuOpen && (
+            <div className="absolute left-0 top-[calc(100%+8px)] z-20 max-h-[240px] w-[220px] overflow-y-auto rounded-[16px] bg-white p-[8px] shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+              {euCountries.map((c) => {
+                const Flag = Flags[c.country as keyof typeof Flags];
+                return (
+                  <button
+                    key={c.country}
+                    type="button"
+                    onClick={() => {
+                      onChange({ countryCode: c.code });
+                      setCodeMenuOpen(false);
+                    }}
+                    className={`flex w-full items-center gap-[10px] rounded-[10px] px-[10px] py-[8px] text-left font-sans text-[14px] text-[#0c1728] transition-colors hover:bg-black/5 ${
+                      c.code === data.countryCode ? "bg-black/5 font-semibold" : ""
+                    }`}
+                  >
+                    <Flag className="h-[14px] w-[20px] shrink-0 rounded-[2px] object-cover" />
+                    <span className="w-[45px] shrink-0">{c.code}</span>
+                    <span className="truncate text-black/60">{c.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
         <input
           type="tel"
@@ -520,6 +581,18 @@ function TurnoverStep({
   value: number;
   onChange: (value: number) => void;
 }) {
+  const [text, setText] = useState(() => value.toLocaleString("sk-SK"));
+
+  useEffect(() => {
+    setText(value.toLocaleString("sk-SK"));
+  }, [value]);
+
+  const commit = (raw: string) => {
+    const digits = raw.replace(/\D/g, "");
+    const parsed = digits ? Number(digits) : TURNOVER_MIN;
+    onChange(Math.min(TURNOVER_MAX, Math.max(TURNOVER_MIN, parsed)));
+  };
+
   return (
     <div className="flex w-full max-w-[586px] flex-col items-center gap-[24px]">
       <p className="w-full text-center font-sans text-[16px] text-white sm:text-[17px]">
@@ -542,9 +615,17 @@ function TurnoverStep({
         </div>
       </div>
       <div className="flex items-center gap-[16px] rounded-[45px] bg-gradient-to-r from-heading-from to-heading-to px-[28px] py-[14px]">
-        <span className="font-sans text-[18px] font-semibold text-[#1b2b3e]">
-          {value.toLocaleString("sk-SK")}
-        </span>
+        <input
+          type="text"
+          inputMode="numeric"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onBlur={(e) => commit(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") e.currentTarget.blur();
+          }}
+          className="w-[90px] bg-transparent text-right font-sans text-[18px] font-semibold text-[#1b2b3e] focus:outline-none"
+        />
         <span className="font-sans text-[16px] font-bold text-[#1b2b3e]">
           € / mesiac
         </span>

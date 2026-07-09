@@ -4,6 +4,8 @@ import Header from "./Header";
 import GlowCircle from "./GlowCircle";
 import Reveal from "./Reveal";
 import RevealText from "./RevealText";
+import RotatingWord from "./RotatingWord";
+import VideoEmbed from "./VideoEmbed";
 export default function Hero() {
   return (
     <section className="relative w-full overflow-x-hidden bg-background">
@@ -19,33 +21,34 @@ export default function Hero() {
         <Reveal delay={0} duration={500} y={12} immediate>
           <Header />
         </Reveal>
-        <div className="flex w-full flex-col-reverse items-start gap-[40px] lg:flex-row lg:gap-[60px]">
-          <Reveal
-            delay={120}
-            duration={700}
-            y={20}
-            immediate
-            className="relative h-[368px] w-full shrink-0 overflow-hidden rounded-[30px] bg-navy-panel block lg:w-[500px] xl:w-[654px]"
-          >
-            <iframe
-              src="https://player.mediadelivery.net/embed/687317/0d4779a0-76f4-42c5-81ce-70c66f06f332?autoplay=false&loop=false&muted=true&preload=true&responsive=true"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full border-0"
-              allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-              allowFullScreen
-            />
-          </Reveal>
+        <div className="flex w-full flex-col-reverse items-start gap-[40px] lg:w-1/2 lg:flex-row lg:gap-[60px]">
+       <Reveal
+  delay={120}
+  duration={700}
+  y={20}
+  immediate
+  // ZMENA: Odstránili sme h-auto a pridali w-full spolu s aspect-video
+  className="relative w-full aspect-video shrink-0 overflow-hidden rounded-[30px] bg-navy-panel block"
+>
+  <VideoEmbed
+    libraryId="687317"
+    videoId="0d4779a0-76f4-42c5-81ce-70c66f06f332"
+    muted
+  />
+</Reveal>
           <div className="flex w-full flex-1 flex-col items-start gap-[30px]">
             <div className="flex w-full flex-col items-start gap-[12px]">
               <h1 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-heading text-[32px] font-black uppercase leading-normal text-transparent lg:text-[38px]">
                 <RevealText immediate>
                   <span className="block">Kompetencia pramení</span>
                   <span className="block">z poznania</span>
-                  <span className="block text-accent-blue">trhu</span>
                 </RevealText>
+                <span className="block">
+                  <RotatingWord className="text-accent-blue" />
+                </span>
               </h1>
               <Reveal delay={200} duration={500} immediate>
-                <p className="w-full font-sans text-[18px] text-white lg:text-[20px]">
+                <p className="w-full font-sans text-[16px] text-white lg:text-[20px] leading-[1.2]">
                   Preto trávim 2 týždne prieskumom predtým, než pripravím prvý výstup
                 </p>
               </Reveal>
