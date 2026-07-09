@@ -44,6 +44,9 @@ export default function ClosingCta() {
               width={129}
               height={84}
             />
+            <ButtonArrow href="#vysledky" className="">
+            Chcem stratégiu
+          </ButtonArrow>
           </div>
         </Reveal>
 

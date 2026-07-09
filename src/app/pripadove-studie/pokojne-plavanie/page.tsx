@@ -60,7 +60,7 @@ const photos = [`${IMG}/photo-1.png`, `${IMG}/photo-2.png`];
 export default function PokojnePlavanieCaseStudyPage() {
   return (
     <>
-      <main className="flex flex-1 flex-col bg-background">
+      <main className="flex flex-1 flex-col bg-background overflow-hidden">
         <section className="relative w-full overflow-x-hidden bg-background">
           <GlowCircle className="-top-[300px] -right-[200px]" />
           <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[40px] px-[24px] pb-[40px] pt-[40px] md:gap-[60px] md:px-[106px] md:pt-[58px]">
@@ -118,13 +118,13 @@ export default function PokojnePlavanieCaseStudyPage() {
           <div className="relative mx-auto flex w-full max-w-[1048px] flex-col items-center text-center">
             <p
               aria-hidden
-              className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[76px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20"
+              className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20"
             >
               Fáza 0
             </p>
             <Reveal
               duration={600}
-              className="-g-gradient-to-b from-transparent to-[#0C1728] to-10% -mt-[10px] w-full max-w-[621px] font-sans text-[16px] text-white md:-mt-[20px] md:text-[20px] leading-[120%] mt-10"
+              className="-g-gradient-to-b from-transparent to-[#0C1728] to-10% -mt-[10px] w-full max-w-[621px] font-sans text-[16px] text-white md:-mt-[20px] md:text-[20px] leading-[120%] mt-10 pt-4"
             >
               <p>
                 Fáza 0 - čiže detailný prieskum odhalil, že jej reklamy a
@@ -222,7 +222,7 @@ export default function PokojnePlavanieCaseStudyPage() {
         <CtaBanner />
 
         <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
-          <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[42px]">
+          <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[20px] md:gap-[42px]">
             <h2 className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase text-transparent md:text-[29px]">
               <RevealText>Ostatné projekty</RevealText>
             </h2>

@@ -130,13 +130,13 @@ export default function ProcessTimeline() {
                 {/* Desktop: pôvodný 3-stĺpcový layout (bod / Fáza / obsah), zarovnaný na vrch riadku */}
                 <div className="hidden md:grid md:grid-cols-[auto_auto_1fr] md:items-start md:gap-x-[28px]">
                   <div
-                    className={`z-10 mt-[8px] flex justify-center ${reveal(i).className}`}
+                    className={`z-10 flex justify-center pt-[24px] ${reveal(i).className}`}
                     style={reveal(i).style}
                   >
                     <TimelineDot variant="blue" />
                   </div>
                   <div
-                    className={`mt-[2px] whitespace-nowrap font-heading text-[36px] font-black uppercase tracking-wide text-white/40 ${reveal(i, 60).className}`}
+                    className={`w-[170px] shrink-0 whitespace-nowrap pt-[24px] font-heading text-[36px] font-black uppercase leading-none tracking-wide text-white/40 ${reveal(i, 60).className}`}
                     style={reveal(i, 60).style}
                   >
                     {phase.label}
@@ -173,9 +173,9 @@ export default function ProcessTimeline() {
                 </div>
               </div>
 
-              <div className="hidden md:grid md:grid-cols-[auto_auto_1fr] md:items-start md:gap-x-[28px]">
+              <div className="hidden md:grid md:grid-cols-[auto_auto_1fr] md:items-center md:gap-x-[28px]">
                 <div
-                  className={`z-10 mt-[8px] flex justify-center ${reveal(phases.length).className}`}
+                  className={`z-10 flex justify-center ${reveal(phases.length).className}`}
                   style={reveal(phases.length).style}
                 >
                   <TimelineDot variant="purple" />

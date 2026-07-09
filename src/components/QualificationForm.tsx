@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "./Button";
+import { getCleanPhone, getCookie, trackEvent } from "@/lib/tracking";
 
 type FormData = {
   name: string;
@@ -90,6 +91,12 @@ export default function QualificationForm() {
   const update = (patch: Partial<FormData>) =>
     setData((prev) => ({ ...prev, ...patch }));
 
+  useEffect(() => {
+    if (sessionStorage.getItem("viewcontent_fired")) return;
+    trackEvent("ViewContent", { content_name: "Fáza 0 qualification form" });
+    sessionStorage.setItem("viewcontent_fired", "true");
+  }, []);
+
   const validateStep = () => {
     if (step === 1) return data.name.trim().length > 0;
     if (step === 2) {
@@ -112,13 +119,46 @@ export default function QualificationForm() {
       return;
     }
     setError("");
+
+    if (step === 2 && !sessionStorage.getItem("contact_fired")) {
+      trackEvent(
+        "Contact",
+        {},
+        {
+          name: data.name,
+          email: data.email,
+          phone: getCleanPhone(data.countryCode, data.phone),
+        },
+      );
+      sessionStorage.setItem("contact_fired", "true");
+    }
+
     if (step === TOTAL_STEPS) {
       setIsSubmitting(true);
+      trackEvent(
+        "Lead",
+        { content_name: "Fáza 0 qualification form" },
+        {
+          name: data.name,
+          email: data.email,
+          phone: getCleanPhone(data.countryCode, data.phone),
+          marketing: data.marketing,
+          web: data.website,
+          zodpovedny: data.responsible,
+          obrat: data.turnover,
+          ciel: data.goal,
+          kontakt: data.contactAnytime,
+        },
+      );
       try {
         const res = await fetch("/api/submit-formular", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify({
+            ...data,
+            fbp: getCookie("_fbp"),
+            fbc: getCookie("_fbc"),
+          }),
         });
         if (!res.ok) {
           console.error("Nepodarilo sa odoslať formulár do Google Sheets");

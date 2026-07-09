@@ -25,7 +25,7 @@ export default function Hero() {
             duration={700}
             y={20}
             immediate
-            className="relative h-[368px] w-full shrink-0 overflow-hidden rounded-[30px] bg-navy-panel block lg:w-[654px]"
+            className="relative h-[368px] w-full shrink-0 overflow-hidden rounded-[30px] bg-navy-panel block lg:w-[500px] xl:w-[654px]"
           >
             <iframe
               src="https://player.mediadelivery.net/embed/687317/0d4779a0-76f4-42c5-81ce-70c66f06f332?autoplay=false&loop=false&muted=true&preload=true&responsive=true"

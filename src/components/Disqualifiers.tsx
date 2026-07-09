@@ -10,7 +10,7 @@ const reasons = [
 export default function Disqualifiers() {
   return (
     <section className="overflow-hidden relative mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
-      <GlowCircle className="-top-50 left-0" />
+     
       <div className="mx-auto flex w-full max-w-[814px] flex-col items-start gap-[24px] md:gap-[12px]">
         <Reveal delay={0} duration={500}>
           <p className="font-heading text-[18px] font-black uppercase leading-[1.4] text-white md:text-[22px]">

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { type MouseEvent, type ReactNode } from "react";
+import { type MouseEvent, type ReactNode, useRef } from "react";
 
 interface ButtonArrowProps {
   children: ReactNode;
@@ -19,24 +19,43 @@ export default function ButtonArrow({
   onClick,
   className = "",
 }: ButtonArrowProps) {
+  const rectRef = useRef<DOMRect | null>(null);
+  const rafRef = useRef<number | null>(null);
+
+  const handleMouseEnter = (
+    e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+  ) => {
+    rectRef.current = e.currentTarget.getBoundingClientRect();
+  };
+
   const handleMouseMove = (
     e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
   ) => {
     const el = e.currentTarget;
-    const rect = el.getBoundingClientRect();
-    const offsetX = e.clientX - (rect.left + rect.width / 2);
-    const offsetY = e.clientY - (rect.top + rect.height / 2);
-    const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
-    const maxDistance = rect.width / 2 + MAGNET_RADIUS;
+    const rect = rectRef.current ?? el.getBoundingClientRect();
+    const { clientX, clientY } = e;
 
-    if (distance < maxDistance) {
-      el.style.transform = `translate(${offsetX * MAGNET_STRENGTH}px, ${offsetY * MAGNET_STRENGTH}px)`;
-    }
+    if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      const offsetX = clientX - (rect.left + rect.width / 2);
+      const offsetY = clientY - (rect.top + rect.height / 2);
+      const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
+      const maxDistance = rect.width / 2 + MAGNET_RADIUS;
+
+      if (distance < maxDistance) {
+        el.style.transform = `translate(${offsetX * MAGNET_STRENGTH}px, ${offsetY * MAGNET_STRENGTH}px)`;
+      }
+    });
   };
 
   const handleMouseLeave = (
     e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
   ) => {
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+    rectRef.current = null;
     e.currentTarget.style.transform = "";
   };
 
@@ -79,7 +98,7 @@ export default function ButtonArrow({
   );
 
   const linkClassName =
-    "relative flex max-w-full min-w-0 items-center gap-[24px] overflow-hidden rounded-[76px] bg-gradient-to-r from-purple-from to-purple-to py-[10px] pl-[32px] pr-[32px] md:pr-[10px] font-heading text-[16px] font-normal text-white shadow-[0px_4px_24.4px_3px_rgba(220,204,238,0.45)] transition-transform duration-200 ease-out sm:text-[18px]";
+    "relative flex max-w-full min-w-0 items-center gap-[24px] overflow-hidden rounded-[76px] bg-gradient-to-r from-purple-from to-purple-to py-[10px] pl-[32px] pr-[32px] md:pr-[10px] font-heading text-[16px] font-normal text-white shadow-[0px_4px_24.4px_3px_rgba(220,204,238,0.45)] transition-transform duration-[120ms] ease-out sm:text-[18px] max-[444px]:gap-[14px] max-[444px]:py-[8px] max-[444px]:pl-[18px] max-[444px]:pr-[18px] max-[444px]:text-[13px]";
 
   return (
     <span className={`group relative inline-flex min-w-0 max-w-full ${className}`}>
@@ -91,6 +110,7 @@ export default function ButtonArrow({
         <button
           type="button"
           onClick={onClick}
+          onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={linkClassName}
@@ -100,6 +120,7 @@ export default function ButtonArrow({
       ) : (
         <Link
           href={href}
+          onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={linkClassName}

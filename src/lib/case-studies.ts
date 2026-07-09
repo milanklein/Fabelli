@@ -92,7 +92,7 @@ export const caseStudies: CaseStudy[] = [
 ];
 
 /** Only slugs with an actual /pripadove-studie/[slug] page built so far. */
-const LIVE_SLUGS = new Set([
+export const LIVE_SLUGS = new Set([
   "matess",
   "jovitep",
   "offlandia",

@@ -134,14 +134,18 @@ body {
   }
 }
 
-/* ComparisonTable (mobile, transponovaná tabuľka): pod 530px zúžime stĺpce
+/* ComparisonTable (mobile, transponovaná <table>): pod 530px zúžime stĺpce
    metrík, aby zostávajúci obsah bol čitateľný aj vedľa sticky stĺpca. */
-.ct-mobile-grid {
-  grid-template-columns: 72px repeat(5, 168px);
+.ct-mobile-col-label {
+  width: 72px;
+}
+
+.ct-mobile-col-value {
+  width: 200px;
 }
 
 @media (max-width: 530px) {
-  .ct-mobile-grid {
-    grid-template-columns: 72px repeat(5, 120px);
+  .ct-mobile-col-value {
+    width: 170px;
   }
 }

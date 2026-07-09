@@ -64,7 +64,7 @@ function TestimonialVideo({
 export default function JovitepCaseStudyPage() {
   return (
     <>
-      <main className="flex flex-1 flex-col bg-background">
+      <main className="flex flex-1 flex-col bg-background overflow-hidden">
         <section className="relative w-full overflow-x-hidden bg-background">
           <GlowCircle className="-top-[300px] -right-[200px]" />
           <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[40px] px-[24px] pb-[40px] pt-[40px] sm:gap-[60px] sm:px-[106px] sm:pt-[58px]">
@@ -119,11 +119,11 @@ export default function JovitepCaseStudyPage() {
           </div>
         </section>
 
-        <section className="relative w-full px-[24px] sm:px-[106px]">
+        <section className="relative w-full px-4 sm:px-[106px]">
           <div className="relative mx-auto flex w-full max-w-[1048px] flex-col items-center text-center">
             <p
               aria-hidden
-              className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[76px] font-black uppercase leading-none text-transparent opacity-[0.43] sm:mt-[89px] sm:text-[223px] sm:leading-[1.05] sticky top-60 md:top-20"
+              className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] sm:mt-[89px] sm:text-[223px] sm:leading-[1.05] sticky top-60 md:top-20"
             >
               <RevealText variant="fall">Fáza0</RevealText>
             </p>
@@ -131,7 +131,7 @@ export default function JovitepCaseStudyPage() {
               
             <Reveal
               duration={600}
-              className="-mt-[10px] w-full max-w-[621px] bg-gradient-to-b from-transparent to-[#0C1728] to-10% font-sans text-[16px] leading-[120%] text-white sm:-mt-[20px] sm:text-[20px]"
+              className="-mt-[10px] w-full max-w-[621px] bg-gradient-to-b from-transparent to-[#0C1728] to-10% font-sans text-[16px] leading-[120%] text-white sm:-mt-[20px] sm:text-[20px] pt-4"
               >
               <p>
                 Úvodný prieskum trhu mi dal jasno v tom, podľa akých kritérií
@@ -244,7 +244,7 @@ export default function JovitepCaseStudyPage() {
         <CtaBanner />
 
         <section className="mt-[64px] w-full px-0 sm:mt-[100px] sm:px-[106px]">
-          <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[42px]">
+          <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[20px] md:gap-[42px]">
             <h2 className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase text-transparent sm:text-[29px]">
               <RevealText>Ostatné projekty</RevealText>
             </h2>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BoxIcon, CallIcon, PeopleIcon, TaskIcon, WalletIcon } from "./icons";
 
 const rows = [
@@ -80,89 +80,99 @@ export default function ComparisonTable() {
   return (
     <section className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
       <div ref={ref} className="mx-auto w-full max-w-[1006px]">
-        {/* MOBILE: transponovaná tabuľka — metriky ako stĺpce hore, plány (Špecialisti / Môj hybridný model / Agentúry) ako riadky vľavo */}
+        {/* MOBILE: transponovaná tabuľka (natívny <table>) — metriky ako stĺpce hore, plány (Špecialisti / Môj hybridný model / Agentúry) ako riadky vľavo. Natívna tabuľka namiesto CSS grid: prvý stĺpec (sticky) tak má garantovanú synchronizáciu výšky riadkov naprieč prehliadačmi. */}
         <div className="overflow-x-auto py-10 md:hidden">
-          {/* .ct-mobile-grid (globals.css) hardcodes 5 metric columns — keep in sync with rows.length */}
-          <div
-            className="ct-mobile-grid relative grid items-stretch"
-            style={{
-              gridTemplateRows: `auto repeat(${plans.length}, auto)`,
-            }}
-          >
-            {/* Zvýraznené pozadie riadku "Môj hybridný model" (3. riadok grid-u) */}
-            <div
-              aria-hidden
-              className="ml-20 rounded-[24px] border-[0.2px] border-[#D9EBF8] bg-gradient-to-r from-navy-panel/70 via-navy-panel/40 to-navy-panel/70 shadow-[0_0_40px_8px_rgba(107,146,175,0.25)]"
-              style={{ gridRow: 3, gridColumn: "1 / -1" }}
-            />
-
-            {/* Hlavičky metrík hore */}
-            {rows.map((row, i) => {
-              const r = reveal(i * 40);
-              return (
-                <div
-                  key={row.label}
-                  style={{ gridRow: 1, gridColumn: i + 2, ...r.style }}
-                  className={`flex flex-col items-center justify-end gap-[8px] pb-[16px] text-center ${
-                    i > 0 ? "border-l border-dashed border-white/15" : ""
-                  } ${r.className}`}
-                >
-                  <row.icon className="size-[20px] shrink-0 text-purple-from" />
-                  <span className="font-sans text-[12px] font-semibold leading-[1.2] text-white">
-                    {row.label}
-                  </span>
-                </div>
-              );
-            })}
-
-            {/* Riadky plánov: rotovaný label vľavo (sticky) + hodnoty */}
-            {plans.map((plan, j) => {
-              const labelReveal = reveal(150 + j * 60);
-              return (
-                <Fragment key={plan.key}>
-                  <div
-                    style={{ gridRow: j + 2, gridColumn: 1, ...labelReveal.style }}
-                    className={`sticky left-0 z-20 flex items-center justify-center bg-background py-[16px] ${labelReveal.className}`}
-                  >
-                    <span
-                      className={`[writing-mode:vertical-rl] rotate-180 whitespace-nowrap font-heading uppercase ${
-                        plan.highlight
-                          ? "text-[15px] font-black text-white"
-                          : "text-[13px] font-normal text-white/80"
+          <table style={{ tableLayout: "fixed" }}>
+            <colgroup>
+              <col className="ct-mobile-col-label" />
+              {rows.map((row) => (
+                <col key={row.label} className="ct-mobile-col-value" />
+              ))}
+            </colgroup>
+            <thead>
+              <tr>
+                <th className="sticky left-0 z-20 bg-background p-0" />
+                {rows.map((row, i) => {
+                  const r = reveal(i * 40);
+                  return (
+                    <th
+                      key={row.label}
+                      scope="col"
+                      className={`p-0 align-bottom font-normal ${
+                        i > 0 ? "border-l border-dashed border-white/15" : ""
                       }`}
                     >
-                      {plan.label}
-                    </span>
-                  </div>
-
-                  {rows.map((row, i) => {
-                    const cellReveal = reveal(150 + j * 60 + i * 20);
-                    return (
                       <div
-                        key={row.label}
-                        style={{
-                          gridRow: j + 2,
-                          gridColumn: i + 2,
-                          ...cellReveal.style,
-                        }}
-                        className={`z-10 flex items-center justify-center px-[10px] py-[16px] text-center ${
-                          i > 0 ? "border-l border-dashed border-white/15" : ""
-                        } ${cellReveal.className}`}
+                        style={r.style}
+                        className={`flex flex-col items-center justify-end gap-[8px] px-[10px] pb-[16px] text-center ${r.className}`}
                       >
-                        <span
-                          className={`font-sans text-[13px] leading-[1.3] ${
-                            plan.highlight ? "font-bold text-white" : "text-white/70"
-                          }`}
-                        >
-                          {row[plan.key]}
+                        <row.icon className="size-[20px] shrink-0 text-purple-from" />
+                        <span className="font-sans text-[12px] font-semibold leading-[1.2] text-white">
+                          {row.label}
                         </span>
                       </div>
-                    );
-                  })}
-                </Fragment>
-              );
-            })}
-          </div>
+                    </th>
+                  );
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {plans.map((plan, j) => {
+                const labelReveal = reveal(150 + j * 60);
+                return (
+                  <tr key={plan.key}>
+                    <td
+                      className={`sticky left-0 z-20 p-0 ${plan.highlight ? "bg-navy-panel" : "bg-background"}`}
+                    >
+                      <div
+                        style={labelReveal.style}
+                        className={`flex items-center justify-center py-[16px] transition-opacity duration-500 ease-out motion-reduce:transition-none ${
+                          visible ? "opacity-100" : "opacity-0"
+                        }`}
+                      >
+                        <span
+                          className={`[writing-mode:vertical-rl] rotate-180 whitespace-nowrap font-heading uppercase ${
+                            plan.highlight
+                              ? "text-[15px] font-black text-white"
+                              : "text-[13px] font-normal text-white/80"
+                          }`}
+                        >
+                          {plan.label}
+                        </span>
+                      </div>
+                    </td>
+
+                    {rows.map((row, i) => {
+                      const cellReveal = reveal(150 + j * 60 + i * 20);
+                      return (
+                        <td
+                          key={row.label}
+                          className={`p-0 ${
+                            plan.highlight
+                              ? "bg-gradient-to-r from-navy-panel/70 via-navy-panel/40 to-navy-panel/70"
+                              : ""
+                          } ${i > 0 ? "border-l border-dashed border-white/15" : ""}`}
+                        >
+                          <div
+                            style={cellReveal.style}
+                            className={`flex items-center justify-center px-[10px] py-[16px] text-center ${cellReveal.className}`}
+                          >
+                            <span
+                              className={`font-sans text-[13px] leading-[1.3] ${
+                                plan.highlight ? "font-bold text-white" : "text-white/70"
+                              }`}
+                            >
+                              {row[plan.key]}
+                            </span>
+                          </div>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
 
         {/* DESKTOP: pôvodná 4-stĺpcová tabuľka */}

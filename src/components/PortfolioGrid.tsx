@@ -217,7 +217,7 @@ export default function PortfolioGrid() {
   }, [lightbox]);
 
   return (
-    <section className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] pb-4">
+    <section id="vysledky"className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] pb-4">
       <div className="mx-auto flex w-full max-w-[952px] flex-col items-center gap-[48px] md:gap-[64px]">
         <h2 className="text-center font-heading text-[24px] font-black uppercase leading-[1.3] text-white md:text-[32px]">
           <RevealText>Spolupráca, <br/> Kde víťazia obe strany!</RevealText>

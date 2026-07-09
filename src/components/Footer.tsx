@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
 import Reveal from "./Reveal";
 import { FaInstagram, FaFacebookF } from "react-icons/fa"; // Predpokladám react-icons, uprav podľa potreby
+import { openCookieSettings } from "@/lib/consent";
 
 const links = [
   { label: "Prípadové štúdie", href: "/pripadove-studie" },
@@ -85,10 +88,17 @@ export default function Footer() {
         </div>
 
         {/* Spodná sekcia: Copyright */}
-        <div className="mt-[32px] border-t border-[#0a1128]/10 pt-[24px]">
+        <div className="mt-[32px] flex flex-col items-center gap-[12px] border-t border-[#0a1128]/10 pt-[24px]">
           <p className="text-center font-sans text-[14px] text-[#4A5568]">
             © 2026 <span className="font-bold text-[#0A1128]">Fabelli s.r.o.</span> Všetky práva vyhradené.
           </p>
+          <button
+            type="button"
+            onClick={openCookieSettings}
+            className="font-sans text-[13px] text-[#4A5568] underline transition-colors hover:text-[#0A1128]"
+          >
+            Nastavenia cookies
+          </button>
         </div>
 
       </Reveal>

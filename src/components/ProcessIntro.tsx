@@ -31,17 +31,17 @@ const steps = [
 
 export default function ProcessIntro() {
   return (
-    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] overflow-hidden">
+    <section className="mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] overflow-hidden pb-6">
       <div className="mx-auto flex w-full max-w-[1048px] flex-col items-center">
         <h2 className="w-full text-center font-heading text-[24px] font-black uppercase leading-[1.5] text-white md:text-[32px] ">
           <RevealText>
             Úvodný proces končí tam,<br /> kde väčšina marketérov iba začína…
           </RevealText>
         </h2>
-<div className="relative">
+<div className="relative max-w-full">
         <p
           aria-hidden
-          className="mt-[40px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[76px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-80 md:top-40 mb-10 md:mb-0" 
+          className="mt-[40px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[76px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-20 sm:top-80 md:top-40 mb-10 md:mb-0 max-w-full" 
         >
             <RevealText variant="fall">
           Fáza0
@@ -55,7 +55,7 @@ export default function ProcessIntro() {
             </RevealText>
           </h3>
 
-          <ul className="flex w-full max-w-[736px] flex-col">
+          <ul className="flex w-full max-w-full md:max-w-[736px] flex-col">
             {steps.map((step, i) => (
               <li key={step.text}>
                 <Reveal delay={i * 90} duration={500} y={16}>

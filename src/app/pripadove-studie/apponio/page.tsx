@@ -48,10 +48,30 @@ const funnelStats = [
   { value: "meta", label: "nastavenie platených reklám na platforme Meta" },
 ];
 
+
+function TestimonialVideo({
+  libraryId,
+  videoId,
+}: {
+  libraryId: string;
+  videoId: string;
+}) {
+  return (
+    <div className="relative  shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] h-[553px] w-[280px] md:rounded-[40px]">
+      <iframe
+        src={`https://player.mediadelivery.net/embed/${libraryId}/${videoId}?autoplay=false&loop=false&muted=false&preload=true&responsive=true`}
+        loading="lazy"
+        className="absolute inset-0 h-full w-full border-0"
+        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
+        allowFullScreen
+      />
+    </div>
+  );
+}
 export default function ApponioCaseStudyPage() {
   return (
     <>
-      <main className="flex flex-1 flex-col bg-background">
+      <main className="flex flex-1 flex-col bg-background overflow-hidden">
         <section className="relative w-full overflow-x-hidden bg-background">
           <GlowCircle className="-top-[300px] -right-[200px]" />
           <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[40px] px-[24px] pb-[40px] pt-[40px] md:gap-[60px] md:px-[106px] md:pt-[58px]">
@@ -115,7 +135,7 @@ export default function ApponioCaseStudyPage() {
           <div className="relative mx-auto flex w-full max-w-[1048px] flex-col items-center text-center">
              <p
                                  aria-hidden
-                                 className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[76px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20" 
+                                 className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20" 
                                >
                                    <RevealText variant="fall">
                                  Fáza0
@@ -123,7 +143,7 @@ export default function ApponioCaseStudyPage() {
                                </p>
             <Reveal
               duration={600}
-              className="bg-gradient-to-b from-transparent to-[#0C1728] to-10% -mt-[10px] w-full  font-sans text-[16px] text-white md:-mt-[20px] md:text-[20px] leading-[120%] mt-10"
+              className="bg-gradient-to-b from-transparent to-[#0C1728] to-10% -mt-[10px] w-full  font-sans text-[16px] text-white md:-mt-[20px] md:text-[20px] leading-[120%] mt-10 pt-4"
             >
               <p className="w-full max-w-[621px] mx-auto pt-2 bg-gradient-to-b from-transparent to-[#0C1728] to-10%" >
                 Počas dlhej úvodnej prieskumovej fázy som odhalil 7
@@ -198,7 +218,28 @@ export default function ApponioCaseStudyPage() {
           </Reveal>
         </section>
 
-     
+           <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
+               <div className="mx-auto flex w-full max-w-[952px] flex-col items-center gap-[40px] md:flex-row md:items-center md:justify-center md:gap-[71px]">
+                 <Reveal duration={600} y={20}>
+                 <Reveal delay={150} duration={600} y={20}>
+                   <TestimonialVideo
+                     libraryId="695134"
+                     videoId="85220005-4ab1-4d2a-a3e6-d9b772200b1e"
+                   />
+                 </Reveal>
+                 </Reveal>
+                 <Reveal delay={150} duration={600} y={20}>
+                   <div className="flex w-full max-w-[310px] flex-col items-center gap-[24px] text-center">
+                     <p className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-sans text-[22px] text-transparent md:text-[35px] leading-[120%]">
+                       &bdquo;Jedna z najlepších spoluprác akú som v živote zažil.&ldquo;
+                     </p>
+                     <p className="bg-gradient-to-r from-purple-from to-purple-to bg-clip-text font-sans text-[16px] font-bold uppercase italic text-transparent">
+                       -Tomáš
+                     </p>
+                   </div>
+                 </Reveal>
+               </div>
+             </section>
 
         <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
           <CaseStudyTestimonialsSwiper
@@ -212,7 +253,7 @@ export default function ApponioCaseStudyPage() {
         <CtaBanner />
 
         <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
-          <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[42px]">
+          <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[20px] md:gap-[42px]">
             <h2 className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase text-transparent md:text-[29px]">
               <RevealText>Ostatné projekty</RevealText>
             </h2>

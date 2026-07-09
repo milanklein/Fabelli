@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { type MouseEvent, type ReactNode } from "react";
+import { type MouseEvent, type ReactNode, useRef } from "react";
 
 interface ButtonProps {
   children: ReactNode;
@@ -14,8 +14,8 @@ interface ButtonProps {
 }
 
 const sizeClasses: Record<NonNullable<ButtonProps["size"]>, string> = {
-  sm: "px-[15px] py-[15px] text-[18px]",
-  lg: "px-[40px] py-[14px] text-[18px]",
+  sm: "px-[15px] py-[15px] text-[18px] max-[444px]:px-[12px] max-[444px]:py-[11px] max-[444px]:text-[14px]",
+  lg: "px-[40px] py-[14px] text-[18px] max-[444px]:px-[22px] max-[444px]:py-[11px] max-[444px]:text-[14px]",
 };
 
 const MAGNET_STRENGTH = 0.3;
@@ -30,24 +30,43 @@ export default function Button({
   disabled = false,
   type = "button",
 }: ButtonProps) {
+  const rectRef = useRef<DOMRect | null>(null);
+  const rafRef = useRef<number | null>(null);
+
+  const handleMouseEnter = (
+    e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
+  ) => {
+    rectRef.current = e.currentTarget.getBoundingClientRect();
+  };
+
   const handleMouseMove = (
     e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
   ) => {
     const el = e.currentTarget;
-    const rect = el.getBoundingClientRect();
-    const offsetX = e.clientX - (rect.left + rect.width / 2);
-    const offsetY = e.clientY - (rect.top + rect.height / 2);
-    const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
-    const maxDistance = rect.width / 2 + MAGNET_RADIUS;
+    const rect = rectRef.current ?? el.getBoundingClientRect();
+    const { clientX, clientY } = e;
 
-    if (distance < maxDistance) {
-      el.style.transform = `translate(${offsetX * MAGNET_STRENGTH}px, ${offsetY * MAGNET_STRENGTH}px) scale(1.06)`;
-    }
+    if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      const offsetX = clientX - (rect.left + rect.width / 2);
+      const offsetY = clientY - (rect.top + rect.height / 2);
+      const distance = Math.sqrt(offsetX ** 2 + offsetY ** 2);
+      const maxDistance = rect.width / 2 + MAGNET_RADIUS;
+
+      if (distance < maxDistance) {
+        el.style.transform = `translate(${offsetX * MAGNET_STRENGTH}px, ${offsetY * MAGNET_STRENGTH}px) scale(1.06)`;
+      }
+    });
   };
 
   const handleMouseLeave = (
     e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>,
   ) => {
+    if (rafRef.current !== null) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+    rectRef.current = null;
     e.currentTarget.style.transform = "";
   };
 
@@ -61,7 +80,7 @@ export default function Button({
     </>
   );
 
-  const linkClassName = `relative inline-flex max-w-full min-w-0 items-center justify-center overflow-hidden text-center rounded-[76px] bg-gradient-to-r from-purple-from to-purple-to bg-[length:200%_100%] bg-[position:0%_0] font-heading font-normal text-white shadow-[0px_4px_24.4px_3px_rgba(220,204,238,0.45)] transition-[transform,box-shadow,background-position,filter] duration-300 ease-out hover:bg-[position:100%_0] hover:shadow-[0px_8px_36px_8px_rgba(220,204,238,0.7)] hover:brightness-110 disabled:pointer-events-none disabled:opacity-40 disabled:shadow-none disabled:hover:bg-[position:0%_0] disabled:hover:brightness-100 ${sizeClasses[size]}`;
+  const linkClassName = `relative inline-flex max-w-full min-w-0 items-center justify-center overflow-hidden text-center rounded-[76px] bg-gradient-to-r from-purple-from to-purple-to bg-[length:200%_100%] bg-[position:0%_0] font-heading font-normal text-white shadow-[0px_4px_24.4px_3px_rgba(220,204,238,0.45)] transition-[transform_120ms_ease-out,box-shadow_300ms_ease-out,background-position_300ms_ease-out,filter_300ms_ease-out] hover:bg-[position:100%_0] hover:shadow-[0px_8px_36px_8px_rgba(220,204,238,0.7)] hover:brightness-110 disabled:pointer-events-none disabled:opacity-40 disabled:shadow-none disabled:hover:bg-[position:0%_0] disabled:hover:brightness-100 ${sizeClasses[size]}`;
 
   return (
     <span className={`group relative inline-flex min-w-0 max-w-full ${className}`}>
@@ -74,6 +93,7 @@ export default function Button({
           type={type}
           onClick={onClick}
           disabled={disabled}
+          onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={linkClassName}
@@ -83,6 +103,7 @@ export default function Button({
       ) : (
         <Link
           href={href}
+          onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={linkClassName}

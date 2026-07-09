@@ -21,7 +21,7 @@ export default function OtherProjectsSlider({
   );
 
   return (
-    <div className="flex w-full flex-col items-center gap-[32px] overflow-hidden py-20 px-4">
+    <div className="flex w-full flex-col items-center gap-[20px] md:gap-[32px] overflow-hidden py-10 md:py-20 px-4">
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper;

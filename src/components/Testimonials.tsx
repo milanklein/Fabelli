@@ -41,14 +41,14 @@ export default function Testimonials() {
 
   return (
     <section className="mt-[80px] w-full px-0 md:mt-[158px] md:px-[106px] overflow-hidden ">
-      <div className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-[40px] md:gap-[62px] overflow-hidden">
+      <div className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-[20px] sm:gap-[40px] lg:gap-[62px] overflow-hidden">
         <h2 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase leading-[1.5] text-transparent md:text-[29px]">
           <RevealText>
             Keď si marketér urobí <br /> svoju prácu poriadne
           </RevealText>
         </h2>
 
-        <div className="flex w-full flex-col items-center gap-[40px] md:gap-[58px] py-10">
+        <div className="flex w-full flex-col items-center gap-[40px] md:gap-[58px] py-4 md:py-10">
           <Reveal delay={0} duration={600} className="w-full">
             <Swiper
               onSwiper={(swiper) => {

@@ -5,7 +5,7 @@ export default function IntroStatement() {
   return (
     <section className="mt-[80px] w-full lg:mt-[158px] px-4 overflow-hidden">
       <div
-        className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[24px] rounded-[24px] bg-gradient-to-r from-heading-from to-heading-to px-[24px] pt-[40px] lg:grid lg:items-end lg:justify-center lg:gap-x-[19px] lg:gap-y-[40px] lg:rounded-[40px] lg:px-0 lg:pl-[91px] lg:pr-[139px] lg:pt-[71px] pb-10 lg:pb-0"
+        className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[24px] rounded-[24px] bg-gradient-to-r from-heading-from to-heading-to px-[24px] pt-[40px] lg:grid lg:items-end lg:justify-center lg:gap-x-[19px] lg:gap-y-[40px] lg:rounded-[40px] lg:px-0 lg:pl-[55px] lg:pr-[95px] xl:pl-[91px] xl:pr-[139px] lg:pt-[71px] pb-10 lg:pb-0"
         style={{ gridTemplateColumns: "584px 1fr" }}
       >
         {/* Nadpis + prvý odsek — na mobile nad obrázkom, na desktope v pravom stĺpci hore */}
@@ -36,7 +36,7 @@ export default function IntroStatement() {
             alt="Fabián"
             width={584}
             height={554}
-            className=" h-[300px]  w-[326px] lg:h-[554px] lg:w-[584px] [mix-blend-mode:luminosity] border-black border-1 lg:border-0 rounded-[30px]"
+            className=" h-[290px]  w-[300px] lg:h-[390px] lg:w-[424px] xl:h-[554px] xl:w-[584px]  [mix-blend-mode:luminosity] border-black border-1 lg:border-0 rounded-[30px]"
           />
         </Reveal>
 

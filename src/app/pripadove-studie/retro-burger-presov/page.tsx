@@ -70,7 +70,7 @@ const socialPhotos = [
 export default function RetroBurgerPresovCaseStudyPage() {
   return (
     <>
-      <main className="flex flex-1 flex-col bg-background">
+      <main className="flex flex-1 flex-col bg-background overflow-hidden">
         <section className="relative w-full overflow-x-hidden bg-background">
           <GlowCircle className="-top-[300px] -right-[200px]" />
           <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[40px] px-[24px] pb-[40px] pt-[40px] md:gap-[60px] md:px-[106px] md:pt-[58px]">
@@ -128,7 +128,7 @@ export default function RetroBurgerPresovCaseStudyPage() {
           <div className="relative mx-auto flex w-full max-w-[1048px] flex-col items-center text-center">
             <p
               aria-hidden
-              className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[76px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20"
+              className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20"
             >
               <RevealText variant="fall">
                                    Fáza0
@@ -136,7 +136,7 @@ export default function RetroBurgerPresovCaseStudyPage() {
             </p>
             <Reveal
               duration={600}
-              className="bg-gradient-to-b from-transparent to-[#0C1728] to-10% -mt-[10px] w-full font-sans text-[16px] text-white md:-mt-[20px] md:text-[20px] leading-[120%] mt-10 pt-2 "
+              className="bg-gradient-to-b from-transparent to-[#0C1728] to-10% -mt-[10px] w-full font-sans text-[16px] text-white md:-mt-[20px] md:text-[20px] leading-[120%] mt-10 pt-4 "
             >
               <p className="w-full max-w-[621px] mx-auto">
                 Pri biznisoch tohto typu je prístup k prieskumu trošku
@@ -204,12 +204,13 @@ export default function RetroBurgerPresovCaseStudyPage() {
             </div>
 
             <GallerySlider images={productionPhotos} />
+<div className="px-4">
 
             <Reveal
               duration={500}
               y={16}
-              className="flex h-[163px] w-full max-w-[353px] flex-col items-center justify-center gap-[12px] rounded-[34px] bg-gradient-to-r from-heading-from/20 to-heading-to/20 px-[24px] text-center   "
-            >
+              className="flex h-[163px] w-full max-w-[353px] flex-col items-center justify-center gap-[12px] rounded-[34px] bg-gradient-to-r from-heading-from/20 to-heading-to/20 px-8 md:px-[24px] text-center   "
+              >
               <p className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-heading text-[24px] font-black uppercase text-transparent md:text-[32px] leading-[120%]">
                 {foodStat.value}
               </p>
@@ -217,6 +218,7 @@ export default function RetroBurgerPresovCaseStudyPage() {
                 {foodStat.label}
               </p>
             </Reveal>
+              </div>
 
             <GallerySlider images={foodPhotos} />
           </div>
@@ -263,7 +265,7 @@ export default function RetroBurgerPresovCaseStudyPage() {
               </RevealText>
             </h2>
             <Reveal duration={600} y={20}>
-              <div className="relative h-[280px] w-[142px] shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] md:h-[553px] md:w-[280px] md:rounded-[40px]">
+              <div className="relative  shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] h-[553px] w-[280px] md:rounded-[40px]">
                 <iframe
                   src="https://player.mediadelivery.net/embed/695141/745dee6b-77a6-443d-8577-e99ff1e4368c?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
                   loading="lazy"
@@ -279,7 +281,7 @@ export default function RetroBurgerPresovCaseStudyPage() {
         <CtaBanner />
 
         <section className="mt-[64px] w-full px-[24px] md:mt-[100px] md:px-[106px]">
-          <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[42px]">
+          <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[20px] md:gap-[42px]">
             <h2 className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase text-transparent md:text-[29px]">
               <RevealText>Ostatné projekty</RevealText>
             </h2>
