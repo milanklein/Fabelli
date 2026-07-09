@@ -29,20 +29,20 @@ export default function LogoStrip() {
   const track = [...logos, ...logos];
 
   return (
-    <section className="w-full overflow-hidden bg-background py-[38px]">
+    <section className="w-full overflow-hidden bg-background py-[24px] md:py-[38px]">
       <Reveal duration={500} y={12}>
-        <div className="flex w-max bg-white py-6 animate-marquee items-center gap-[48px]">
+        <div className="flex w-max bg-white py-4 animate-marquee items-center gap-[28px] md:py-6 md:gap-[48px]">
           {track.map((logo, i) => (
             <div
               key={`${logo.alt}-${i}`}
-              className="relative h-[53px] shrink-0"
-              style={{ width: logo.w }}
+              className="relative h-[38px] w-[calc(var(--logo-w)*0.7)] shrink-0 md:h-[53px] md:w-[var(--logo-w)]"
+              style={{ "--logo-w": `${logo.w}px` } as React.CSSProperties}
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                className="object-contain  "
+                className="object-contain"
                 sizes="200px"
               />
             </div>

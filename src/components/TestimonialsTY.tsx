@@ -59,7 +59,7 @@ export default function TestimonialsTY() {
   return (
     <section className="mt-[80px] w-full px-0 md:mt-[158px] md:px-[106px] overflow-hidden ">
       <div className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-[20px] sm:gap-[40px] lg:gap-[62px] overflow-hidden">
-        <h2 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase leading-[1.5] text-transparent md:text-[29px]">
+        <h2 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase leading-[1.5] text-transparent md:text-[29px] px-4">
           <RevealText>
             Keď si marketér urobí <br /> svoju prácu poriadne
           </RevealText>
@@ -89,7 +89,7 @@ export default function TestimonialsTY() {
                     className="!flex !w-[280px] !flex-col !items-center !justify-end"
                   >
                         <p
-                      className={`block md:hidden mt-[16px] max-w-[220px] text-center font-sans text-[13px] font-bold uppercase italic leading-[1.4] transition-opacity duration-300 md:max-w-[280px] md:text-[16px] ${
+                      className={`block md:hidden mb-[24px] max-w-[220px] text-center font-sans text-[13px] font-bold uppercase italic leading-[1.4] transition-opacity duration-300 md:max-w-[280px] md:text-[16px] ${
                         isActive ? "opacity-100" : "opacity-0"
                       }`}
                     >
