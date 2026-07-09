@@ -70,7 +70,7 @@ function TestimonialVideo({
   );
 }
 
-const photos = [`${IMG}/photo-1.png`, `${IMG}/photo-2.png`];
+const photos = [`${IMG}/photo-1.webp`, `${IMG}/photo-2.webp`];
 
 export default function PokojnePlavanieCaseStudyPage() {
   return (

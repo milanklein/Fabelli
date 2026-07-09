@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/api/", "/kvalifikacny-formular/dakujeme"],
+      disallow: ["/api/", "/potvrdenie-odoslania"],
     },
     sitemap: `${BASE_URL}/sitemap.xml`,
   };

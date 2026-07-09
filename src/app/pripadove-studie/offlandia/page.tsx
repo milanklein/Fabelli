@@ -36,26 +36,26 @@ export const metadata: Metadata = {
 const IMG = "/images/case-studies/offlandia";
 
 const beforeShots = [
-  `${IMG}/top-1.png`,
-  `${IMG}/top-2.png`,
-  `${IMG}/top-3.png`,
-  `${IMG}/top-4.png`,
-  `${IMG}/top-5.png`,
+  `${IMG}/top-1.webp`,
+  `${IMG}/top-2.webp`,
+  `${IMG}/top-3.webp`,
+  `${IMG}/top-4.webp`,
+  `${IMG}/top-5.webp`,
 ];
 
 const campaignTop = [
-  `${IMG}/campaign-1.png`,
-  `${IMG}/campaign-2.png`,
-  `${IMG}/campaign-3.png`,
+  `${IMG}/campaign-1.webp`,
+  `${IMG}/campaign-2.webp`,
+  `${IMG}/campaign-3.webp`,
 ];
-const campaignBottom = [`${IMG}/campaign-4.png`, `${IMG}/campaign-5.png`];
+const campaignBottom = [`${IMG}/campaign-4.webp`, `${IMG}/campaign-5.webp`];
 
 const gallery = [
-  `${IMG}/gallery-1.png`,
-  `${IMG}/gallery-2.png`,
-  `${IMG}/gallery-3.png`,
-  `${IMG}/gallery-4.png`,
-  `${IMG}/gallery-5.png`,
+  `${IMG}/gallery-1.webp`,
+  `${IMG}/gallery-2.webp`,
+  `${IMG}/gallery-3.webp`,
+  `${IMG}/gallery-4.webp`,
+  `${IMG}/gallery-5.webp`,
 ];
 
 function TestimonialVideo({
@@ -259,7 +259,7 @@ export default function OfflandiaCaseStudyPage() {
                 className="relative aspect-[383/249] w-full max-w-[280px] overflow-hidden rounded-[24px] sm:max-w-[383px]"
               >
                 <Image
-                  src={`${IMG}/expansion-1.png`}
+                  src={`${IMG}/expansion-1.webp`}
                   alt=""
                   fill
                   className="object-cover"
@@ -272,7 +272,7 @@ export default function OfflandiaCaseStudyPage() {
                 className="relative aspect-[415/358] w-full max-w-[300px] overflow-hidden rounded-[24px] sm:max-w-[415px]"
               >
                 <Image
-                  src={`${IMG}/expansion-2.png`}
+                  src={`${IMG}/expansion-2.webp`}
                   alt=""
                   fill
                   className="object-cover"
@@ -285,7 +285,7 @@ export default function OfflandiaCaseStudyPage() {
                 className="relative aspect-[383/249] w-full max-w-[280px] overflow-hidden rounded-[24px] sm:max-w-[383px]"
               >
                 <Image
-                  src={`${IMG}/expansion-3.png`}
+                  src={`${IMG}/expansion-3.webp`}
                   alt=""
                   fill
                   className="object-cover"

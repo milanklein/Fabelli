@@ -185,10 +185,10 @@ export default function AutoPolaCaseStudyPage() {
         <section className="mt-[64px] w-full md:mt-[100px]">
           <GallerySlider
             images={[
-              "/images/case-studies/auto-pola/gallery-1.png",
-              "/images/case-studies/auto-pola/gallery-2.png",
-              "/images/case-studies/auto-pola/gallery-3.png",
-              "/images/case-studies/auto-pola/gallery-4.png",
+              "/images/case-studies/auto-pola/gallery-1.webp",
+              "/images/case-studies/auto-pola/gallery-2.webp",
+              "/images/case-studies/auto-pola/gallery-3.webp",
+              "/images/case-studies/auto-pola/gallery-4.webp",
             ]}
           />
         </section>

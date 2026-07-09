@@ -179,7 +179,7 @@ export default function QualificationForm() {
       } catch (err) {
         console.error("Nepodarilo sa odoslať formulár:", err);
       }
-      router.push("/kvalifikacny-formular/dakujeme");
+      router.push("/potvrdenie-odoslania");
       return;
     }
     setStep((s) => s + 1);

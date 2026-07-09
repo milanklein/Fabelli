@@ -50,43 +50,43 @@ const stats = [
 ];
 
 const gallery = [
-  `${IMG}/gallery-1.png`,
-  `${IMG}/gallery-2.png`,
-  `${IMG}/gallery-3.png`,
-  `${IMG}/gallery-4.png`,
-  `${IMG}/gallery-5.png`,
+  `${IMG}/gallery-1.webp`,
+  `${IMG}/gallery-2.webp`,
+  `${IMG}/gallery-3.webp`,
+  `${IMG}/gallery-4.webp`,
+  `${IMG}/gallery-5.webp`,
 ];
 
 const CN = "/images/campaing_numbers";
 
 const campaignShots = [
   {
-    image: `${CN}/campaign-20.jpg`,
+    image: `${CN}/campaign-20.webp`,
     ratio: "aspect-[808/351]",
     caption: "Výkonnosť reklám Sparklond",
   },
   {
-    image: `${CN}/campaign-11.jpg`,
+    image: `${CN}/campaign-11.webp`,
     ratio: "aspect-[808/457]",
     caption: "Množstvo reklám, ktoré prinášajú stabilné leady",
   },
   {
-    image: `${CN}/campaign-16.jpg`,
+    image: `${CN}/campaign-16.webp`,
     ratio: "aspect-[794/292]",
     caption: "Stovky kvalifikovaných leadov z kampaní pre Sparklond",
   },
   {
-    image: `${CN}/campaign-12.jpg`,
+    image: `${CN}/campaign-12.webp`,
     ratio: "aspect-[1243/415]",
     caption: "Prílev kvalifikovaných high-intent leadov pre Sparklond",
   },
   {
-    image: `${CN}/campaign-2.jpg`,
+    image: `${CN}/campaign-2.webp`,
     ratio: "aspect-[1231/442]",
     caption: "18% pomer prekliku na Google kampaniach pre Sparklond",
   },
   {
-    image: `${CN}/campaign-6.jpg`,
+    image: `${CN}/campaign-6.webp`,
     ratio: "aspect-[504/214]",
     caption: "9,8% konverzný pomer stránky na zisk leadov pre Sparklond",
   },

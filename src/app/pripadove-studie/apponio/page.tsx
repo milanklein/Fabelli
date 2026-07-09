@@ -204,7 +204,7 @@ export default function ApponioCaseStudyPage() {
             className="relative aspect-[622/457] w-full max-w-[622px] overflow-hidden rounded-[24px] md:rounded-[39px]"
           >
             <Image
-              src={`${IMG}/funnel-screenshot.png`}
+              src={`${IMG}/funnel-screenshot.webp`}
               alt=""
               fill
               className="object-cover"

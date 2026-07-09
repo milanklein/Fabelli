@@ -48,31 +48,31 @@ const stats = [
 
 const results = [
   {
-    image: `${IMG}/result-1.png`,
+    image: `${IMG}/result-1.webp`,
     label: "650 high ticket leadov pre Matessa s pomerom prekliku 2.99%",
   },
   {
-    image: `${IMG}/result-2.png`,
+    image: `${IMG}/result-2.webp`,
     label:
       "11 000 leadov, 0.2€ za lead, 5% CTR — nikto iný na Slovensku nemá takéto výsledky",
   },
   {
-    image: `${IMG}/result-3.jpg`,
+    image: `${IMG}/result-3.webp`,
     label: "Vysoká výkonnosť a pomer prekliku reklám pre Matessa",
   },
   {
-    image: `${IMG}/result-4.png`,
+    image: `${IMG}/result-4.webp`,
     label: "CTR 4.52%, keď agentúry výskajú pri 1%",
   },
 ];
 
 const gallery = [
-  `${IMG}/gallery-2.png`,
-  `${IMG}/gallery-3.png`,
-  `${IMG}/gallery-4.png`,
-  `${IMG}/gallery-5.png`,
-  `${IMG}/gallery-6.png`,
-  `${IMG}/gallery-7.png`,
+  `${IMG}/gallery-2.webp`,
+  `${IMG}/gallery-3.webp`,
+  `${IMG}/gallery-4.webp`,
+  `${IMG}/gallery-5.webp`,
+  `${IMG}/gallery-6.webp`,
+  `${IMG}/gallery-7.webp`,
 ];
 
 function TestimonialVideo({
@@ -93,7 +93,7 @@ function VideoCard() {
   return (
     <div className="relative h-[280px] w-[142px] shrink-0 overflow-hidden rounded-[26px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] md:h-[553px] md:w-[280px] md:rounded-[40px]">
       <Image
-        src={`${IMG}/gallery-1.png`}
+        src={`${IMG}/gallery-1.webp`}
         alt=""
         fill
         className="object-cover"
@@ -101,7 +101,7 @@ function VideoCard() {
       />
       <div className="absolute inset-0 flex items-center justify-center">
         <Image
-          src={`${IMG}/play-icon.png`}
+          src={`${IMG}/play-icon.webp`}
           alt=""
           width={88}
           height={88}
@@ -220,11 +220,11 @@ export default function MatessCaseStudyPage() {
             <div className="flex w-full flex-col items-center gap-[32px] md:flex-row md:items-start md:justify-center md:gap-[54px]">
               {[
                 {
-                  src: `${IMG}/funnel-1.png`,
+                  src: `${IMG}/funnel-1.webp`,
                   caption: "Funnel s e-bookom a následnou e-mailovou sekvenciou",
                 },
                 {
-                  src: `${IMG}/funnel-2.png`,
+                  src: `${IMG}/funnel-2.webp`,
                   caption:
                     "Priamy funnel cez videoreklamy na Meta, pristávaciu stránku, vyplnenie formuláru a kvalifikačný hovor",
                 },
@@ -263,7 +263,7 @@ export default function MatessCaseStudyPage() {
               className="relative hidden md:block  w-full max-w-[357px] shrink-0 overflow-hidden rounded-[30px] md:h-[635px] md:rounded-[51px]"
             >
               <Image
-                src={`${IMG}/portrait.jpg`}
+                src={`${IMG}/portrait.webp`}
                 alt="Matess"
                 fill
                 className="object-cover"

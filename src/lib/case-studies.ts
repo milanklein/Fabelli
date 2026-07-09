@@ -49,7 +49,7 @@ export const caseStudies: CaseStudy[] = [
     description: "60+ nových absolventov po nečakaom jesennom výpadku",
   },
   {
-    slug: "retro-burger-presov",
+    slug: "retro-burger",
     logo: "retro.svg",
     logoWidth: 132,
     logoHeight: 132,
@@ -57,7 +57,7 @@ export const caseStudies: CaseStudy[] = [
     description: "Prevádzka vypredaná už o 17:00!",
   },
   {
-    slug: "force8-michal-pataky",
+    slug: "force8",
     logo: "force8.svg",
     logoWidth: 111,
     logoHeight: 111,
@@ -65,7 +65,7 @@ export const caseStudies: CaseStudy[] = [
     description: "50 high ticket leadov iba z jednej reklamy!",
   },
   {
-    slug: "vycvikove-centrum-dobrovodsky",
+    slug: "dobrovodsky",
     logo: "vycvikove-centrum.svg",
     logoWidth: 245,
     logoHeight: 123,
@@ -98,9 +98,9 @@ export const LIVE_SLUGS = new Set([
   "offlandia",
   "pokojne-plavanie",
   "sparklond",
-  "retro-burger-presov",
-  "force8-michal-pataky",
-  "vycvikove-centrum-dobrovodsky",
+  "retro-burger",
+  "force8",
+  "dobrovodsky",
   "auto-pola",
   "apponio",
 ]);
