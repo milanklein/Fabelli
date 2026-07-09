@@ -1,20 +1,15 @@
 "use client"
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { HiBars3, HiXMark } from "react-icons/hi2";
+import AnimatedWebp from "./AnimatedWebp";
 import Button from "./Button";
 
 
 export default function Header() {
-  const [cacheBust, setCacheBust] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setCacheBust(`?v=${Date.now()}`);
-  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -44,11 +39,9 @@ export default function Header() {
   return (
     <header className="relative flex w-full items-center justify-between">
       <Link href="/" className="relative h-[88px] w-[213px] xl:h-[150.48px]  md:h-[72.48px] xl:w-[450px] md:w-[320px]">
-        <Image
-          src={`/images/logo-animation.webp${cacheBust}`}
+        <AnimatedWebp
+          src="/images/logo-animation.webp"
           alt="Fabelli"
-          fill
-          unoptimized
           priority
           className="object-contain object-left"
         />

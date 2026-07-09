@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AnimatedWebp from "./AnimatedWebp";
 import Reveal from "./Reveal";
 import RevealText from "./RevealText";
 
@@ -26,11 +27,9 @@ export default function PerformanceSection() {
           </Reveal>
           {/* Mimo Reveal (bez transform/will-change na predkovi) — Safari inak zamrazí animáciu GIF-u */}
           <div className="pointer-events-none absolute bottom-0 -left-30 h-full w-full md:left-auto md:-right-[200px]">
-            <Image
+            <AnimatedWebp
               src="/images/fabian_podpis-animation.webp"
               alt=""
-              fill
-              unoptimized
               className="object-contain object-bottom"
             />
           </div>

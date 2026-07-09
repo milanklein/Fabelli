@@ -3,21 +3,32 @@
 import { useEffect, useState } from "react";
 
 const WORDS = ["trhu", "konkurencie", "cieľovky", "vašej firmy"];
-const INTERVAL_MS = 1400;
+const TYPE_SPEED_MS = 70;
+const HOLD_MS = 2000;
 
 export default function RotatingWord({ className = "" }: { className?: string }) {
-  const [index, setIndex] = useState(0);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [charCount, setCharCount] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % WORDS.length);
-    }, INTERVAL_MS);
-    return () => clearInterval(id);
-  }, []);
+    const currentWord = WORDS[wordIndex];
+
+    if (charCount < currentWord.length) {
+      const id = setTimeout(() => setCharCount((c) => c + 1), TYPE_SPEED_MS);
+      return () => clearTimeout(id);
+    }
+
+    const id = setTimeout(() => {
+      setCharCount(0);
+      setWordIndex((i) => (i + 1) % WORDS.length);
+    }, HOLD_MS);
+    return () => clearTimeout(id);
+  }, [charCount, wordIndex]);
 
   return (
-    <span key={index} className={`animate-step-fade inline-block ${className}`}>
-      {WORDS[index]}
+    <span className={`inline-block ${className}`}>
+      {WORDS[wordIndex].slice(0, charCount)}
+      <span className="animate-pulse">|</span>
     </span>
   );
 }

@@ -70,6 +70,7 @@ export default function ThankYouPage() {
               </p>
               <div className="relative aspect-video w-full max-w-[900px] overflow-hidden rounded-[24px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] sm:rounded-[40px]">
                 <VideoEmbed
+                overlay={false}
                   libraryId="695141"
                   videoId="c425154e-ad41-444d-a88b-b09586ce7503"
                 />
@@ -85,6 +86,7 @@ export default function ThankYouPage() {
               </p>
               <div className="relative aspect-video w-full max-w-[900px] overflow-hidden rounded-[24px] shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)] sm:rounded-[40px]">
                 <VideoEmbed
+                overlay={false}
                   libraryId="695141"
                   videoId="762ebcee-8a32-4cd6-9432-099b3f7ae1b6"
                 />

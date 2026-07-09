@@ -33,7 +33,7 @@ export default function Hero() {
   <VideoEmbed
     libraryId="687317"
     videoId="0d4779a0-76f4-42c5-81ce-70c66f06f332"
-    muted
+    overlay={false}
   />
 </Reveal>
           <div className="flex w-full flex-1 flex-col items-start gap-[30px]">
