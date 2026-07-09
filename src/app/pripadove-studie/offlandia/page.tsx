@@ -12,9 +12,24 @@ import GallerySlider from "@/components/GallerySlider";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
 
+const title = "Offlandia - prípadová štúdia | Fabelli";
+const description =
+  "Ako sme súkromnej škôlke Offlandia v Ružinove zdvihli obsadenosť zo 14 % a pripravili ju na otvorenie novej prevádzky s dvojnásobnou kapacitou.";
+
 export const metadata: Metadata = {
-  title: "Offlandia - prípadová štúdia | Fabelli",
-  description: "Otváranie novej prevádzky s 2-násobnou kapacitou",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: [{ url: "/thumbnails/thumbnail_offlandia.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/thumbnails/thumbnail_offlandia.png"],
+  },
 };
 
 const IMG = "/images/case-studies/offlandia";

@@ -217,7 +217,7 @@ export default function PortfolioGrid() {
   }, [lightbox]);
 
   return (
-    <section className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
+    <section className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px] pb-4">
       <div className="mx-auto flex w-full max-w-[952px] flex-col items-center gap-[48px] md:gap-[64px]">
         <h2 className="text-center font-heading text-[24px] font-black uppercase leading-[1.3] text-white md:text-[32px]">
           <RevealText>Spolupráca, <br/> Kde víťazia obe strany!</RevealText>
@@ -233,7 +233,7 @@ export default function PortfolioGrid() {
         >
           <div
             ref={contentRef}
-            className="w-full columns-2 gap-[16px] md:columns-3 md:gap-[30px]"
+            className="w-full columns-1 gap-[16px] md:columns-3 md:gap-[30px]"
           >
             {cards.map((card, i) => {
               const delay = Math.min(i * 40, 400);
@@ -265,7 +265,7 @@ export default function PortfolioGrid() {
                     />
                   )}
                   {card.image && (
-                    <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-[#0C1728] to-[#0C1728]/0 p-[16px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-black/95 via-black/60 to-transparent p-[16px] opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       {card.caption && (
                         <p className="font-sans text-[13px] font-semibold leading-[1.3] text-white md:text-[15px]">
                           {card.caption}
@@ -295,7 +295,11 @@ export default function PortfolioGrid() {
           )}
         </div>
 
-        {!expanded && (
+        {expanded ? (
+          <ButtonArrow onClick={() => setExpanded(false)}>
+            Zobraziť menej
+          </ButtonArrow>
+        ) : (
           <ButtonArrow onClick={handleExpand}>Pozrieť viac</ButtonArrow>
         )}
       </div>

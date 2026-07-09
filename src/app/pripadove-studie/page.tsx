@@ -3,9 +3,24 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CaseStudiesGrid from "@/components/CaseStudiesGrid";
 
+const title = "Prípadové štúdie | Fabelli";
+const description =
+  "Prípadové štúdie klientov Fabelli – reálne výsledky marketingových stratégií naprieč rôznymi odvetviami, od gastra až po servisy a školy.";
+
 export const metadata: Metadata = {
-  title: "Prípadové štúdie | Fabelli",
-  description: "Prípadové štúdie klientov Fabelli",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: [{ url: "/thumbnails/thumbnail_main.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/thumbnails/thumbnail_main.png"],
+  },
 };
 
 export default function PripadoveStudiePage() {

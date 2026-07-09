@@ -51,10 +51,10 @@ export default function CaseStudyTestimonialsSwiper({
           return (
             <SwiperSlide
               key={`${video.videoId}-${i}`}
-              className="!flex !w-[183px] !items-end !justify-center sm:!w-[280px]"
+              className="!flex  !items-end !justify-center !w-[280px]"
             >
               <div
-                className={`relative h-[360px] w-[183px] shrink-0 overflow-hidden rounded-[26px] transition-[transform,filter,opacity] duration-500 ease-out sm:h-[553px] sm:w-[280px] sm:rounded-[40px] ${
+                className={`relative h-[553px] w-[280px] shrink-0 overflow-hidden rounded-[26px] transition-[transform,filter,opacity] duration-500 ease-out sm:rounded-[40px] ${
                   isActive
                     ? "scale-100 opacity-100 shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)]"
                     : "scale-[0.775] opacity-70 blur-[2px] sm:blur-[4px]"

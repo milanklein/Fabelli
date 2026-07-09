@@ -40,15 +40,15 @@ export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(START_INDEX);
 
   return (
-    <section className="mt-[80px] w-full px-0 md:mt-[158px] md:px-[106px] overflow-hidden">
-      <div className="mx-auto flex w-full max-w-[1040px] flex-col items-center gap-[40px] md:gap-[62px]">
+    <section className="mt-[80px] w-full px-0 md:mt-[158px] md:px-[106px] overflow-hidden ">
+      <div className="mx-auto flex w-full max-w-[900px] flex-col items-center gap-[40px] md:gap-[62px] overflow-hidden">
         <h2 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase leading-[1.5] text-transparent md:text-[29px]">
           <RevealText>
             Keď si marketér urobí <br /> svoju prácu poriadne
           </RevealText>
         </h2>
 
-        <div className="flex w-full flex-col items-center gap-[40px] md:gap-[58px] overflow-hidden py-10">
+        <div className="flex w-full flex-col items-center gap-[40px] md:gap-[58px] py-10">
           <Reveal delay={0} duration={600} className="w-full">
             <Swiper
               onSwiper={(swiper) => {
@@ -69,10 +69,10 @@ export default function Testimonials() {
                 return (
                   <SwiperSlide
                     key={`${testimonial.id}-${i}`}
-                    className="!flex !w-[183px] !flex-col !items-center !justify-end md:!w-[280px]"
+                    className="!flex !w-[280px] !flex-col !items-center !justify-end"
                   >
                     <div
-                      className={`relative h-[360px] w-[183px] shrink-0 overflow-hidden rounded-[26px] transition-[transform,filter,opacity] duration-500 ease-out md:h-[553px] md:w-[280px] md:rounded-[40px] ${
+                      className={`relative  shrink-0 overflow-hidden rounded-[26px] transition-[transform,filter,opacity] duration-500 ease-out h-[553px] w-[280px] md:rounded-[40px] ${
                         isActive
                           ? "scale-100 opacity-100 shadow-[0px_0px_43px_0px_rgba(219,236,248,0.59)]"
                           : "scale-[0.775] opacity-70 blur-[2px] md:blur-[4px]"

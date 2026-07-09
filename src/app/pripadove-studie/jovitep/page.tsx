@@ -11,9 +11,24 @@ import Faq from "@/components/Faq";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
 
+const title = "Jovitep - prípadová štúdia | Fabelli";
+const description =
+  "Ako profesionálne videoreklamy priniesli čistiacej firme Jovitep 647 leadov – kampane bolo pre veľký záujem nutné predčasne vypnúť.";
+
 export const metadata: Metadata = {
-  title: "Jovitep - prípadová štúdia | Fabelli",
-  description: "Vypínanie reklám, lebo toho bolo už moc veľa",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: [{ url: "/thumbnails/thumbnail_jovitep.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/thumbnails/thumbnail_jovitep.png"],
+  },
 };
 
 const stats = [
