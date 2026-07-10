@@ -5,9 +5,9 @@ import GlowCircle from "@/components/GlowCircle";
 import QualificationForm from "@/components/QualificationForm";
 
 export const metadata: Metadata = {
-  title: "Fabián Smriga - akvizičné systémy postavené na dvoch týždňoch prieskumu",
+  title: "Vyplňte kvalifikačný formulár na strategický hovor s Fabiánom",
   description:
-    "Nie som agentúra ani špecialista. Ani jeden z týchto modelov nefunguje na prinášanie výsledkov každému klientovi. Vytvoril som nový, hybridný model. Viac o ňom na tomto webe.",
+    "Klientov na spolupráce si vyberám dôkladne",
 };
 
 export default function QualificationFormPage() {
