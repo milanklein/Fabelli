@@ -625,7 +625,25 @@ function RadioStep({
 }
 
 const TURNOVER_MIN = 5000;
-const TURNOVER_MAX = 50000;
+const TURNOVER_MAX = 1000000;
+const TURNOVER_LOG_MIN = Math.log(TURNOVER_MIN);
+const TURNOVER_LOG_MAX = Math.log(TURNOVER_MAX);
+const SLIDER_STEPS = 1000;
+
+function valueToSliderPosition(value: number): number {
+  const clamped = Math.min(TURNOVER_MAX, Math.max(TURNOVER_MIN, value));
+  return (
+    ((Math.log(clamped) - TURNOVER_LOG_MIN) / (TURNOVER_LOG_MAX - TURNOVER_LOG_MIN)) *
+    SLIDER_STEPS
+  );
+}
+
+function sliderPositionToValue(position: number): number {
+  const log =
+    TURNOVER_LOG_MIN + (position / SLIDER_STEPS) * (TURNOVER_LOG_MAX - TURNOVER_LOG_MIN);
+  const raw = Math.round(Math.exp(log) / 1000) * 1000;
+  return Math.min(TURNOVER_MAX, Math.max(TURNOVER_MIN, raw));
+}
 
 function TurnoverStep({
   value,
@@ -654,17 +672,17 @@ function TurnoverStep({
       <div className="flex w-full flex-col items-center gap-[10px]">
         <input
           type="range"
-          min={TURNOVER_MIN}
-          max={TURNOVER_MAX}
-          step={1000}
-          value={value}
-          onChange={(e) => onChange(Number(e.target.value))}
+          min={0}
+          max={SLIDER_STEPS}
+          step={1}
+          value={valueToSliderPosition(value)}
+          onChange={(e) => onChange(sliderPositionToValue(Number(e.target.value)))}
           className="w-full accent-purple-to"
         />
         <div className="flex w-full justify-between font-sans text-[14px] font-bold text-white sm:text-[16px]">
           <span>5 000 €</span>
-          <span>25 000 €</span>
-          <span>50 000 €</span>
+          <span>70 000 €</span>
+          <span>1 000 000 €</span>
         </div>
       </div>
       <div className="flex items-center gap-[16px] rounded-[45px] bg-gradient-to-r from-heading-from to-heading-to px-[28px] py-[14px]">

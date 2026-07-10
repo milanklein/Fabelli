@@ -13,9 +13,9 @@ import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
 import VideoEmbed from "@/components/VideoEmbed";
 
-const title = "Offlandia - prípadová štúdia | Fabelli";
+const title = "Otváranie novej prevádzky s 2-násobnou kapacitou";
 const description =
-  "Ako sme súkromnej škôlke Offlandia v Ružinove zdvihli obsadenosť zo 14 % a pripravili ju na otvorenie novej prevádzky s dvojnásobnou kapacitou.";
+  "Kompetencia na dosahovanie výsledkov pramení z poznania trhu";
 
 export const metadata: Metadata = {
   title,

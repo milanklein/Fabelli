@@ -16,9 +16,9 @@ import Footer from "@/components/Footer";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import RevealText from "@/components/RevealText";
 
-const title = "Fabelli - Marketingová stratégia postavená na prieskume trhu";
+const title = "Fabián Smriga - akvizičné systémy postavené na dvoch týždňoch prieskumu";
 const description =
-  "Marketingový konzultant Fabelli pripravuje a realizuje akvizičné stratégie postavené na hĺbkovom prieskume trhu. Pozrite si prípadové štúdie a výsledky klientov.";
+  "Nie som agentúra ani špecialista. Ani jeden z týchto modelov nefunguje na prinášanie výsledkov každému klientovi. Vytvoril som nový, hybridný model. Viac o ňom na tomto webe.";
 
 export const metadata: Metadata = {
   title,

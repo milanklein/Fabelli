@@ -12,9 +12,9 @@ import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import GallerySlider from "@/components/GallerySlider";
 import VideoEmbed from "@/components/VideoEmbed";
 
-const title = "Force8 - Michal Pataky - prípadová štúdia | Fabelli";
+const title = "50 high ticket leadov iba z jednej reklamy!";
 const description =
-  "Ako sme fitness programu Force8 priniesli 50 high ticket leadov iba z jednej profesionálne natočenej videoreklamy.";
+  "Kompetencia na dosahovanie výsledkov pramení z poznania trhu";
 
 export const metadata: Metadata = {
   title,

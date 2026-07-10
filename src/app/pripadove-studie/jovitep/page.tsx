@@ -12,9 +12,9 @@ import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
 import VideoEmbed from "@/components/VideoEmbed";
 
-const title = "Jovitep - prípadová štúdia | Fabelli";
+const title = "Vypínanie reklám, lebo toho bolo už moc veľa";
 const description =
-  "Ako profesionálne videoreklamy priniesli čistiacej firme Jovitep 647 leadov – kampane bolo pre veľký záujem nutné predčasne vypnúť.";
+  "Kompetencia na dosahovanie výsledkov pramení z poznania trhu";
 
 export const metadata: Metadata = {
   title,

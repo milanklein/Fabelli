@@ -11,9 +11,9 @@ import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import GallerySlider from "@/components/GallerySlider";
 import VideoEmbed from "@/components/VideoEmbed";
 
-const title = "Retro burger Prešov - prípadová štúdia | Fabelli";
+const title = "Prevádzka vypredaná už o 17:00!";
 const description =
-  "Ako sme známemu dineru Retro burger v Prešove pred zatvorením prevádzky vypredali kapacitu už o 17:00 – prípadová štúdia poslednej kampane.";
+  "Kompetencia na dosahovanie výsledkov pramení z poznania trhu";
 
 export const metadata: Metadata = {
   title,

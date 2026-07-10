@@ -14,9 +14,9 @@ import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
 import VideoEmbed from "@/components/VideoEmbed";
 
-const title = "Matess - prípadová štúdia | Fabelli";
+const title = "5-ciferný online biznis skoro od nuly";
 const description =
-  "Ako som fitness koučovi pre vyťažených ľudí vybudoval 5-ciferný online biznis takmer od nuly cez e-book funnel a videoreklamy na sociálnych sieťach.";
+  "Kompetencia na dosahovanie výsledkov pramení z poznania trhu";
 
 export const metadata: Metadata = {
   title,

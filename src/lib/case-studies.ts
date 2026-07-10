@@ -73,14 +73,6 @@ export const caseStudies: CaseStudy[] = [
     description: "27x návratnosť na Google kampani",
   },
   {
-    slug: "auto-pola",
-    logo: "autopola.svg",
-    logoWidth: 228,
-    logoHeight: 69,
-    name: "Auto Pola",
-    description: "10€ za nového zákazníka.",
-  },
-  {
     slug: "apponio",
     logo: "apponio.svg",
     logoWidth: 137,
@@ -101,7 +93,6 @@ export const LIVE_SLUGS = new Set([
   "retro-burger",
   "force8",
   "dobrovodsky",
-  "auto-pola",
   "apponio",
 ]);
 

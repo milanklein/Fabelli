@@ -11,9 +11,9 @@ import Faq from "@/components/Faq";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import GallerySlider from "@/components/GallerySlider";
 
-const title = "Výcvikové centrum Dobrovodský - prípadová štúdia | Fabelli";
+const title = "27x návratnosť na Google kampani";
 const description =
-  "Ako sme psiemu centru Dobrovodský vylepšili Google kampane a dosiahli 27-násobnú návratnosť investície do reklamy.";
+  "Kompetencia na dosahovanie výsledkov pramení z poznania trhu";
 
 export const metadata: Metadata = {
   title,

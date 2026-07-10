@@ -12,9 +12,9 @@ import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
 import VideoEmbed from "@/components/VideoEmbed";
 
-const title = "Apponio - prípadová štúdia | Fabelli";
+const title = "110+ nových registrácií pre klienta, ktorý predtým reklamami len pálil peniaze";
 const description =
-  "Ako sme klientovi Apponio, ktorý predtým reklamami len pálil peniaze, priniesli cez nový funnel a videoreklamy 110+ nových registrácií.";
+  "Kompetencia na dosahovanie výsledkov pramení z poznania trhu";
 
 export const metadata: Metadata = {
   title,

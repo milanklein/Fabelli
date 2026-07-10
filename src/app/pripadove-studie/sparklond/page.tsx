@@ -13,9 +13,9 @@ import GallerySlider from "@/components/GallerySlider";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
 
-const title = "Sparklond - prípadová štúdia | Fabelli";
+const title = "60+ nových absolventov po nečakaom jesennom výpadku";
 const description =
-  "Ako sme najväčšej zváračskej akadémii na Slovensku po jesennom výpadku priniesli 60+ nových absolventov cez nový akvizičný systém a videoreklamy.";
+  "Kompetencia na dosahovanie výsledkov pramení z poznania trhu";
 
 export const metadata: Metadata = {
   title,
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    images: [{ url: "/thumbnails/thumbnail_sparklond.png", width: 1200, height: 630 }],
+    images: [{ url: "/images/logos/sparklond.svg", width: 193, height: 83 }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/thumbnails/thumbnail_sparklond.png"],
+    images: ["/images/logos/sparklond.svg"],
   },
 };
 

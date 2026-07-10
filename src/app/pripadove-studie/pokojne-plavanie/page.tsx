@@ -11,9 +11,9 @@ import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 import CaseStudyTestimonialsSwiper from "@/components/CaseStudyTestimonialsSwiper";
 import VideoEmbed from "@/components/VideoEmbed";
 
-const title = "Pokojné plávanie - prípadová štúdia | Fabelli";
+const title = "Naplnenie všetkých kurzov a otváranie nových!";
 const description =
-  "Ako sme kurzy plávania pre ľudí so strachom z vody naplnili do posledného miesta a pomohli otvoriť nové termíny – prípadová štúdia Pokojné plávanie.";
+  "Kompetencia na dosahovanie výsledkov pramení z poznania trhu";
 
 export const metadata: Metadata = {
   title,
