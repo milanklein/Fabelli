@@ -40,14 +40,14 @@ export default function Home() {
   return (
     <>
       <main className="flex flex-1 flex-col bg-background">
-        <Hero /> 
+        {/* <Hero />  */}
         <LogoStrip />
         <IntroStatement /> 
         {/* <Testimonials /> */}
         <ProcessIntro />
         <ProcessTimeline />
         <ComparisonTable /> 
-        {/* <PortfolioGrid /> */}
+        <PortfolioGrid /> 
         <PerformanceSection />
         <Disqualifiers />
         <CtaBanner />
