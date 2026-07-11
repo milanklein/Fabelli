@@ -49,8 +49,8 @@ export default function Home() {
         <ComparisonTable /> */}
         {/* <PortfolioGrid /> */}
         {/* <PerformanceSection />
-        <Disqualifiers />
-        <CtaBanner />*/}
+        <Disqualifiers />*/}
+        <CtaBanner />
         <Faq />
         <ClosingCta /> 
           <section className="mt-[24px] w-full px-0 sm:mt-[100px] sm:px-[106px]">
