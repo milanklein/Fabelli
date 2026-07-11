@@ -22,7 +22,7 @@ export default function Hero() {
           <Header />
         </Reveal>
         <div className="flex w-full flex-col-reverse items-start gap-[40px] lg:w-1/2 lg:flex-row lg:gap-[60px]">
-       <Reveal
+       {/* <Reveal
   delay={120}
   duration={700}
   y={20}
@@ -36,7 +36,7 @@ export default function Hero() {
     overlay={false}
    
   />
-</Reveal>
+</Reveal> */}
           <div className="flex w-full flex-1 flex-col items-start gap-[30px]">
             <div className="flex w-full flex-col items-start gap-[12px]">
               <h1 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-heading text-[30px] sm:text-[32px] font-black uppercase leading-normal text-transparent lg:text-[38px]">
