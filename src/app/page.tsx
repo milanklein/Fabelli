@@ -43,7 +43,7 @@ export default function Home() {
         {/* <Hero />  */}
         <LogoStrip />
         <IntroStatement /> 
-        {/* <Testimonials /> */}
+        <Testimonials /> 
         <ProcessIntro />
         <ProcessTimeline />
         <ComparisonTable /> 
