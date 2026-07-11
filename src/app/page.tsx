@@ -48,8 +48,8 @@ export default function Home() {
         <ProcessTimeline />
         <ComparisonTable /> */}
         {/* <PortfolioGrid /> */}
-        {/* <PerformanceSection />
-        <Disqualifiers />*/}
+        {/* <PerformanceSection />*/}
+        <Disqualifiers />
         <CtaBanner />
         <Faq />
         <ClosingCta /> 
