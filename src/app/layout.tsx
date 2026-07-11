@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat, Unbounded } from "next/font/google";
 import Script from "next/script";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
@@ -31,6 +31,14 @@ export const metadata: Metadata = {
     title: "Fabelli",
     images: ["/thumbnails/thumbnail_main.png"],
   },
+};
+
+// Bez tohto Chrome na Androide vie stránke bez zjavného dôvodu vnútiť
+// vlastný "force dark" prepočet farieb, ktorý rozbíja bg-clip-text gradienty
+// (text sa stane neviditeľným) — týmto mu hovoríme, že si tmavý vzhľad
+// riešime sami a nemá do farieb zasahovať.
+export const viewport: Viewport = {
+  colorScheme: "dark",
 };
 
 const organizationJsonLd = {

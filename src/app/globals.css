@@ -117,7 +117,12 @@ body {
 }
 
 .animate-letter-fall {
-  animation: letter-fall 700ms cubic-bezier(0.33, 1, 0.68, 1) both;
+  /* backwards, not both/forwards: Chromium (incl. Android Chrome) fails to
+     paint background-clip:text ancestors when a descendant's animation
+     retains its end-state via fill-mode forwards — even long after the
+     animation finished. Since the post-animation look already matches the
+     100% keyframe, dropping "forwards" costs nothing visually. */
+  animation: letter-fall 700ms cubic-bezier(0.33, 1, 0.68, 1) backwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -143,7 +148,8 @@ body {
 }
 
 .animate-reveal-fade-up {
-  animation: reveal-fade-up var(--reveal-duration, 600ms) ease-out var(--reveal-delay, 0ms) both;
+  /* backwards, not both: see .animate-letter-fall comment above. */
+  animation: reveal-fade-up var(--reveal-duration, 600ms) ease-out var(--reveal-delay, 0ms) backwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -166,7 +172,8 @@ body {
 }
 
 .animate-reveal-char-fade {
-  animation: reveal-char-fade 600ms ease-out both;
+  /* backwards, not both: see .animate-letter-fall comment above. */
+  animation: reveal-char-fade 600ms ease-out backwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
