@@ -45,8 +45,8 @@ export default function Home() {
         <IntroStatement /> */}
         {/* <Testimonials /> */}
         {/* <ProcessIntro />
-        <ProcessTimeline />
-        <ComparisonTable /> */}
+        <ProcessTimeline />*/}
+        <ComparisonTable /> 
         {/* <PortfolioGrid /> */}
         {/* <PerformanceSection />*/}
         <Disqualifiers />
