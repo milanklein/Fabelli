@@ -40,9 +40,9 @@ export default function Home() {
   return (
     <>
       <main className="flex flex-1 flex-col bg-background">
-        {/* <Hero /> */}
-        {/* <LogoStrip />
-        <IntroStatement /> */}
+        <Hero /> 
+        <LogoStrip />
+        <IntroStatement /> 
         {/* <Testimonials /> */}
         <ProcessIntro />
         <ProcessTimeline />
