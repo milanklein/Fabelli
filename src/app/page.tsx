@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <>
       <main className="flex flex-1 flex-col bg-background">
-        <Hero />
+        {/* <Hero /> */}
         {/* <LogoStrip />
         <IntroStatement /> */}
         {/* <Testimonials /> */}
@@ -51,9 +51,9 @@ export default function Home() {
         {/* <PerformanceSection />
         <Disqualifiers />
         <CtaBanner />
-        <Faq />
-        <ClosingCta /> */}
-           <section className="mt-[24px] w-full px-0 sm:mt-[100px] sm:px-[106px]">
+        <Faq />*/}
+        <ClosingCta /> 
+           {/* <section className="mt-[24px] w-full px-0 sm:mt-[100px] sm:px-[106px]">
                   <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[20px] md:gap-[42px]">
                     <div>
 
@@ -66,7 +66,7 @@ export default function Home() {
                     </div>
                     <OtherProjectsSlider currentSlug="jovitep" />
                   </div>
-                </section>
+                </section> */}
       </main>
       <Footer />
     </>
