@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Unbounded } from "next/font/google";
 import Script from "next/script";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import ClarityInit from "@/components/ClarityInit";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -121,6 +122,7 @@ export default function RootLayout({
           />
         </noscript>
         {children}
+        <ClarityInit />
         <CookieConsentBanner />
       </body>
     </html>

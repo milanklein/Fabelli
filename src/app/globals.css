@@ -128,6 +128,55 @@ body {
   }
 }
 
+/* Above-the-fold entrance animation driven purely by CSS (no JS/hydration
+   dependency), so content is never invisible while waiting for React to
+   hydrate — see Reveal.tsx / RevealText.tsx "immediate" mode. */
+@keyframes reveal-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 24px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal-fade-up {
+  animation: reveal-fade-up var(--reveal-duration, 600ms) ease-out var(--reveal-delay, 0ms) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-reveal-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal-char-fade {
+  from {
+    opacity: 0;
+    transform: translateY(0.4em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal-char-fade {
+  animation: reveal-char-fade 600ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-reveal-char-fade {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @layer base {
   img, video {
     max-width: none;

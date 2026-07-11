@@ -54,6 +54,7 @@ export function trackEvent(
     event_source_url: window.location.href,
     fbp: getCookie("_fbp"),
     fbc: getCookie("_fbc"),
+    user_agent: navigator.userAgent,
     ...webhookExtra,
   });
 }

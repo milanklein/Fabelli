@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Reveal from "./Reveal";
 
@@ -39,8 +41,12 @@ export default function LogoStrip() {
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                className="object-contain"
+                loading="eager"
+                className="object-contain opacity-0 transition-opacity duration-500"
                 sizes="200px"
+                onLoad={(e) => {
+                  e.currentTarget.style.opacity = "1";
+                }}
               />
             </div>
           ))}

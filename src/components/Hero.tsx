@@ -17,7 +17,7 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute right-0 top-[112px] hidden h-auto w-[824px] max-w-none lg:block"
       />
-      <GlowCircle className="-top-[450px] -right-[250px]" />      <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[60px] px-[24px] pb-[80px] pt-[40px] lg:gap-[103px] lg:px-[106px] lg:pt-[58px]">
+      <GlowCircle className="-top-[450px] -right-[250px]" />      <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[60px] px-[16px] pb-[80px] pt-[40px] lg:gap-[103px] lg:px-[106px] lg:pt-[58px]">
         <Reveal delay={0} duration={500} y={12} immediate>
           <Header />
         </Reveal>
@@ -34,16 +34,17 @@ export default function Hero() {
     libraryId="687317"
     videoId="0d4779a0-76f4-42c5-81ce-70c66f06f332"
     overlay={false}
-    preload
+   
   />
 </Reveal>
           <div className="flex w-full flex-1 flex-col items-start gap-[30px]">
             <div className="flex w-full flex-col items-start gap-[12px]">
-              <h1 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-heading text-[32px] font-black uppercase leading-normal text-transparent lg:text-[38px]">
-                <RevealText immediate>
-                  <span className="block">Kompetencia pramení</span>
-                  <span className="block">z poznania</span>
-                </RevealText>
+              <h1 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-heading text-[30px] sm:text-[32px] font-black uppercase leading-normal text-transparent lg:text-[38px]">
+                <RevealText
+                  immediate
+                  lines={["Kompetencia pramení", "z poznania"]}
+                  lineClassName="block"
+                />
                 <span className="block">
                   <RotatingWord className="text-accent-blue" />
                 </span>

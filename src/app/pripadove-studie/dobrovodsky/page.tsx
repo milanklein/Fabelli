@@ -103,14 +103,14 @@ export default function VycvikoveCentrumDobrovodskyCaseStudyPage() {
 
         <section className="relative w-full px-[24px] md:px-[106px]">
           <div className="relative mx-auto flex w-full max-w-[1048px] flex-col items-center text-center">
-            <p
-                                 aria-hidden
-                                 className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-60 md:top-20" 
-                               >
-                                   <RevealText variant="fall">
-                                 Fáza0
-                                   </RevealText>
-                               </p>
+            <div className="relative left-1/2 w-screen -translate-x-1/2 self-start">
+              <p
+                aria-hidden
+                className="mt-[80px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[clamp(32px,13vw,223px)] font-black uppercase whitespace-nowrap leading-none text-transparent opacity-[0.43] md:mt-[89px] md:leading-[1.05] sticky top-60 md:top-20"
+              >
+                <RevealText variant="fall">Fáza 0</RevealText>
+              </p>
+            </div>
             <Reveal
               duration={600}
               className="bg-gradient-to-b from-transparent to-[#0C1728] to-10% -mt-[10px] w-full  font-sans text-[16px] text-white md:-mt-[20px] md:text-[20px] leading-[120%] mt-10 "

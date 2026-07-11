@@ -104,7 +104,7 @@ export default function ProcessTimeline() {
                     className={` w-[90px] shrink-0 text-center ${reveal(i, 60).className}`}
                     style={reveal(i, 60).style}
                   >
-                    <span className="font-heading text-[18px] font-black uppercase leading-tight tracking-wide text-white/40">
+                    <span className="whitespace-nowrap font-heading text-[18px] font-black uppercase leading-tight tracking-wide text-white/40">
                       {phase.label}
                     </span>
                   </div>

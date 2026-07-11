@@ -22,18 +22,9 @@ export default function Reveal({
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (immediate) {
-      let innerId = 0;
-      // Double rAF: let the browser paint the hidden state first, otherwise
-      // the transition has no "before" frame to animate from.
-      const outerId = requestAnimationFrame(() => {
-        innerId = requestAnimationFrame(() => setVisible(true));
-      });
-      return () => {
-        cancelAnimationFrame(outerId);
-        cancelAnimationFrame(innerId);
-      };
-    }
+    // Immediate mode animates in via pure CSS (.animate-reveal-fade-up), so it
+    // plays on first paint without waiting for hydration — nothing to do here.
+    if (immediate) return;
 
     const el = ref.current;
     if (!el) return;
@@ -50,6 +41,23 @@ export default function Reveal({
     observer.observe(el);
     return () => observer.disconnect();
   }, [immediate]);
+
+  if (immediate) {
+    return (
+      <div
+        style={
+          {
+            "--reveal-y": `${y}px`,
+            "--reveal-duration": `${duration}ms`,
+            "--reveal-delay": `${delay}ms`,
+          } as React.CSSProperties
+        }
+        className={`animate-reveal-fade-up will-change-transform ${className}`}
+      >
+        {children}
+      </div>
+    );
+  }
 
   return (
     <div

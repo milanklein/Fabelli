@@ -39,14 +39,14 @@ export default function ProcessIntro() {
           </RevealText>
         </h2>
 <div className="relative max-w-full">
+        <div className="relative left-1/2 w-screen -translate-x-1/2">
         <p
           aria-hidden
-          className="mt-[40px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[60px] font-black uppercase leading-none text-transparent opacity-[0.43] md:mt-[89px] md:text-[223px] md:leading-[1.05] sticky top-20 sm:top-80 md:top-40 mb-10 md:mb-0 max-w-full" 
+          className="mt-[40px] w-full select-none bg-gradient-to-t from-[#0c1728] via-[#d9ebf8] to-[#f4fafd] bg-clip-text text-center font-heading text-[clamp(32px,13vw,223px)] font-black uppercase whitespace-nowrap leading-none text-transparent opacity-[0.43] md:mt-[89px] md:leading-[1.05] sticky top-20 sm:top-80 md:top-40 mb-10 md:mb-0"
         >
-           
-          Fáza0
-       
+          Fáza 0
         </p>
+        </div>
 
         <div className="relative bg-gradient-to-b from-transparent to-[#0C1728] to-40% -mt-[10px] flex w-full flex-col items-center gap-[24px] md:-mt-[20px] md:gap-[20px]">
           <h3 className="w-full max-w-[740px] bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase text-transparent md:text-[29px]">

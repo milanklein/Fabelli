@@ -21,9 +21,9 @@ const rows = [
   {
     icon: CallIcon,
     label: "Komunikácia",
-    agencies: "v pracovných hodinách",
+    agencies: "často nedostupní",
     hybrid: "po 17:00 aj víkendy",
-    specialists: "v pracovných hodinách",
+    specialists: "často nedostupní",
   },
   {
     icon: PeopleIcon,
