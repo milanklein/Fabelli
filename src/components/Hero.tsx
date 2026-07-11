@@ -50,17 +50,17 @@ export default function Hero() {
                   <RotatingWord className="text-accent-blue" />
                 </span>
               </h1> */}
-              {/* <Reveal delay={200} duration={500} immediate>
+              <Reveal delay={200} duration={500} immediate>
                 <p className="w-full font-sans text-[16px] text-white lg:text-[20px] leading-[1.2]">
                   Preto trávim 2 týždne prieskumom predtým, než pripravím prvý výstup
                 </p>
-              </Reveal> */}
+              </Reveal> 
             </div>
-            {/* <Reveal delay={300} duration={500} immediate>
+            <Reveal delay={300} duration={500} immediate>
               <Button href="/kvalifikacny-formular" size="lg">
                 Chcem stratégiu
               </Button>
-            </Reveal> */}
+            </Reveal>
           </div>
         </div>
       </div>
