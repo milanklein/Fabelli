@@ -41,18 +41,18 @@ export default function Home() {
     <>
       <main className="flex flex-1 flex-col bg-background">
         <Hero />
-        <LogoStrip />
-        <IntroStatement />
-        <Testimonials />
-        <ProcessIntro />
+        {/* <LogoStrip />
+        <IntroStatement /> */}
+        {/* <Testimonials /> */}
+        {/* <ProcessIntro />
         <ProcessTimeline />
-        <ComparisonTable />
-        <PortfolioGrid />
-        <PerformanceSection />
+        <ComparisonTable /> */}
+        {/* <PortfolioGrid /> */}
+        {/* <PerformanceSection />
         <Disqualifiers />
         <CtaBanner />
         <Faq />
-        <ClosingCta />
+        <ClosingCta /> */}
            <section className="mt-[24px] w-full px-0 sm:mt-[100px] sm:px-[106px]">
                   <div className="mx-auto flex w-full max-w-[1234px] flex-col items-center gap-[20px] md:gap-[42px]">
                     <div>
