@@ -9,18 +9,18 @@ import VideoEmbed from "./VideoEmbed";
 export default function Hero() {
   return (
     <section className="relative w-full overflow-x-hidden bg-background">
-      <Image
+      {/* <Image
         src="/images/hero-logomark.svg"
         alt=""
         width={824}
         height={540}
         aria-hidden
         className="pointer-events-none absolute right-0 top-[112px] hidden h-auto w-[824px] max-w-none lg:block"
-      />
+      /> */}
       <GlowCircle className="-top-[450px] -right-[250px]" />      <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[60px] px-[16px] pb-[80px] pt-[40px] lg:gap-[103px] lg:px-[106px] lg:pt-[58px]">
-        <Reveal delay={0} duration={500} y={12} immediate>
+        {/* <Reveal delay={0} duration={500} y={12} immediate>
           <Header />
-        </Reveal>
+        </Reveal> */}
         <div className="flex w-full flex-col-reverse items-start gap-[40px] lg:w-1/2 lg:flex-row lg:gap-[60px]">
        {/* <Reveal
   delay={120}
