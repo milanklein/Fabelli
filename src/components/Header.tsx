@@ -39,12 +39,12 @@ export default function Header() {
   return (
     <header className="relative flex w-full items-center justify-between">
       <Link href="/" className="relative h-[88px] w-[213px] xl:h-[150.48px]  md:h-[72.48px] xl:w-[450px] md:w-[320px]">
-        {/* <AnimatedWebp
+         <AnimatedWebp
           src="/images/logo-animation.webp"
           alt="Fabelli"
           priority
           className="object-contain object-left"
-        /> */}
+        /> 
       </Link>
 
       <div className="hidden items-center gap-[30px] md:flex">
