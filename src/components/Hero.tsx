@@ -40,7 +40,7 @@ export default function Hero() {
 </Reveal> */}
           <div className="flex w-full flex-1 flex-col items-start gap-[30px]">
             <div className="flex w-full flex-col items-start gap-[12px]">
-              {/* <h1 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-heading text-[30px] sm:text-[32px] font-black uppercase leading-normal text-transparent lg:text-[38px]">
+              <h1 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-heading text-[30px] sm:text-[32px] font-black uppercase leading-normal text-transparent lg:text-[38px]">
                 <RevealText
                   immediate
                   lines={["Kompetencia pramení", "z poznania"]}
@@ -49,7 +49,7 @@ export default function Hero() {
                 <span className="block">
                   <RotatingWord className="text-accent-blue" />
                 </span>
-              </h1> */}
+              </h1> *
               <Reveal delay={200} duration={500} immediate>
                 <p className="w-full font-sans text-[16px] text-white lg:text-[20px] leading-[1.2]">
                   Preto trávim 2 týždne prieskumom predtým, než pripravím prvý výstup
