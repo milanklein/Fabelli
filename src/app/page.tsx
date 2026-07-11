@@ -44,7 +44,7 @@ export default function Home() {
         {/* <LogoStrip />
         <IntroStatement /> */}
         {/* <Testimonials /> */}
-        {/* <ProcessIntro />*/}
+        <ProcessIntro />
         <ProcessTimeline />
         <ComparisonTable /> 
         {/* <PortfolioGrid /> */}
