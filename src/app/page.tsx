@@ -44,11 +44,11 @@ export default function Home() {
         {/* <LogoStrip />
         <IntroStatement /> */}
         {/* <Testimonials /> */}
-        {/* <ProcessIntro />
-        <ProcessTimeline />*/}
+        {/* <ProcessIntro />*/}
+        <ProcessTimeline />
         <ComparisonTable /> 
         {/* <PortfolioGrid /> */}
-        {/* <PerformanceSection />*/}
+        <PerformanceSection />
         <Disqualifiers />
         <CtaBanner />
         <Faq />
