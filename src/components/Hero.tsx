@@ -17,7 +17,8 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute right-0 top-[112px] hidden h-auto w-[824px] max-w-none lg:block"
       /> */}
-      <GlowCircle className="-top-[450px] -right-[250px]" />      <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[60px] px-[16px] pb-[80px] pt-[40px] lg:gap-[103px] lg:px-[106px] lg:pt-[58px]">
+      {/* <GlowCircle className="-top-[450px] -right-[250px]" />   */}
+          <div className="relative mx-auto flex w-full max-w-[1446px] flex-col gap-[60px] px-[16px] pb-[80px] pt-[40px] lg:gap-[103px] lg:px-[106px] lg:pt-[58px]">
         {/* <Reveal delay={0} duration={500} y={12} immediate>
           <Header />
         </Reveal> */}
@@ -49,17 +50,17 @@ export default function Hero() {
                   <RotatingWord className="text-accent-blue" />
                 </span>
               </h1> */}
-              <Reveal delay={200} duration={500} immediate>
+              {/* <Reveal delay={200} duration={500} immediate>
                 <p className="w-full font-sans text-[16px] text-white lg:text-[20px] leading-[1.2]">
                   Preto trávim 2 týždne prieskumom predtým, než pripravím prvý výstup
                 </p>
-              </Reveal>
+              </Reveal> */}
             </div>
-            <Reveal delay={300} duration={500} immediate>
+            {/* <Reveal delay={300} duration={500} immediate>
               <Button href="/kvalifikacny-formular" size="lg">
                 Chcem stratégiu
               </Button>
-            </Reveal>
+            </Reveal> */}
           </div>
         </div>
       </div>
