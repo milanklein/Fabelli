@@ -19,8 +19,6 @@ const logos = [
   { src: "/images/new-logo/awesome-lifestyle-academy.png", alt: "The Awesome Lifestyle Academy", w: 242, h: 64 },
   { src: "/images/new-logo/varadys-apartments.png", alt: "Varady's Apartments", w: 54, h: 54 },
   { src: "/images/new-logo/retro.png", alt: "Retro burger Prešov", w: 54, h: 54 },
-  { src: "/images/new-logo/kontenzy.png", alt: "Kontenzy", w: 84, h: 61 },
-  { src: "/images/new-logo/chalan-z-burzy.png", alt: "Chalan z Burzy", w: 245, h: 49 },
   { src: "/images/new-logo/unimar.png", alt: "Unimar", w: 187, h: 61 },
 ];
 
