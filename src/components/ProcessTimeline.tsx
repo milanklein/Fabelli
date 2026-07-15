@@ -27,7 +27,7 @@ const phases = [
   },
 ];
 
-// Fázy + posledný riadok s tlačidlom (posledný index = phases.length)
+// Fázy + posledný riadok s tlačidlom (posledný index = phases.length). 
 const ROW_COUNT = phases.length + 1;
 
 function TimelineDot({ variant = "blue" }: { variant?: "blue" | "purple" }) {
