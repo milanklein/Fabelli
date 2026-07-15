@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { BoxIcon, CallIcon, PeopleIcon, TaskIcon, WalletIcon } from "./icons";
+import RevealText from "./RevealText";
+import Reveal from "./Reveal";
 
 const rows = [
   {
@@ -22,7 +24,7 @@ const rows = [
     icon: CallIcon,
     label: "Komunikácia",
     agencies: "často nedostupní",
-    hybrid: "po 17:00 aj víkendy",
+    hybrid: "aj po 17:00 + víkendy",
     specialists: "často nedostupní",
   },
   {
@@ -80,6 +82,16 @@ export default function ComparisonTable() {
   return (
     <section className="overflow-hidden mt-[80px] w-full px-[24px] md:mt-[158px] md:px-[106px]">
       <div ref={ref} className="mx-auto w-full max-w-[1006px]">
+        <h2 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase leading-[1.5] text-transparent md:text-[29px] px-4">
+                  <RevealText>
+                    Nedostatky agentúr a špecialistov som odstránil a vytvoril hybridný model
+                  </RevealText>
+                </h2>
+         <Reveal delay={200} duration={500} immediate className="mt-6">
+                        <p className="w-full font-sans text-[16px] text-white lg:text-[20px] leading-[1.2] text-center ">
+                          Iba vďaka nemu viem priniesť výsledky všetkým klientom, s ktorými pracujem.
+                        </p>
+                      </Reveal> 
         {/* MOBILE: transponovaná tabuľka (natívny <table>) — metriky ako stĺpce hore, plány (Špecialisti / Môj hybridný model / Agentúry) ako riadky vľavo. Natívna tabuľka namiesto CSS grid: prvý stĺpec (sticky) tak má garantovanú synchronizáciu výšky riadkov naprieč prehliadačmi. */}
         <div className="overflow-x-auto py-10 md:hidden">
           <table style={{ tableLayout: "fixed" }}>

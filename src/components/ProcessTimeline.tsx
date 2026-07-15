@@ -8,12 +8,12 @@ const phases = [
   {
     label: "Fáza 0",
     title: "Analýza trhu",
-    subtitle: "a príprava akvizičnej stratégie",
+    subtitle: "Profilovanie cieľovky, konkurencie a príprava akvizičného systému nových zákazníkov",
   },
   {
     label: "Fáza 1",
     title: "Implementácia stratégie",
-    subtitle: "S itnerným tímom špecialistov",
+    subtitle: "Tvorba konkrétnych funnelov cez platené reklamy, sociálne siete, web stránky a iné kanály",
   },
   {
     label: "Fáza 2",
@@ -23,7 +23,7 @@ const phases = [
   {
     label: "Fáza 3",
     title: "Škálovanie",
-    subtitle: "Zvyšovanie cien, rozširovanie služieb, zväčšovanie vášho tímu",
+    subtitle: "Expanzia vašej firmy (zvyšovanie cien, rozširovanie služieb,  naberanie zamestnancov, systematizácia)",
   },
 ];
 

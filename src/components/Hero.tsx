@@ -43,7 +43,7 @@ export default function Hero() {
               <h1 className="w-full bg-gradient-to-r from-heading-from to-heading-to bg-clip-text font-heading text-[28px] sm:text-[32px] font-black uppercase leading-normal text-transparent lg:text-[38px]">
                 <RevealText
                   immediate
-                  lines={["Kompetencia pramení", "z poznania"]}
+                  lines={["Vybuchujúci marketing", "vzniká poznaním"]}
                   lineClassName="block"
                 />
                 <span className="block">
