@@ -16,7 +16,7 @@ export default function PerformanceSection() {
           aria-hidden
           className="pointer-events-none absolute -left-6 -top-4  h-auto w-[380px] max-w-none md:block "
         />
-        <div className="relative h-[280px] w-full max-w-[352px] shrink-0 md:h-[420px] md:w-[430px] ml-40 md:ml-20">
+        <div className="relative h-[280px] w-full max-w-[352px] shrink-0 md:h-[420px] md:w-[430px] ml-40">
           <Reveal delay={0} duration={700} className="absolute inset-0">
             <Image
               src="/images/fabian.png"
@@ -26,7 +26,7 @@ export default function PerformanceSection() {
             />
           </Reveal>
           {/* Mimo Reveal (bez transform/will-change na predkovi) — Safari inak zamrazí animáciu GIF-u */}
-          <div className="pointer-events-none absolute bottom-0 -left-30 h-full w-full md:left-auto md:-right-[200px]">
+          <div className="pointer-events-none absolute bottom-0 -left-40 h-full w-full md:left-auto md:-right-[300px]">
             <AnimatedWebp
               src="/images/fabian_podpis-animation.webp"
               alt=""

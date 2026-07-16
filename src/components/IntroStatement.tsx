@@ -12,7 +12,7 @@ export default function IntroStatement() {
         <Reveal
           delay={150}
           duration={700}
-          className="flex w-full max-w-[539px] flex-col items-start gap-[20px] text-[#0c1728] lg:[grid-column:2] lg:[grid-row:1]"
+          className="flex w-full max-w-[539px] flex-col items-start gap-[20px] text-[#0c1728] lg:[grid-column:1] lg:[grid-row:1]"
         >
           <p className="w-full font-heading text-[20px] font-black uppercase leading-[1.5] lg:text-[27px]">
             Ak marketér nepozná zákazníka a konkurenciu lepšie ako majiteľ
@@ -29,14 +29,14 @@ export default function IntroStatement() {
           delay={0}
           duration={700}
           y={20}
-          className="relative lg:[grid-column:1] lg:[grid-row:1/3]"
+          className="relative lg:[grid-column:2] lg:[grid-row:1/3] overflow-visible"
         >
           <Image
             src="/images/founder-intro.png"
             alt="Fabián"
             width={584}
-            height={554}
-            className=" h-[290px]  w-[300px] lg:h-[390px] lg:w-[424px] xl:h-[554px] xl:w-[584px]  [mix-blend-mode:luminosity] border-black border-1 lg:border-0 rounded-[30px]"
+            height={751}
+            className="h-[320px] w-[249px] object-cover object-bottom grayscale lg:h-[390px] lg:w-[303px] xl:h-[571px] xl:w-[444px] [mix-blend-mode:luminosity] border-black border-1 lg:border-0 rounded-[30px]"
           />
         </Reveal>
 
@@ -44,7 +44,7 @@ export default function IntroStatement() {
         <Reveal
           delay={250}
           duration={700}
-          className="flex w-full max-w-[539px] flex-col gap-[20px] font-sans font-bold text-[#0c1728] lg:[grid-column:2] lg:[grid-row:2] lg:pb-[32px]"
+          className="flex w-full max-w-[539px] flex-col gap-[20px] font-sans font-bold text-[#0c1728] lg:[grid-column:1] lg:[grid-row:2] lg:pb-[32px]"
         >
           <p className="text-[20px] leading-normal lg:text-[26px]">
             Tie fungujú, no iba ak poznáte svojich{" "}
