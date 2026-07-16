@@ -4,11 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { BoxIcon, CallIcon, PeopleIcon, TaskIcon, WalletIcon } from "./icons";
 import RevealText from "./RevealText";
 import Reveal from "./Reveal";
+import InfoTooltip from "./InfoTooltip";
 
 const rows = [
   {
     icon: BoxIcon,
     label: "Model",
+    tooltip:
+      "Agentúry sú zamerané na masové naberanie klientov, z ktorých väčšinu posúvajú nekompetentným juniorom. Špecialisti sú na druhej strane zameraní na úzky segment a nevedia poskytnúť komplexnú službu. Ja pracujem maximálne s 5-imi klientmi, som zodpovedný za stratégiu a tie najdôležitejšie prvky reklám a webov. Na špecializované veci mám interný tím (kamera, strih, dizajn,...).",
     agencies: "masové naberanie klientov",
     hybrid: "komplexné strategické partnerstvá",
     specialists: "špecializácia na úzky segment",
@@ -16,6 +19,8 @@ const rows = [
   {
     icon: TaskIcon,
     label: "Rozsah služieb",
+    tooltip:
+      "Agentúry sa vám budú snažiť predať všetko, čo im zarobí peniaze. Špecialisti vám zas povedia, že ich služba je tá najlepšia. Moje služby vždy závisia od cieľov a stratégie, ktorá sa nastaví.",
     agencies: "všetko čo zarába",
     hybrid: "služby slúžia stratégií",
     specialists: "1 špecializovaná služba",
@@ -23,6 +28,8 @@ const rows = [
   {
     icon: CallIcon,
     label: "Komunikácia",
+    tooltip:
+      "Asi poznáte ten pocit, keď niečo rýchlo potrebujete a na odpoveď čakáte aj dni. U mňa sa vám to nestane.",
     agencies: "často nedostupní",
     hybrid: "aj po 17:00 + víkendy",
     specialists: "často nedostupní",
@@ -30,6 +37,8 @@ const rows = [
   {
     icon: PeopleIcon,
     label: "Počet klientov",
+    tooltip:
+      "Bežným postupom marketérov je naberať čo najviac klientov, aby mali čo najviac vystavených faktúr. Ja sa sústredím na kvalitné, dlhodobé partnerstvá s ľuďmi, ktorí predávajú kvalitnú službu/produkt.",
     agencies: "stovky",
     hybrid: "maximálne 5",
     specialists: "desiatky",
@@ -37,6 +46,8 @@ const rows = [
   {
     icon: WalletIcon,
     label: "Cenová štruktúra",
+    tooltip:
+      "Ak platíte všetko vopred, nikdy to nebude fungovať. V tom prípade je cieľom marketéra urobiť projekt čo najrýchlejšie, nie čo najlepšie. Moja implementačná fáza projektu má jasne stanovenú výkonnostnú zložku.",
     agencies: "všetko vopred",
     hybrid: "zahŕňa výkonnostnú zložku",
     specialists: "platíte za službu",
@@ -119,8 +130,9 @@ export default function ComparisonTable() {
                         className={`flex flex-col items-center justify-end gap-[8px] px-[10px] pb-[16px] text-center ${r.className}`}
                       >
                         <row.icon className="size-[20px] shrink-0 text-purple-from" />
-                        <span className="font-sans text-[12px] font-semibold leading-[1.2] text-white">
+                        <span className="flex items-center gap-[4px] font-sans text-[12px] font-semibold leading-[1.2] text-white">
                           {row.label}
+                          <InfoTooltip text={row.tooltip} placement="bottom" />
                         </span>
                       </div>
                     </th>
@@ -210,8 +222,9 @@ export default function ComparisonTable() {
                     style={reveal(100 + index * 50).style}
                   >
                     <row.icon className="size-[26px] shrink-0 text-purple-from" />
-                    <span className="font-sans text-[15px] font-semibold text-white">
+                    <span className="flex items-center gap-[6px] font-sans text-[15px] font-semibold text-white">
                       {row.label}
+                      <InfoTooltip text={row.tooltip} placement="right" />
                     </span>
                   </div>
                 ))}
