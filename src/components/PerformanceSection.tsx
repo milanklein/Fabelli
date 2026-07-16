@@ -16,7 +16,7 @@ export default function PerformanceSection() {
           aria-hidden
           className="pointer-events-none absolute -left-6 -top-4  h-auto w-[380px] max-w-none md:block "
         />
-        <div className="relative h-[280px] w-full max-w-[352px] shrink-0 md:h-[420px] md:w-[430px] ml-40">
+        <div className="relative h-[280px] w-full max-w-[352px] shrink-0 md:h-[420px] md:w-[430px] ml-40 md:ml-0 ">
           <Reveal delay={0} duration={700} className="absolute inset-0">
             <Image
               src="/images/fabian.png"
