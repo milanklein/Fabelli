@@ -56,7 +56,7 @@ export default function ClosingCta() {
           delay={450}
           duration={900}
           className="flex flex-col items-center gap-[24px] mt-10 mb-16 mx-auto"
-        ><Button href="#vysledky" className="">
+        ><Button href="/kvalifikacny-formular" className="">
             Chcem stratégiu
             </Button>
           {/* <p className="font-sans text-[18px] text-white md:text-[20px] uppercase">
