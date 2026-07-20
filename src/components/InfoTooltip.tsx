@@ -114,7 +114,7 @@ export default function InfoTooltip({
             left: coords.left,
             width: `min(${PANEL_WIDTH}px, calc(100vw - ${EDGE_MARGIN * 2}px))`,
           }}
-          className={`fixed z-50 rounded-[10px] bg-white px-[14px] py-[10px] text-left font-sans text-[16px] font-normal normal-case leading-[1.4] text-[#26313d] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-opacity duration-150 ${
+          className={`fixed z-50 rounded-[10px] bg-white px-[14px] py-[10px] text-left font-sans text-[12px] font-normal normal-case leading-[1.4] text-[#26313d] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-opacity duration-150 ${
             ready ? "opacity-100" : "opacity-0"
           }`}
         >
