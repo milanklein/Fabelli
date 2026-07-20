@@ -389,7 +389,7 @@ function IntroStep({ onStart }: { onStart: () => void }) {
         váš aj môj čas. Filtrujem tým spolupráce, ktoré by nemali zmysel.
       </p>
       <Button onClick={onStart} size="lg">
-        Vyplniť kvalifikačný formulár
+        Vyplňte kvalifikačný formulár TU
       </Button>
     </div>
   );

@@ -25,7 +25,7 @@ const steps = [
   },
   {
     icon: DocumentIcon,
-    text: "Detailná príprava akvizičnej stratégie, ktorú aj vykonám",
+    text: "Detailná príprava stratégie zisku zákazníkov, ktorú aj vykonám",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function ProcessIntro() {
       <div className="mx-auto flex w-full max-w-[1048px] flex-col items-center">
         <h2 className="w-full text-center font-heading text-[24px] font-black uppercase leading-[1.5] text-white md:text-[32px] ">
           <RevealText>
-            Úvodný proces končí tam,<br /> kde väčšina marketérov iba začína…
+            Môj úvodný proces končí tam,<br /> kde väčšina marketérov iba začína…
           </RevealText>
         </h2>
 <div className="relative max-w-full">

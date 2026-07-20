@@ -61,7 +61,7 @@ export default function Home() {
             Stále si nie ste istý?
           </p>
                     <h2 className="bg-gradient-to-r from-heading-from to-heading-to bg-clip-text text-center font-heading text-[22px] font-black uppercase text-transparent sm:text-[29px]">
-                      <RevealText>Prípadové štúdie</RevealText>
+                      <RevealText>Pozrite si prípadové štúdie mojich projektov</RevealText>
                     </h2>
                     </div>
                     <OtherProjectsSlider currentSlug="jovitep" />

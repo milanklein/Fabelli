@@ -4,10 +4,23 @@ import Footer from "@/components/Footer";
 import GlowCircle from "@/components/GlowCircle";
 import QualificationForm from "@/components/QualificationForm";
 
+const title = "Vyplňte kvalifikačný formulár na strategický hovor s Fabiánom";
+const description = "Klientov na spolupráce si vyberám dôkladne";
+
 export const metadata: Metadata = {
-  title: "Vyplňte kvalifikačný formulár na strategický hovor s Fabiánom",
-  description:
-    "Klientov na spolupráce si vyberám dôkladne",
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    images: [{ url: "/thumbnails/thumbnail_main.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/thumbnails/thumbnail_main.png"],
+  },
 };
 
 export default function QualificationFormPage() {
