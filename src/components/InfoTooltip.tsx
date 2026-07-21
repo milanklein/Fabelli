@@ -63,7 +63,12 @@ export default function InfoTooltip({
         left = buttonRect.left - panelRect.width - GAP;
       }
     } else {
-      left = buttonRect.left + buttonRect.width / 2 - panelRect.width / 2;
+      // Bottom placement is used on mobile, where the table scrolls
+      // horizontally and the icon can end up anywhere along the x-axis
+      // (including right at the edge). Centering on the viewport instead of
+      // the icon guarantees the panel — and its top-right expand button —
+      // always fits, regardless of where the icon sits.
+      left = viewportWidth / 2 - panelRect.width / 2;
       top = buttonRect.bottom + GAP;
       if (top + panelRect.height + EDGE_MARGIN > viewportHeight) {
         top = buttonRect.top - panelRect.height - GAP;
