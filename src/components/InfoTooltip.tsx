@@ -42,64 +42,72 @@ export default function InfoTooltip({
     const panel = panelRef.current;
     if (!button || !panel) return;
 
-    const buttonRect = button.getBoundingClientRect();
-    const panelRect = panel.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+    const updatePosition = () => {
+      const buttonRect = button.getBoundingClientRect();
+      const panelRect = panel.getBoundingClientRect();
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
 
-    let left: number;
-    let top: number;
+      let left: number;
+      let top: number;
 
-    if (placement === "right") {
-      left = buttonRect.right + GAP;
-      top = buttonRect.top + buttonRect.height / 2 - panelRect.height / 2;
-      if (left + panelRect.width + EDGE_MARGIN > viewportWidth) {
-        left = buttonRect.left - panelRect.width - GAP;
+      if (placement === "right") {
+        left = buttonRect.right + GAP;
+        top = buttonRect.top + buttonRect.height / 2 - panelRect.height / 2;
+        if (left + panelRect.width + EDGE_MARGIN > viewportWidth) {
+          left = buttonRect.left - panelRect.width - GAP;
+        }
+      } else {
+        left = buttonRect.left + buttonRect.width / 2 - panelRect.width / 2;
+        top = buttonRect.bottom + GAP;
+        if (top + panelRect.height + EDGE_MARGIN > viewportHeight) {
+          top = buttonRect.top - panelRect.height - GAP;
+        }
       }
-    } else {
-      left = buttonRect.left + buttonRect.width / 2 - panelRect.width / 2;
-      top = buttonRect.bottom + GAP;
-      if (top + panelRect.height + EDGE_MARGIN > viewportHeight) {
-        top = buttonRect.top - panelRect.height - GAP;
-      }
-    }
 
-    left = Math.min(Math.max(left, EDGE_MARGIN), viewportWidth - panelRect.width - EDGE_MARGIN);
-    top = Math.min(Math.max(top, EDGE_MARGIN), viewportHeight - panelRect.height - EDGE_MARGIN);
+      left = Math.min(Math.max(left, EDGE_MARGIN), viewportWidth - panelRect.width - EDGE_MARGIN);
+      top = Math.min(Math.max(top, EDGE_MARGIN), viewportHeight - panelRect.height - EDGE_MARGIN);
 
-    setCoords({ top, left });
-    setReady(true);
-  }, [open, placement]);
+      setCoords({ top, left });
+      setReady(true);
+    };
 
-  useLayoutEffect(() => {
-    if (!open) return;
+    updatePosition();
+
+    // Pinch-zoom on mobile fires scroll/resize repeatedly as the visual
+    // viewport pans and settles. Closing the panel on those events (as we
+    // used to) made it disappear/flicker right as the user zoomed in to read
+    // it, so instead we just recompute its position — it keeps tracking the
+    // -i- icon through the gesture and only closes on an actual outside tap.
+    let frame: number | null = null;
+    const scheduleUpdate = () => {
+      if (frame !== null) return;
+      frame = requestAnimationFrame(() => {
+        frame = null;
+        updatePosition();
+      });
+    };
+
     const handlePointerDown = (event: PointerEvent) => {
       const target = event.target as Node;
       if (buttonRef.current?.contains(target) || panelRef.current?.contains(target)) return;
       hide();
     };
-    // Pinch-zoom on mobile fires scroll/resize as the visual viewport pans and
-    // settles, which used to close the panel right as the user zoomed in to
-    // read it. Skip auto-close while pinch-zoomed (visualViewport scale > 1);
-    // it still closes normally once the user zooms back out or taps away.
-    const isPinchZoomed = () => (window.visualViewport?.scale ?? 1) > 1.01;
-    const handleScroll = () => {
-      if (isPinchZoomed()) return;
-      hide();
-    };
-    const handleResize = () => {
-      if (isPinchZoomed()) return;
-      hide();
-    };
+
     document.addEventListener("pointerdown", handlePointerDown);
-    document.addEventListener("scroll", handleScroll, true);
-    window.addEventListener("resize", handleResize);
+    document.addEventListener("scroll", scheduleUpdate, true);
+    window.addEventListener("resize", scheduleUpdate);
+    window.visualViewport?.addEventListener("resize", scheduleUpdate);
+    window.visualViewport?.addEventListener("scroll", scheduleUpdate);
     return () => {
+      if (frame !== null) cancelAnimationFrame(frame);
       document.removeEventListener("pointerdown", handlePointerDown);
-      document.removeEventListener("scroll", handleScroll, true);
-      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("scroll", scheduleUpdate, true);
+      window.removeEventListener("resize", scheduleUpdate);
+      window.visualViewport?.removeEventListener("resize", scheduleUpdate);
+      window.visualViewport?.removeEventListener("scroll", scheduleUpdate);
     };
-  }, [open]);
+  }, [open, placement]);
 
   return (
     <>
