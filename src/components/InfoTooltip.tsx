@@ -3,9 +3,13 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { CloseIcon, ExpandIcon, InfoIcon } from "./icons";
 
-const PANEL_WIDTH = 280;
 const GAP = 10;
 const EDGE_MARGIN = 12;
+// Desktop (placement="right", myš/hover) zostáva presne v pôvodnej podobe —
+// zväčšenie textu a tlačidlo na roztiahnutie sú len pre mobil (placement=
+// "bottom"), kde bol problém s pinch-zoomom a čitateľnosťou.
+const DESKTOP_PANEL_WIDTH = 220;
+const MOBILE_PANEL_WIDTH = 280;
 
 // Vysvetlivka k hodnote v tabuľke: na PC sa otvára hoverom, na mobile
 // klikom/tapnutím na -i- ikonu; zatvára sa opustením kurzora, scrollom
@@ -31,6 +35,8 @@ export default function InfoTooltip({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const expandedPanelRef = useRef<HTMLDivElement>(null);
+  const isMobile = placement === "bottom";
+  const panelWidth = isMobile ? MOBILE_PANEL_WIDTH : DESKTOP_PANEL_WIDTH;
 
   const show = () => {
     setReady(false);
@@ -123,7 +129,7 @@ export default function InfoTooltip({
       >
         <InfoIcon className="size-[16px]" />
       </button>
-      {open && expanded && (
+      {isMobile && open && expanded && (
         <div
           role="dialog"
           aria-modal="true"
@@ -154,24 +160,28 @@ export default function InfoTooltip({
           style={{
             top: coords.top,
             left: coords.left,
-            width: `min(${PANEL_WIDTH}px, calc(100vw - ${EDGE_MARGIN * 2}px))`,
+            width: `min(${panelWidth}px, calc(100vw - ${EDGE_MARGIN * 2}px))`,
           }}
-          className={`fixed z-50 rounded-[12px] bg-white px-[18px] py-[14px] text-left font-sans text-[15px] font-normal normal-case leading-[1.5] text-[#26313d] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-opacity duration-150 relative ${
-            ready ? "opacity-100" : "opacity-0"
-          }`}
+          className={`fixed z-50 relative text-left font-sans normal-case text-[#26313d] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-opacity duration-150 ${
+            isMobile
+              ? "rounded-[12px] px-[18px] py-[14px] text-[15px] leading-[1.5] bg-white"
+              : "rounded-[10px] px-[14px] py-[10px] text-[16px] leading-[1.4] bg-white"
+          } ${ready ? "opacity-100" : "opacity-0"}`}
         >
-          <button
-            type="button"
-            onClick={(event) => {
-              event.stopPropagation();
-              setExpanded(true);
-            }}
-            aria-label="Zväčšiť"
-            className="absolute right-[8px] top-[8px] inline-flex size-[22px] items-center justify-center rounded-full text-[#26313d]/50 transition-colors hover:bg-black/5 hover:text-[#26313d]"
-          >
-            <ExpandIcon className="size-[14px]" />
-          </button>
-          <p className="pr-[24px]">{text}</p>
+          {isMobile && (
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                setExpanded(true);
+              }}
+              aria-label="Zväčšiť"
+              className="absolute right-[8px] top-[8px] inline-flex size-[22px] items-center justify-center rounded-full text-[#26313d]/50 transition-colors hover:bg-black/5 hover:text-[#26313d]"
+            >
+              <ExpandIcon className="size-[14px]" />
+            </button>
+          )}
+          <p className={isMobile ? "pr-[24px]" : ""}>{text}</p>
         </div>
       )}
     </>
