@@ -78,13 +78,26 @@ export default function InfoTooltip({
       if (buttonRef.current?.contains(target) || panelRef.current?.contains(target)) return;
       hide();
     };
+    // Pinch-zoom on mobile fires scroll/resize as the visual viewport pans and
+    // settles, which used to close the panel right as the user zoomed in to
+    // read it. Skip auto-close while pinch-zoomed (visualViewport scale > 1);
+    // it still closes normally once the user zooms back out or taps away.
+    const isPinchZoomed = () => (window.visualViewport?.scale ?? 1) > 1.01;
+    const handleScroll = () => {
+      if (isPinchZoomed()) return;
+      hide();
+    };
+    const handleResize = () => {
+      if (isPinchZoomed()) return;
+      hide();
+    };
     document.addEventListener("pointerdown", handlePointerDown);
-    document.addEventListener("scroll", hide, true);
-    window.addEventListener("resize", hide);
+    document.addEventListener("scroll", handleScroll, true);
+    window.addEventListener("resize", handleResize);
     return () => {
       document.removeEventListener("pointerdown", handlePointerDown);
-      document.removeEventListener("scroll", hide, true);
-      window.removeEventListener("resize", hide);
+      document.removeEventListener("scroll", handleScroll, true);
+      window.removeEventListener("resize", handleResize);
     };
   }, [open]);
 
