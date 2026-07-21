@@ -1,9 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Unbounded } from "next/font/google";
+import { Montserrat, Unbounded, Geist } from "next/font/google";
 import Script from "next/script";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import ClarityInit from "@/components/ClarityInit";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -86,7 +89,7 @@ export default function RootLayout({
   return (
     <html
       lang="sk"
-      className={`${montserrat.variable} ${unbounded.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", montserrat.variable, unbounded.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <script

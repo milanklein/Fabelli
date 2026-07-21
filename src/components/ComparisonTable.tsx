@@ -23,7 +23,7 @@ const rows = [
       "Agentúry sa vám budú snažiť predať všetko, čo im zarobí peniaze. Špecialisti vám zas povedia, že ich služba je tá najlepšia. Moje služby vždy závisia od cieľov a stratégie, ktorá sa nastaví.",
     agencies: "všetko čo zarába",
     hybrid: "služby slúžia stratégií",
-    specialists: "1 špecializovaná služba",
+    specialists: "špecializovaná služba",
   },
   {
     icon: CallIcon,
@@ -132,7 +132,7 @@ export default function ComparisonTable() {
                         <row.icon className="size-[20px] shrink-0 text-purple-from" />
                         <span className="flex items-center gap-[4px] font-sans text-[12px] font-semibold leading-[1.2] text-white">
                           {row.label}
-                          <InfoTooltip text={row.tooltip} placement="bottom" />
+                          <InfoTooltip text={row.tooltip} title={row.label} />
                         </span>
                       </div>
                     </th>
@@ -224,7 +224,7 @@ export default function ComparisonTable() {
                     <row.icon className="size-[26px] shrink-0 text-purple-from" />
                     <span className="flex items-center gap-[6px] font-sans text-[15px] font-semibold text-white">
                       {row.label}
-                      <InfoTooltip text={row.tooltip} placement="right" />
+                      <InfoTooltip text={row.tooltip} title={row.label} />
                     </span>
                   </div>
                 ))}
