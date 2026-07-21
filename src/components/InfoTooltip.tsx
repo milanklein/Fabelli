@@ -3,7 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { InfoIcon } from "./icons";
 
-const PANEL_WIDTH = 220;
+const PANEL_WIDTH = 280;
 const GAP = 10;
 const EDGE_MARGIN = 12;
 
@@ -88,20 +88,27 @@ export default function InfoTooltip({
       });
     };
 
-    const handlePointerDown = (event: PointerEvent) => {
+    // "Click outside to close" uses the `click` event rather than
+    // `pointerdown`. A pinch gesture puts a second finger down somewhere
+    // outside the button/panel too, and since pointerdown fires per touch
+    // contact, that second finger used to be read as an outside tap and
+    // closed the panel the instant a zoom gesture started. Pinching (a drag,
+    // not a tap) never synthesizes a `click`, so this only reacts to real
+    // taps/clicks.
+    const handleOutsideClick = (event: MouseEvent) => {
       const target = event.target as Node;
       if (buttonRef.current?.contains(target) || panelRef.current?.contains(target)) return;
       hide();
     };
 
-    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("click", handleOutsideClick);
     document.addEventListener("scroll", scheduleUpdate, true);
     window.addEventListener("resize", scheduleUpdate);
     window.visualViewport?.addEventListener("resize", scheduleUpdate);
     window.visualViewport?.addEventListener("scroll", scheduleUpdate);
     return () => {
       if (frame !== null) cancelAnimationFrame(frame);
-      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("scroll", scheduleUpdate, true);
       window.removeEventListener("resize", scheduleUpdate);
       window.visualViewport?.removeEventListener("resize", scheduleUpdate);
@@ -135,7 +142,7 @@ export default function InfoTooltip({
             left: coords.left,
             width: `min(${PANEL_WIDTH}px, calc(100vw - ${EDGE_MARGIN * 2}px))`,
           }}
-          className={`fixed z-50 rounded-[10px] bg-white px-[14px] py-[10px] text-left font-sans text-[12px] font-normal normal-case leading-[1.4] text-[#26313d] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-opacity duration-150 ${
+          className={`fixed z-50 rounded-[12px] bg-white px-[18px] py-[14px] text-left font-sans text-[15px] font-normal normal-case leading-[1.5] text-[#26313d] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-opacity duration-150 ${
             ready ? "opacity-100" : "opacity-0"
           }`}
         >
