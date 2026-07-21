@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { InfoIcon } from "./icons";
 
 const PANEL_WIDTH = 280;
@@ -8,10 +9,12 @@ const GAP = 10;
 const EDGE_MARGIN = 12;
 
 // Vysvetlivka k hodnote v tabuľke: na PC sa otvára hoverom, na mobile
-// klikom/tapnutím na -i- ikonu; zatvára sa opustením kurzora, scrollom
-// alebo kliknutím mimo. Panel je "fixed" a jeho pozícia sa dopočítava
-// z rozmerov viewportu, aby nikdy nepretiekol mimo obrazovku (dôležité
-// na mobile, kde je stĺpec s ikonou tesne pri ľavom okraji).
+// klikom/tapnutím na -i- ikonu; zatvára sa kliknutím mimo. Panel sa cez
+// portál vykresľuje do document.body ako "position: absolute" v
+// dokumentových súradniciach (nie "fixed" vo viewport súradniciach) —
+// vďaka tomu ho prehliadač pri pinch-zoome/panovaní posúva a škáluje
+// presne spolu s -i- ikonou, bez potreby dobiehať to cez scroll/resize
+// eventy (tie sú počas gesta oneskorené, preto predtým panel "utekal").
 export default function InfoTooltip({
   text,
   placement = "right",
@@ -68,17 +71,17 @@ export default function InfoTooltip({
       left = Math.min(Math.max(left, EDGE_MARGIN), viewportWidth - panelRect.width - EDGE_MARGIN);
       top = Math.min(Math.max(top, EDGE_MARGIN), viewportHeight - panelRect.height - EDGE_MARGIN);
 
-      setCoords({ top, left });
+      // Prevod z viewport-relatívnych na dokument-relatívne súradnice.
+      setCoords({ top: top + window.scrollY, left: left + window.scrollX });
       setReady(true);
     };
 
     updatePosition();
 
-    // Pinch-zoom on mobile fires scroll/resize repeatedly as the visual
-    // viewport pans and settles. Closing the panel on those events (as we
-    // used to) made it disappear/flicker right as the user zoomed in to read
-    // it, so instead we just recompute its position — it keeps tracking the
-    // -i- icon through the gesture and only closes on an actual outside tap.
+    // Netreba dobiehať vertikálny scroll stránky (absolute element sa s ním
+    // posúva sám). Prepočítať treba len pri skutočnej zmene layoutu (resize/
+    // otočenie obrazovky) a pri scrolle vnútri vodorovne posuvnej tabuľky
+    // (ten mení pozíciu tlačidla voči viewportu, takže aj voči dokumentu).
     let frame: number | null = null;
     const scheduleUpdate = () => {
       if (frame !== null) return;
@@ -88,13 +91,11 @@ export default function InfoTooltip({
       });
     };
 
-    // "Click outside to close" uses the `click` event rather than
-    // `pointerdown`. A pinch gesture puts a second finger down somewhere
-    // outside the button/panel too, and since pointerdown fires per touch
-    // contact, that second finger used to be read as an outside tap and
-    // closed the panel the instant a zoom gesture started. Pinching (a drag,
-    // not a tap) never synthesizes a `click`, so this only reacts to real
-    // taps/clicks.
+    // "Klik mimo" reaguje na `click`, nie `pointerdown` — pri pinch-geste
+    // dopadne druhý prst spoľahlivo mimo tlačidla/panelu a keďže pointerdown
+    // vystrelí za každý dotykový kontakt zvlášť, predtým to gesto zoomu
+    // vyhodnotilo ako klik mimo a panel hneď zavrelo. Pinch je ťahové gesto,
+    // takže `click` nikdy nesyntetizuje.
     const handleOutsideClick = (event: MouseEvent) => {
       const target = event.target as Node;
       if (buttonRef.current?.contains(target) || panelRef.current?.contains(target)) return;
@@ -104,15 +105,11 @@ export default function InfoTooltip({
     document.addEventListener("click", handleOutsideClick);
     document.addEventListener("scroll", scheduleUpdate, true);
     window.addEventListener("resize", scheduleUpdate);
-    window.visualViewport?.addEventListener("resize", scheduleUpdate);
-    window.visualViewport?.addEventListener("scroll", scheduleUpdate);
     return () => {
       if (frame !== null) cancelAnimationFrame(frame);
       document.removeEventListener("click", handleOutsideClick);
       document.removeEventListener("scroll", scheduleUpdate, true);
       window.removeEventListener("resize", scheduleUpdate);
-      window.visualViewport?.removeEventListener("resize", scheduleUpdate);
-      window.visualViewport?.removeEventListener("scroll", scheduleUpdate);
     };
   }, [open, placement]);
 
@@ -133,22 +130,24 @@ export default function InfoTooltip({
       >
         <InfoIcon className="size-[16px]" />
       </button>
-      {open && (
-        <div
-          ref={panelRef}
-          role="tooltip"
-          style={{
-            top: coords.top,
-            left: coords.left,
-            width: `min(${PANEL_WIDTH}px, calc(100vw - ${EDGE_MARGIN * 2}px))`,
-          }}
-          className={`fixed z-50 rounded-[12px] bg-white px-[18px] py-[14px] text-left font-sans text-[15px] font-normal normal-case leading-[1.5] text-[#26313d] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-opacity duration-150 ${
-            ready ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          {text}
-        </div>
-      )}
+      {open &&
+        createPortal(
+          <div
+            ref={panelRef}
+            role="tooltip"
+            style={{
+              top: coords.top,
+              left: coords.left,
+              width: `min(${PANEL_WIDTH}px, calc(100vw - ${EDGE_MARGIN * 2}px))`,
+            }}
+            className={`absolute z-50 rounded-[12px] bg-white px-[18px] py-[14px] text-left font-sans text-[15px] font-normal normal-case leading-[1.5] text-[#26313d] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-opacity duration-150 ${
+              ready ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            {text}
+          </div>,
+          document.body,
+        )}
     </>
   );
 }
